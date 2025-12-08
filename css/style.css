@@ -51,17 +51,45 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;        /* lebar sidebar */
-  height: 100vh;       /* full satu layar */
+  width: 250px; /* lebar sidebar */
+  height: 100vh; /* full satu layar */
   background: #ffffff;
   display: flex;
   flex-direction: column;
-  overflow: hidden;    /* tidak scroll */
+  overflow: hidden; /* tidak scroll */
 }
 
+.welcome-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #0d0d0d;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.filter-container label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #080808;
+}
+
+.filter-container select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ffffff;
+  background: #ffffff;
+  font-size: 14px;
+}
 
 .sidebar-header {
-  padding: 10px 0;      /* kecil */
+  padding: 10px 0; /* kecil */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,15 +100,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px; 
+  padding: 0px;
 }
 
 .sidebar-logo img {
-  width: 120px;         /* ubah sesuai kebutuhan */
+  width: 120px; /* ubah sesuai kebutuhan */
   height: auto;
   display: block;
 }
-
 
 .sidebar-menu {
   display: flex;
@@ -89,13 +116,10 @@ body {
 }
 
 .sidebar-bottom {
-  margin-top: auto;      /* dorong ke bawah */
+  margin-top: auto; /* dorong ke bawah */
   display: flex;
   flex-direction: column;
 }
-
-
-
 
 .sidebar-menu-item {
   display: flex;
@@ -596,4 +620,3 @@ body {
   font-weight: 600;
   margin-left: auto;
 }
-
