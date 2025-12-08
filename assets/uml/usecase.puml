@@ -1,0 +1,32 @@
+@startuml EmployeeUseCase
+left to right direction
+
+actor Employee
+
+rectangle "Employee Management System" {
+
+  (Login)
+  (Dashboard)
+  (Profile)
+  (Agenda)
+  (Kehadiran)
+  (Lembur)
+  (Cuti)
+  (Izin)
+  (Settings)
+  (Logout)
+
+}
+
+Employee --> (Login)
+Employee --> (Dashboard)
+Employee --> (Profile)
+Employee --> (Agenda)
+Employee --> (Kehadiran)
+Employee --> (Lembur)
+Employee --> (Cuti)
+Employee --> (Izin)
+Employee --> (Settings)
+Employee --> (Logout)
+
+@enduml
