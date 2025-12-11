@@ -62,10 +62,8 @@ body {
 }
 
 /* Header */
+/* Header */
 .top-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 30px;
 }
 
@@ -135,7 +133,7 @@ body {
 .custom-card {
     background: #fff;
     border-radius: 20px;
-    padding: 20px;
+    padding: 15px;
     height: 100%;
     box-shadow: var(--card-shadow);
     border: none;
@@ -151,7 +149,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #444;
     font-weight: 600;
 }
@@ -169,15 +167,23 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 8px;
     background: #f8f9fa;
     border-radius: 10px;
+}
+
+.agenda-item h6 {
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 .agenda-time {
     font-size: 0.8rem;
     color: #666;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 /* Lembur Slider */
@@ -219,10 +225,10 @@ body {
 
 .cuti-content {
     background: #eef2ff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
     text-align: center;
-    min-height: 180px;
+    min-height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -252,16 +258,21 @@ body {
 /* Notification Popup */
 .notification-popup {
     position: absolute;
-    top: 60px;
-    right: 50px;
+    top: 35px; /* Immediately below the icon */
+    right: 0; /* Align right edges */
     background: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-    width: 320px;
+    width: 180px;
     z-index: 1050;
     display: none; /* Hidden by default */
     border-left: 5px solid #4e44e7;
+    font-size: 0.75rem;
+}
+
+.notification-popup h6 {
+    font-size: 0.85rem;
 }
 
 .notification-popup.show {
@@ -304,7 +315,7 @@ body {
 .apps-grid-overlay {
     position: fixed;
     top: 90px; /* Below the header section */
-    left: calc(var(--sidebar-width) + 20px); /* Aligned with main content */
+    left: 20px; /* Overlays the sidebar */
     width: 650px;
     background: #fff;
     border-radius: 20px;
