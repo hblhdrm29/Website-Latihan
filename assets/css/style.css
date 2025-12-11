@@ -1,0 +1,414 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4e44e7;
+    --secondary-color: #6c757d;
+    --sidebar-width: 250px;
+    --bg-light: #f8f9fa;
+    --text-dark: #333;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+}
+
+.logo-section img {
+    max-width: 120px;
+    margin-bottom: 40px;
+}
+
+.nav-link {
+    color: #666;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+}
+
+.nav-link:hover, .nav-link.active {
+    background-color: #f0f2ff;
+    color: var(--primary-color);
+}
+
+.nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 20px 40px;
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    background: #e9ecef;
+    border-radius: 20px;
+    padding: 8px 20px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    margin-left: 10px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notification-badge {
+    position: relative;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Dashboard Banner */
+.welcome-section {
+    position: relative;
+    padding: 30px;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.announcement-bar {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-left: 4px solid #dc3545;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #dc3545;
+    font-weight: 500;
+}
+
+/* Cards & Widgets */
+.custom-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+    box-shadow: var(--card-shadow);
+    border: none;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.custom-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    color: #444;
+    font-weight: 600;
+}
+
+.add-btn {
+    border: none;
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Agenda List */
+.agenda-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.agenda-time {
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: auto;
+}
+
+/* Lembur Slider */
+.lembur-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Firefox */
+}
+.lembur-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.lembur-card {
+    min-width: 250px;
+    background: #eef2ff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.lembur-card h3 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 10px 0;
+}
+
+/* Cuti Carousel */
+.carousel-indicators {
+    bottom: -15px;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: var(--primary-color);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.cuti-content {
+    background: #eef2ff;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.status-approved {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+/* Chart */
+.chart-container {
+    position: relative;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Notification Popup */
+.notification-popup {
+    position: absolute;
+    top: 60px;
+    right: 50px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    width: 320px;
+    z-index: 1050;
+    display: none; /* Hidden by default */
+    border-left: 5px solid #4e44e7;
+}
+
+.notification-popup.show {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Agenda Arrow Alignment */
+.agenda-item {
+    align-items: center; /* Ensure vertical center alignment */
+}
+
+/* Grid Menu Styles */
+.grid-menu-btn {
+    font-size: 1.5rem;
+    color: #ffd700; /* Approximate the light brown/gold/off-white color */
+    background: #ffe3e3; /* Light pinkish background circle as per image */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.grid-menu-btn:hover {
+    background-color: #f0f2ff;
+    color: var(--primary-color);
+}
+
+/* Mega Menu Overlay */
+.apps-grid-overlay {
+    position: fixed;
+    top: 90px; /* Below the header section */
+    left: calc(var(--sidebar-width) + 20px); /* Aligned with main content */
+    width: 650px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.25); /* Stronger shadow */
+    padding: 25px;
+    z-index: 9999; /* Max z-index for bring to front */
+    display: none;
+    border: 3px solid #3b82f6; /* Blue border */
+}
+
+.apps-grid-overlay.show {
+    display: block;
+    animation: slideDownFade 0.3s ease;
+}
+
+.apps-grid-header {
+    margin-bottom: 20px;
+}
+.apps-grid-search {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #eee;
+    background: #f8f9fa;
+    border-radius: 10px;
+    outline: none;
+}
+
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: #333;
+    text-decoration: none;
+}
+
+.app-item:hover {
+    transform: translateY(-3px);
+    color: var(--primary-color);
+}
+
+.app-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 2px solid #333;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+}
+
+.app-item:hover .app-icon {
+    border-color: var(--primary-color);
+    background: #eef2ff;
+}
+
+.app-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+@keyframes slideDownFade {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Agenda Update */
+.agenda-date-header {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .apps-grid-overlay {
+        left: 5%;
+        width: 90%;
+        top: 20px;
+    }
+    .apps-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
