@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function TopHeader() {
   const [showNotifications, setShowNotifications] = useState(false);
-  const [showGridMenu, setShowGridMenu] = useState(false);
+  const [showRoleMenu, setShowRoleMenu] = useState(false);
   const [role, setRole] = useState('Pengguna'); // Default role
 
   return (
@@ -12,22 +12,11 @@ export default function TopHeader() {
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm top-header">
             <div className="container-fluid">
                 {/* Apps Grid Trigger */}
-                <div 
-                    className="grid-menu-btn me-auto" 
-                    id="gridMenuBtn"
-                    onClick={() => setShowGridMenu(!showGridMenu)}
-                >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="1"></circle>
-                        <circle cx="19" cy="12" r="1"></circle>
-                        <circle cx="5" cy="12" r="1"></circle>
-                        <circle cx="12" cy="5" r="1"></circle>
-                        <circle cx="19" cy="5" r="1"></circle>
-                        <circle cx="5" cy="5" r="1"></circle>
-                        <circle cx="12" cy="19" r="1"></circle>
-                        <circle cx="19" cy="19" r="1"></circle>
-                        <circle cx="5" cy="19" r="1"></circle>
-                    </svg>
+                <div className="d-flex align-items-center gap-3 me-auto">
+                    <div className="search-bar d-none d-lg-flex" style={{ height: '38px', width: '250px' }}>
+                        <i className="fas fa-search text-muted ps-3"></i>
+                        <input type="text" placeholder="Search..." className="form-control border-0 bg-transparent shadow-none small" style={{ fontSize: '0.9rem' }} />
+                    </div>
                 </div>
                 
                 <div className="d-flex align-items-center gap-4">
@@ -56,61 +45,55 @@ export default function TopHeader() {
                         <div className="d-none d-md-block">
                             <h6 className="mb-0 fw-bold">Abi Smith</h6>
                             {/* REPLACED EMAIL WITH ROLE SELECTOR */}
-                            <select 
-                                className="form-select form-select-sm text-muted border-0 p-0 shadow-none bg-transparent" 
-                                style={{ fontSize: '0.85em', cursor: 'pointer' }}
-                                value={role}
-                                onChange={(e) => setRole(e.target.value)}
+                        <div className="position-relative">
+                            <div 
+                                className="d-flex align-items-center justify-content-between gap-1 cursor-pointer border rounded px-2" 
+                                style={{ cursor: 'pointer', minWidth: '120px' }}
+                                onClick={() => setShowRoleMenu(!showRoleMenu)}
                             >
-                                <option value="Pengguna">Pengguna</option>
-                                <option value="Super Admin">Super Admin</option>
-                            </select>
+                                <span className="text-muted small text-truncate" style={{ fontSize: '0.85em' }}>{role}</span>
+                                <i className="fas fa-chevron-down text-muted" style={{ fontSize: '0.7em' }}></i>
+                            </div>
+
+                            {/* Custom Role Menu */}
+                            {showRoleMenu && (
+                                <div className="position-absolute bg-white shadow-sm rounded py-1" style={{ top: '100%', left: 0, minWidth: '120px', zIndex: 1001 }}>
+                                    <div 
+                                        className="dropdown-item" 
+                                        style={{ fontSize: '0.85em', cursor: 'pointer' }}
+                                        onClick={() => { setRole('Pengguna'); setShowRoleMenu(false); }}
+                                    >
+                                        Pengguna
+                                    </div>
+                                    <div 
+                                        className="dropdown-item"
+                                        style={{ fontSize: '0.85em', cursor: 'pointer' }}
+                                        onClick={() => { setRole('Super Admin'); setShowRoleMenu(false); }}
+                                    >
+                                        Super Admin
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
-
-                    {/* Logout Button */}
-                    <a href="#" className="btn btn-link text-danger p-0 ms-2" title="Logout">
-                        <i className="fas fa-sign-out-alt fa-lg"></i>
-                    </a>
                 </div>
-            </div>
-      </nav>
 
-      {/* Apps Grid Overlay - Rendered conditionally handled by parent or here? 
-          Better here to keep logic self-contained or use a Portal.  
-          For simplicity, rendering it here but fixed position handles layout. 
-      */}
-      <div className={`apps-grid-overlay ${showGridMenu ? 'show' : ''}`} id="appsGridOverlay">    
-            <div className="apps-grid-header">
-                <input type="text" className="apps-grid-search" placeholder="Find ESS Apps" />
+                {/* Logout Button */}
+                <a href="#" className="btn btn-link text-danger p-0 ms-2" title="Logout">
+                    <i className="fas fa-sign-out-alt fa-lg"></i>
+                </a>
             </div>
-            <div className="apps-grid">
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-user-circle"></i></div><span className="app-label">Profil</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-clipboard-list"></i></div><span className="app-label">Agenda</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-user-clock"></i></div><span className="app-label">Kehadiran</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-clock"></i></div><span className="app-label">Lembur</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-plane"></i></div><span className="app-label">Cuti</span></a>
-                
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-envelope"></i></div><span className="app-label">Izin</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-car"></i></div><span className="app-label">Dinas</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-info-circle"></i></div><span className="app-label">Informasi</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-briefcase"></i></div><span className="app-label">Pelatihan</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file-alt"></i></div><span className="app-label">SPBE</span></a>
+        </div>
+  </nav>
 
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file"></i></div><span className="app-label">SPBI</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-plus-square"></i></div><span className="app-label">Kesehatan</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-bus"></i></div><span className="app-label">Transport</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-tasks"></i></div><span className="app-label">Tasklist</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-heartbeat"></i></div><span className="app-label">Health</span></a>
-            </div>
-      </div>
-       {/* Overlay Click Handler could be added to close when clicking outside */}
-       {(showGridMenu || showNotifications) && (
-        <div 
-            style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
-            onClick={() => { setShowGridMenu(false); setShowNotifications(false); }}
-        />
-       )}
+
+   {/* Overlay Click Handler could be added to close when clicking outside */}
+   {(showNotifications || showRoleMenu) && (
+    <div 
+        style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
+        onClick={() => { setShowNotifications(false); setShowRoleMenu(false); }}
+    />
+   )}
     </>
   );
 }

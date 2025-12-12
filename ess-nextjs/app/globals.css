@@ -4,10 +4,11 @@
 /* Legacy Custom CSS */
 
 :root {
-    --primary-color: #4e44e7;
-    --secondary-color: #6c757d;
+    --primary-color: #008dcf; /* Peruri Primary Blue */
+    --secondary-color: #004e8e; /* Peruri Deep Blue */
+    --accent-color: #6e268a; /* Peruri Purple */
     --sidebar-width: 250px;
-    --bg-light: #f8f9fa;
+    --bg-light: #f4f7fa; /* Slightly cooler background */
     --text-dark: #333;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
@@ -135,7 +136,7 @@ body {
 .custom-card {
     background: #fff;
     border-radius: 20px;
-    padding: 15px;
+    padding: 12px;
     height: 100%;
     box-shadow: var(--card-shadow);
     border: none;
@@ -151,7 +152,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #444;
     font-weight: 600;
 }
@@ -168,19 +169,19 @@ body {
 .agenda-item {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    padding: 8px;
+    margin-bottom: 10px;
+    padding: 6px 8px;
     background: #f8f9fa;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 .agenda-item h6 {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
 }
 
 .agenda-time {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: #666;
     margin-left: auto;
     display: flex;
@@ -204,14 +205,14 @@ body {
     min-width: 250px;
     background: #eef2ff;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
 }
 
 .lembur-card h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 /* Cuti Carousel */
@@ -220,17 +221,17 @@ body {
 }
 .carousel-indicators [data-bs-target] {
     background-color: var(--primary-color);
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
 }
 
 .cuti-content {
     background: #eef2ff;
-    padding: 15px;
+    padding: 12px;
     border-radius: 15px;
     text-align: center;
-    min-height: 150px;
+    min-height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,9 +239,9 @@ body {
 }
 
 .status-badge {
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 .status-approved {

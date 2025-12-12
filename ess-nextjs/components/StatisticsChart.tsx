@@ -17,6 +17,7 @@ export default function StatisticsChart() {
             '#d85ffae6', // WFH
             '#114dad', // CUTI
             '#b59f0e', // TM
+            '#4cc7fcff', // DINAS
         ],
         borderWidth: 0
     }]
