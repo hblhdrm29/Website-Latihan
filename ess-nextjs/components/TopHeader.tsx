@@ -41,7 +41,7 @@ export default function TopHeader() {
                     </div>
 
                     <div className="user-info">
-                        <img src="/assets/img/fotoorang.jpg" alt="User" />
+                        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" />
                         <div className="d-none d-md-block">
                             <h6 className="mb-0 fw-bold">Abi Smith</h6>
                             {/* REPLACED EMAIL WITH ROLE SELECTOR */}

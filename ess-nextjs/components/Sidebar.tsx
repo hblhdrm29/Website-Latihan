@@ -35,7 +35,7 @@ export default function Sidebar() {
                 </svg>
             </div>
 
-            <img src="/assets/img/logo.png" alt="PERURI Logo" style={{ maxWidth: '130px', marginBottom: 0 }} />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/logo.png`} alt="PERURI Logo" style={{ maxWidth: '130px', marginBottom: 0 }} />
         </div>
         
         {/* Apps Grid Overlay */}
