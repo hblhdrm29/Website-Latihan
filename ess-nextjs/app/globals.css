@@ -1,6 +1,8 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* Legacy Custom CSS */
+
 :root {
     --primary-color: #4e44e7;
     --secondary-color: #6c757d;
@@ -43,6 +45,7 @@ body {
     align-items: center;
     gap: 15px;
     font-weight: 500;
+    text-decoration: none; /* Fix bootstrap link style */
 }
 
 .nav-link:hover, .nav-link.active {
@@ -61,7 +64,6 @@ body {
     padding: 20px 40px;
 }
 
-/* Header */
 /* Header */
 .top-header {
     margin-bottom: 30px;
