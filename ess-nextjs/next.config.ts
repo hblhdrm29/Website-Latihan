@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'Website-Latihan'; // Ganti sesuai nama repo Anda
+const repoName = 'Website-Latihan'; 
 
 const nextConfig: NextConfig = {
   output: 'export',

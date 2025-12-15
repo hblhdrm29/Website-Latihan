@@ -44,7 +44,7 @@ export default function TopHeader() {
                         <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" />
                         <div className="d-none d-md-block">
                             <h6 className="mb-0 fw-bold">Abi Smith</h6>
-                            {/* REPLACED EMAIL WITH ROLE SELECTOR */}
+                            {}
                         <div className="position-relative">
                             <div 
                                 className="d-flex align-items-center justify-content-between gap-1 cursor-pointer border rounded px-2" 

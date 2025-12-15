@@ -7,7 +7,7 @@
     --primary-color: #008dcf; /* Peruri Primary Blue */
     --secondary-color: #004e8e; /* Peruri Deep Blue */
     --accent-color: #6e268a; /* Peruri Purple */
-    --sidebar-width: 250px;
+    --sidebar-width: 220px;
     --bg-light: #f4f7fa; /* Slightly cooler background */
     --text-dark: #333;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -37,8 +37,8 @@ body {
     margin-bottom: 40px;
 }
 
-.nav-link {
-    color: #666;
+a.nav-link {
+    color: #000 !important; /* Force black default */
     padding: 12px 15px;
     border-radius: 10px;
     margin-bottom: 5px;
@@ -49,14 +49,26 @@ body {
     text-decoration: none; /* Fix bootstrap link style */
 }
 
-.nav-link:hover, .nav-link.active {
+a.nav-link:hover {
     background-color: #f0f2ff;
-    color: var(--primary-color);
+    color: var(--primary-color) !important; /* Force blue on hover */
 }
 
-.nav-link i {
+a.nav-link.active {
+    background-color: #f0f2ff;
+    color: var(--primary-color) !important; /* Force blue on active */
+}
+
+/* Icon styles */
+a.nav-link i {
     width: 20px;
     text-align: center;
+    color: #000 !important; /* Force black icon default */
+    transition: color 0.3s;
+}
+
+a.nav-link:hover i, a.nav-link.active i {
+    color: var(--primary-color) !important; /* Force blue icon on hover/active */
 }
 
 /* Main Content */
@@ -132,30 +144,9 @@ body {
     font-weight: 500;
 }
 
-/* Cards & Widgets */
-.custom-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 12px;
-    height: 100%;
-    box-shadow: var(--card-shadow);
-    border: none;
-    position: relative;
-    transition: transform 0.2s;
-}
 
-.custom-card:hover {
-    transform: translateY(-5px);
-}
 
-.card-header-custom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-    color: #444;
-    font-weight: 600;
-}
+
 
 .add-btn {
     border: none;
@@ -165,55 +156,11 @@ body {
     font-size: 1.2rem;
 }
 
-/* Agenda List */
-.agenda-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    padding: 6px 8px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
 
-.agenda-item h6 {
-    font-size: 0.75rem;
-    font-weight: 600;
-}
 
-.agenda-time {
-    font-size: 0.75rem;
-    color: #666;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
 
-/* Lembur Slider */
-.lembur-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding-bottom: 10px;
-    scrollbar-width: none; /* Firefox */
-}
-.lembur-container::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-}
 
-.lembur-card {
-    min-width: 250px;
-    background: #eef2ff;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-}
 
-.lembur-card h3 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin: 8px 0;
-}
 
 /* Cuti Carousel */
 .carousel-indicators {
@@ -226,37 +173,9 @@ body {
     border-radius: 50%;
 }
 
-.cuti-content {
-    background: #eef2ff;
-    padding: 12px;
-    border-radius: 15px;
-    text-align: center;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.status-badge {
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-}
-.status-approved {
-    background: #d1e7dd;
-    color: #0f5132;
-}
 
-/* Chart */
-.chart-container {
-    position: relative;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 /* Notification Popup */
 .notification-popup {
@@ -396,13 +315,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Agenda Update */
-.agenda-date-header {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 15px;
-    font-weight: 400;
-}
+
 
 /* Responsive */
 @media (max-width: 992px) {

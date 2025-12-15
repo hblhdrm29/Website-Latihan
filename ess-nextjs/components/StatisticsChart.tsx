@@ -39,12 +39,14 @@ export default function StatisticsChart() {
   };
 
   return (
-    <div className="custom-card">
-        <div className="card-header-custom">
-                <span>Statistics</span>
-                <small className="text-muted">Show: This Month</small>
+    <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
+        <div className="d-flex justify-content-between align-items-center mb-3">
+            <h6 className="fw-bold mb-0">Statistics</h6>
+            <span className="badge bg-white text-secondary border shadow-sm rounded-pill px-2 py-1 fw-normal" style={{ fontSize: '0.75rem' }}>
+                Show: This Month <i className="bi bi-chevron-down ms-1"></i>
+            </span>
         </div>
-        <div className="chart-container" style={{ height: '250px' }}>
+        <div className="position-relative d-flex align-items-center justify-content-center" style={{ height: '200px' }}>
                 <Doughnut data={data} options={options} />
         </div>
     </div>

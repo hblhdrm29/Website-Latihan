@@ -3,7 +3,7 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "Employee Self Service Dashboard",
+  title: "Employee Self Service",
   description: "Next.js Migration",
 };
 
