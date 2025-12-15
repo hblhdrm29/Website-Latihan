@@ -26,10 +26,12 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: #fff;
-    padding: 20px;
+    top: 0;
+    left: 0;
+    background: #f8f9fa; /* Gray background */
+    padding: 10px 15px; /* Reduced padding */
     z-index: 1000;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+    /* box-shadow removed for seamless look */
 }
 
 .logo-section img {
@@ -45,8 +47,11 @@ a.nav-link {
     display: flex;
     align-items: center;
     gap: 15px;
+    align-items: center;
+    gap: 15px;
     font-weight: 500;
     text-decoration: none; /* Fix bootstrap link style */
+    font-size: 0.85rem; /* Reduced font size */
 }
 
 a.nav-link:hover {
@@ -78,8 +83,15 @@ a.nav-link:hover i, a.nav-link.active i {
 }
 
 /* Header */
+/* Header */
 .top-header {
+    background-color: #f8f9fa; /* Match sidebar gray */
     margin-bottom: 30px;
+    margin-top: -20px;
+    margin-left: -40px;
+    margin-right: -40px;
+    padding: 15px 40px;
+    border-bottom: 1px solid #dee2e6; /* Outline for the navbar padding area */
 }
 
 .search-bar {
@@ -109,7 +121,7 @@ a.nav-link:hover i, a.nav-link.active i {
     position: relative;
     cursor: pointer;
 }
-
+/*  */
 .user-info {
     display: flex;
     align-items: center;
@@ -134,7 +146,7 @@ a.nav-link:hover i, a.nav-link.active i {
 }
 
 .announcement-bar {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(246, 142, 142, 0.6);
     padding: 10px 20px;
     border-radius: 10px;
     border-left: 4px solid #dc3545;
@@ -215,10 +227,10 @@ a.nav-link:hover i, a.nav-link.active i {
 /* Grid Menu Styles */
 .grid-menu-btn {
     font-size: 1.5rem;
-    color: #ffd700; /* Approximate the light brown/gold/off-white color */
-    background: #ffe3e3; /* Light pinkish background circle as per image */
-    width: 40px;
-    height: 40px;
+    color: #424039; /* Approximate the light brown/gold/off-white color */
+    background: none; /* Light pinkish background circle as per image */
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -229,7 +241,7 @@ a.nav-link:hover i, a.nav-link.active i {
 }
 
 .grid-menu-btn:hover {
-    background-color: #f0f2ff;
+    background-color: #e5e8f7;
     color: var(--primary-color);
 }
 
@@ -241,7 +253,7 @@ a.nav-link:hover i, a.nav-link.active i {
     width: 650px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.25); /* Stronger shadow */
+    box-shadow: 0 10px 50px rgba(251, 35, 35, 0.25); /* Stronger shadow */
     padding: 25px;
     z-index: 9999; /* Max z-index for bring to front */
     display: none;

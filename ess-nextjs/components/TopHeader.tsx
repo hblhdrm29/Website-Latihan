@@ -9,7 +9,7 @@ export default function TopHeader() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm top-header">
+      <nav className="navbar navbar-expand-lg navbar-light top-header">
             <div className="container-fluid">
                 {/* Apps Grid Trigger */}
                 <div className="d-flex align-items-center gap-3 me-auto">
