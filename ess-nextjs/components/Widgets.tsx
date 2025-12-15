@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function AgendaWidget() {
     return (
@@ -50,12 +48,21 @@ export function AgendaWidget() {
 export function LemburWidget() {
     const [activeIndex, setActiveIndex] = useState(0);
     const items = [
-        { title: 'Jumlah Pengajuan Lembur', value: '1' },
-        { title: 'Pengajuan Lembur Disetujui', value: '2' }
+        { title: 'Jumlah Pengajuan Lembur', value: '1', type: 'number' },
+        { title: 'Daftar Pengajuan Lembur', value: '1', type: 'number' },
+        { title: 'Pengajuan Lembur', value: 'Disetujui', type: 'status' }
     ];
 
     const next = () => setActiveIndex((prev) => (prev + 1) % items.length);
     const prev = () => setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+
+    // Auto-slide every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % items.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [items.length]);
 
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
@@ -78,21 +85,30 @@ export function LemburWidget() {
             <div className="carousel slide carousel-dark h-100 d-flex flex-column justify-content-center">
                 <div className="carousel-inner text-center">
                      <div className="carousel-item active">
-                        <div className="py-2">
+                        <div key={activeIndex} className="py-2 carousel-slide-content border rounded-3 p-3 bg-white mx-2 my-2 d-flex flex-column justify-content-center" style={{ boxShadow: '0 0 15px rgba(0, 141, 207, 0.2)', minHeight: '110px' }}>
                             <h6 className="text-secondary mb-1" style={{ fontSize: '0.85rem' }}>{items[activeIndex].title}</h6>
-                            <h3 className="fw-bold text-primary mb-0">{items[activeIndex].value}</h3>
+                            {items[activeIndex].type === 'number' ? (
+                                <h3 className="fw-bold text-primary mb-0">{items[activeIndex].value}</h3>
+                            ) : (
+                                <span className="badge bg-success-subtle text-success fs-6 px-3 py-2 rounded-pill mt-1">
+                                    {items[activeIndex].value}
+                                </span>
+                            )}
                         </div>
                     </div>
                 </div>
                 
-                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }}>
-                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }}>
-                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
-                    <span className="visually-hidden">Next</span>
-                </button>
+
+                <div className="d-flex justify-content-center gap-2 mt-3 pb-2">
+                    {items.map((_, index) => (
+                        <div 
+                            key={index}
+                            className={`rounded-circle ${index === activeIndex ? 'bg-primary' : 'bg-secondary-subtle'}`}
+                            style={{ width: '8px', height: '8px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+                            onClick={() => setActiveIndex(index)}
+                        ></div>
+                    ))}
+                </div>
             </div>
 
             <div className="mt-auto pt-2 text-end">
@@ -115,6 +131,14 @@ export function CutiWidget() {
     const next = () => setActiveIndex((prev) => (prev + 1) % items.length);
     const prev = () => setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
 
+    // Auto-slide every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % items.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [items.length]);
+
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
              <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
@@ -135,7 +159,7 @@ export function CutiWidget() {
             <div className="carousel slide carousel-dark h-100 d-flex flex-column justify-content-center">
                 <div className="carousel-inner text-center">
                     <div className="carousel-item active">
-                        <div className="py-2">
+                        <div key={activeIndex} className="py-2 carousel-slide-content border rounded-3 p-3 bg-white mx-2 my-2 d-flex flex-column justify-content-center" style={{ boxShadow: '0 0 15px rgba(0, 141, 207, 0.2)', minHeight: '110px' }}>
                             <h6 className="text-secondary mb-1" style={{ fontSize: '0.85rem' }}>{items[activeIndex].title}</h6>
                             {items[activeIndex].type === 'number' ? 
                                 <h3 className="fw-bold text-primary mb-0">{items[activeIndex].value}</h3> :
@@ -147,14 +171,17 @@ export function CutiWidget() {
                     </div>
                 </div>
                 
-                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }}>
-                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }}>
-                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
-                    <span className="visually-hidden">Next</span>
-                </button>
+
+                <div className="d-flex justify-content-center gap-2 mt-3 pb-2">
+                    {items.map((_, index) => (
+                        <div 
+                            key={index}
+                            className={`rounded-circle ${index === activeIndex ? 'bg-primary' : 'bg-secondary-subtle'}`}
+                            style={{ width: '8px', height: '8px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+                            onClick={() => setActiveIndex(index)}
+                        ></div>
+                    ))}
+                </div>
             </div>
 
             <div className="mt-auto pt-2 text-end">
@@ -170,11 +197,20 @@ export function PerizinanWidget() {
     const [activeIndex, setActiveIndex] = useState(0);
     const items = [
         { title: 'Permohonan Izin', value: '1', type: 'number' },
+        { title: 'Daftar Pengajuan Izin', value: '1', type: 'number' },
         { title: 'Permohonan Izin', value: 'Disetujui', type: 'status' }
     ];
 
     const next = () => setActiveIndex((prev) => (prev + 1) % items.length);
     const prev = () => setActiveIndex((prev) => (prev - 1 + items.length) % items.length);
+
+    // Auto-slide every 3 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % items.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [items.length]);
 
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
@@ -196,7 +232,7 @@ export function PerizinanWidget() {
             <div className="carousel slide carousel-dark h-100 d-flex flex-column justify-content-center">
                 <div className="carousel-inner text-center">
                     <div className="carousel-item active">
-                        <div className="py-2">
+                        <div key={activeIndex} className="py-2 carousel-slide-content border rounded-3 p-3 bg-white mx-2 my-2 d-flex flex-column justify-content-center" style={{ boxShadow: '0 0 15px rgba(0, 141, 207, 0.2)', minHeight: '110px' }}>
                             <h6 className="text-secondary mb-1" style={{ fontSize: '0.85rem' }}>{items[activeIndex].title}</h6>
                             {items[activeIndex].type === 'number' ? (
                                 <h3 className="fw-bold text-primary mb-0">{items[activeIndex].value}</h3>
@@ -209,14 +245,17 @@ export function PerizinanWidget() {
                     </div>
                 </div>
                 
-                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }}>
-                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }}>
-                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
-                    <span className="visually-hidden">Next</span>
-                </button>
+
+                <div className="d-flex justify-content-center gap-2 mt-3 pb-2">
+                    {items.map((_, index) => (
+                        <div 
+                            key={index}
+                            className={`rounded-circle ${index === activeIndex ? 'bg-primary' : 'bg-secondary-subtle'}`}
+                            style={{ width: '8px', height: '8px', cursor: 'pointer', transition: 'all 0.3s ease' }}
+                            onClick={() => setActiveIndex(index)}
+                        ></div>
+                    ))}
+                </div>
             </div>
 
             <div className="mt-auto pt-2 text-end">

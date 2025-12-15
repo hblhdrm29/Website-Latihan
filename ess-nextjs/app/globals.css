@@ -377,3 +377,37 @@ a.nav-link:hover i, a.nav-link.active i {
 .custom-carousel-nav:hover {
     color: var(--primary-color) !important;
 }
+
+/* Carousel Slide Animation */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.carousel-slide-content {
+    animation: slideInFromRight 0.3s ease-out;
+}
+
+.hover-card-blue:hover {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+.hover-card-blue:hover i,
+.hover-card-blue:hover span {
+    color: white !important;
+}
+
+.hover-card-red:hover {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+.hover-card-red:hover i,
+.hover-card-red:hover span {
+    color: white !important;
+}

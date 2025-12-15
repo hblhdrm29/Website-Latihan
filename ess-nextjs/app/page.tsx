@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import TopHeader from "@/components/TopHeader";
 import StatisticsChart from "@/components/StatisticsChart";
+import ApprovalWidget from "@/components/ApprovalWidget";
 import { AgendaWidget, LemburWidget, CutiWidget, PerizinanWidget } from "@/components/Widgets";
 
 export default function Home() {
@@ -26,21 +27,6 @@ export default function Home() {
       }
   };
 
-    const dropdownRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-                setOpenDropdown(null);
-            }
-        };
-
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
-    }, []);
-
   return (
     <div>
         {/* Top Header */}
@@ -55,7 +41,7 @@ export default function Home() {
                     <p className="text-muted mb-0">Welcome back, Abi</p>
                 </div>
                 
-                <div className="d-flex gap-2 position-relative" ref={dropdownRef}>
+                <div className="d-flex gap-2 position-relative">
                     {/* User Dropdown (Static for now) */}
                     <div className="position-relative">
                         <div 
@@ -128,7 +114,10 @@ export default function Home() {
                 </div>
             </div>
             
-            {/* Overlay Removed: Handles outside click via useEffect now to allow hover on other elements */}
+            {/* Click outside listener overlay */}
+            {openDropdown && (
+                <div className="position-fixed top-0 start-0 w-100 h-100" style={{ zIndex: 999 }} onClick={() => setOpenDropdown(null)}></div>
+            )}
 
             {/* Announcement Banner */}
             <div className="announcement-bar d-flex align-items-center shadow-sm">
@@ -162,6 +151,11 @@ export default function Home() {
                 {/* Statistics Card */}
                 <div className="col-md-12 col-lg-8">
                    <StatisticsChart />
+                </div>
+
+                {/* Approval Widget */}
+                <div className="col-md-12 col-lg-4">
+                    <ApprovalWidget />
                 </div>
 
             </div>
