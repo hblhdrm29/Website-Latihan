@@ -4,11 +4,11 @@
 /* Legacy Custom CSS */
 
 :root {
-    --primary-color: #008dcf; /* Peruri Primary Blue */
-    --secondary-color: #004e8e; /* Peruri Deep Blue */
-    --accent-color: #6e268a; /* Peruri Purple */
+    --primary-color: #008dcf; 
+    --secondary-color: #004e8e; 
+    --accent-color: #6e268a; 
     --sidebar-width: 220px;
-    --bg-light: #f4f7fa; /* Slightly cooler background */
+    --bg-light: #f4f7fa; 
     --text-dark: #333;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
@@ -28,10 +28,10 @@ body {
     left: 0;
     top: 0;
     left: 0;
-    background: #f8f9fa; /* Gray background */
-    padding: 10px 15px; /* Reduced padding */
+    background: #f8f9fa; 
+    padding: 10px 15px; 
     z-index: 1000;
-    /* box-shadow removed for seamless look */
+    
 }
 
 .logo-section img {
@@ -40,7 +40,7 @@ body {
 }
 
 a.nav-link {
-    color: #000 !important; /* Force black default */
+    color: #000 !important; 
     padding: 12px 15px;
     border-radius: 10px;
     margin-bottom: 5px;
@@ -50,30 +50,30 @@ a.nav-link {
     align-items: center;
     gap: 15px;
     font-weight: 500;
-    text-decoration: none; /* Fix bootstrap link style */
-    font-size: 0.85rem; /* Reduced font size */
+    text-decoration: none; 
+    font-size: 0.85rem; 
 }
 
 a.nav-link:hover {
     background-color: #f0f2ff;
-    color: var(--primary-color) !important; /* Force blue on hover */
+    color: var(--primary-color) !important; 
 }
 
 a.nav-link.active {
     background-color: #f0f2ff;
-    color: var(--primary-color) !important; /* Force blue on active */
+    color: var(--primary-color) !important; 
 }
 
 /* Icon styles */
 a.nav-link i {
     width: 20px;
     text-align: center;
-    color: #000 !important; /* Force black icon default */
+    color: #000 !important; 
     transition: color 0.3s;
 }
 
 a.nav-link:hover i, a.nav-link.active i {
-    color: var(--primary-color) !important; /* Force blue icon on hover/active */
+    color: var(--primary-color) !important; 
 }
 
 /* Main Content */
@@ -85,13 +85,13 @@ a.nav-link:hover i, a.nav-link.active i {
 /* Header */
 /* Header */
 .top-header {
-    background-color: #f8f9fa; /* Match sidebar gray */
+    background-color: #f8f9fa; 
     margin-bottom: 30px;
     margin-top: -20px;
     margin-left: -40px;
     margin-right: -40px;
-    padding: 15px 40px;
-    border-bottom: 1px solid #dee2e6; /* Outline for the navbar padding area */
+    padding: 10px 40px;
+    border-bottom: 1px solid #dee2e6; 
 }
 
 .search-bar {
@@ -109,6 +109,12 @@ a.nav-link:hover i, a.nav-link.active i {
     width: 100%;
     outline: none;
     margin-left: 10px;
+    font-size: 0.8rem; 
+}
+
+.search-bar input::placeholder {
+    font-size: 0.75rem; 
+    color: #999;
 }
 
 .user-profile {
@@ -129,8 +135,8 @@ a.nav-link:hover i, a.nav-link.active i {
 }
 
 .user-info img {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -192,15 +198,15 @@ a.nav-link:hover i, a.nav-link.active i {
 /* Notification Popup */
 .notification-popup {
     position: absolute;
-    top: 35px; /* Immediately below the icon */
-    right: 0; /* Align right edges */
+    top: 35px; 
+    right: 0; 
     background: white;
     padding: 10px;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     width: 180px;
     z-index: 1050;
-    display: none; /* Hidden by default */
+    display: none; 
     border-left: 5px solid #4e44e7;
     font-size: 0.75rem;
 }
@@ -221,14 +227,14 @@ a.nav-link:hover i, a.nav-link.active i {
 
 /* Agenda Arrow Alignment */
 .agenda-item {
-    align-items: center; /* Ensure vertical center alignment */
+    align-items: center; 
 }
 
 /* Grid Menu Styles */
 .grid-menu-btn {
     font-size: 1.5rem;
-    color: #424039; /* Approximate the light brown/gold/off-white color */
-    background: none; /* Light pinkish background circle as per image */
+    color: #424039; 
+    background: none; 
     width: 30px;
     height: 30px;
     display: flex;
@@ -248,16 +254,16 @@ a.nav-link:hover i, a.nav-link.active i {
 /* Mega Menu Overlay */
 .apps-grid-overlay {
     position: fixed;
-    top: 90px; /* Below the header section */
-    left: 20px; /* Overlays the sidebar */
+    top: 90px; 
+    left: 20px; 
     width: 650px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: 0 10px 50px rgba(251, 35, 35, 0.25); /* Stronger shadow */
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.25); 
     padding: 25px;
-    z-index: 9999; /* Max z-index for bring to front */
+    z-index: 9999; 
     display: none;
-    border: 3px solid #3b82f6; /* Blue border */
+    border: 3px solid #3b82f6; 
 }
 
 .apps-grid-overlay.show {
@@ -350,4 +356,24 @@ a.nav-link:hover i, a.nav-link.active i {
     .apps-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+.tracking-details-link {
+    transition: all 0.2s ease;
+    color: #6c757d; 
+}
+.tracking-details-link:hover {
+    opacity: 1;
+    color: var(--primary-color) !important;
+}
+
+.custom-carousel-nav {
+    opacity: 1 !important; 
+    color: #6c757d !important;
+    transition: all 0.2s ease;
+    background: none;
+    border: none;
+}
+.custom-carousel-nav:hover {
+    color: var(--primary-color) !important;
 }

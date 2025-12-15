@@ -5,9 +5,11 @@ import { useState } from 'react';
 export function AgendaWidget() {
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
-            <div className="d-flex justify-content-between align-items-center mb-3">
-                <h6 className="fw-bold mb-0">Agenda</h6>
-                <i className="bi bi-clipboard-data text-secondary fs-6"></i>
+            <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
+                <div className="d-flex flex-column">
+                    <h6 className="fw-bold mb-0" style={{ fontSize: '0.8rem' }}>Agenda</h6>
+                </div>
+                <i className="fas fa-calendar-alt text-dark"></i>
             </div>
             
             <div className="text-muted small mb-2" style={{ fontSize: '0.8rem' }}>
@@ -36,8 +38,8 @@ export function AgendaWidget() {
             </div>
 
             <div className="mt-auto pt-2 text-end">
-                <a href="#" className="text-primary text-decoration-none fw-semibold" style={{ fontSize: '0.75rem' }}>
-                    Tracking Details <i className="bi bi-chevron-right" style={{ fontSize: '0.7rem' }}></i>
+                <a href="#" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
+                    Tracking Details <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
                 </a>
             </div>
         </div>
@@ -57,14 +59,19 @@ export function LemburWidget() {
 
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
-            <div className="d-flex justify-content-between align-items-center mb-2">
-                <h6 className="fw-bold mb-0">Lembur</h6>
-                <i className="bi bi-clock-history text-secondary fs-6"></i>
+            <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
+                <div className="d-flex flex-column">
+                    <h6 className="fw-bold mb-0" style={{ fontSize: '0.8rem' }}>Lembur</h6>
+                </div>
+                <i className="fas fa-clock text-dark"></i>
             </div>
             
-            <div className="mb-2">
-                <a href="#" className="text-primary text-decoration-none fw-bold small" style={{ fontSize: '0.8rem' }}>
-                    Ajukan Lembur <i className="bi bi-plus-circle-fill ms-1"></i>
+            <div className="mb-2 d-flex flex-column align-items-center gap-1">
+                <a href="#" className="text-primary text-decoration-none fw-bold border rounded bg-white shadow-sm px-3 py-1" style={{ fontSize: '0.65rem' }}>
+                    Ajukan Lembur
+                </a>
+                <a href="#" className="text-primary text-decoration-none border rounded bg-white shadow-sm d-flex align-items-center justify-content-center" style={{ width: '20px', height: '20px', fontSize: '0.65rem' }}>
+                    <i className="fas fa-plus"></i>
                 </a>
             </div>
 
@@ -78,19 +85,19 @@ export function LemburWidget() {
                     </div>
                 </div>
                 
-                <button className="carousel-control-prev" type="button" onClick={prev} style={{ width: '10%', opacity: 0.5 }}>
-                    <span className="carousel-control-prev-icon" style={{ width: '1rem', height: '1rem' }} aria-hidden="true"></span>
+                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }}>
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" onClick={next} style={{ width: '10%', opacity: 0.5 }}>
-                    <span className="carousel-control-next-icon" style={{ width: '1rem', height: '1rem' }} aria-hidden="true"></span>
+                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }}>
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
 
             <div className="mt-auto pt-2 text-end">
-                <a href="#" className="text-primary text-decoration-none fw-semibold" style={{ fontSize: '0.75rem' }}>
-                    Tracking Details <i className="bi bi-chevron-right" style={{ fontSize: '0.7rem' }}></i>
+                <a href="#" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
+                    Tracking Details <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
                 </a>
             </div>
         </div>
@@ -110,13 +117,18 @@ export function CutiWidget() {
 
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
-             <div className="d-flex justify-content-between align-items-center mb-2">
-                <h6 className="fw-bold mb-0">Cuti</h6>
-                <i className="bi bi-umbrella text-secondary fs-6"></i>
+             <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
+                <div className="d-flex flex-column">
+                    <h6 className="fw-bold mb-0" style={{ fontSize: '0.8rem' }}>Cuti</h6>
+                </div>
+                <i className="fas fa-plane-departure text-dark"></i>
             </div>
-            <div className="mb-2">
-                <a href="#" className="text-primary text-decoration-none fw-bold small" style={{ fontSize: '0.8rem' }}>
-                    Ajukan Cuti <i className="bi bi-plus-circle-fill ms-1"></i>
+            <div className="mb-2 d-flex flex-column align-items-center gap-1">
+                <a href="#" className="text-primary text-decoration-none fw-bold border rounded bg-white shadow-sm px-3 py-1" style={{ fontSize: '0.65rem' }}>
+                    Ajukan Cuti
+                </a>
+                <a href="#" className="text-primary text-decoration-none border rounded bg-white shadow-sm d-flex align-items-center justify-content-center" style={{ width: '20px', height: '20px', fontSize: '0.65rem' }}>
+                    <i className="fas fa-plus"></i>
                 </a>
             </div>
             
@@ -135,19 +147,19 @@ export function CutiWidget() {
                     </div>
                 </div>
                 
-                 <button className="carousel-control-prev" type="button" onClick={prev} style={{ width: '10%', opacity: 0.5 }}>
-                    <span className="carousel-control-prev-icon" style={{ width: '1rem', height: '1rem' }} aria-hidden="true"></span>
+                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }}>
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" onClick={next} style={{ width: '10%', opacity: 0.5 }}>
-                    <span className="carousel-control-next-icon" style={{ width: '1rem', height: '1rem' }} aria-hidden="true"></span>
+                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }}>
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
 
             <div className="mt-auto pt-2 text-end">
-                <a href="#" className="text-primary text-decoration-none fw-semibold" style={{ fontSize: '0.75rem' }}>
-                    Tracking Details <i className="bi bi-chevron-right" style={{ fontSize: '0.7rem' }}></i>
+                <a href="#" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
+                    Tracking Details <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
                 </a>
             </div>
          </div>
@@ -166,13 +178,18 @@ export function PerizinanWidget() {
 
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
-             <div className="d-flex justify-content-between align-items-center mb-2">
-                <h6 className="fw-bold mb-0">Perizinan</h6>
-                <i className="bi bi-envelope text-secondary fs-6"></i>
+             <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
+                <div className="d-flex flex-column">
+                    <h6 className="fw-bold mb-0" style={{ fontSize: '0.8rem' }}>Perizinan</h6>
+                </div>
+                <i className="fas fa-envelope-open-text text-dark"></i>
             </div>
-            <div className="mb-2">
-                <a href="#" className="text-primary text-decoration-none fw-bold small" style={{ fontSize: '0.8rem' }}>
-                    Ajukan Izin <i className="bi bi-plus-circle-fill ms-1"></i>
+            <div className="mb-2 d-flex flex-column align-items-center gap-1">
+                <a href="#" className="text-primary text-decoration-none fw-bold border rounded bg-white shadow-sm px-3 py-1" style={{ fontSize: '0.65rem' }}>
+                    Ajukan Izin
+                </a>
+                <a href="#" className="text-primary text-decoration-none border rounded bg-white shadow-sm d-flex align-items-center justify-content-center" style={{ width: '20px', height: '20px', fontSize: '0.65rem' }}>
+                    <i className="fas fa-plus"></i>
                 </a>
             </div>
             
@@ -192,19 +209,19 @@ export function PerizinanWidget() {
                     </div>
                 </div>
                 
-                <button className="carousel-control-prev" type="button" onClick={prev} style={{ width: '10%', opacity: 0.5 }}>
-                    <span className="carousel-control-prev-icon" style={{ width: '1rem', height: '1rem' }} aria-hidden="true"></span>
+                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }}>
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" onClick={next} style={{ width: '10%', opacity: 0.5 }}>
-                    <span className="carousel-control-next-icon" style={{ width: '1rem', height: '1rem' }} aria-hidden="true"></span>
+                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }}>
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
 
             <div className="mt-auto pt-2 text-end">
-                <a href="#" className="text-primary text-decoration-none fw-semibold" style={{ fontSize: '0.75rem' }}>
-                    Tracking Details <i className="bi bi-chevron-right" style={{ fontSize: '0.7rem' }}></i>
+                <a href="#" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
+                    Tracking Details <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
                 </a>
             </div>
          </div>

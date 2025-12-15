@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["master"] # Pastikan ini sesuai nama branch utama Anda (master/main)
+    branches: ["master"] 
 
 permissions:
   contents: read
@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
-          cache-dependency-path: "ess-nextjs/package-lock.json" # Penting jika nextjs ada di subfolder
+          cache-dependency-path: "ess-nextjs/package-lock.json" 
 
       - name: Install Dependencies
         run: |
@@ -41,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./ess-nextjs/out # Folder hasil build export
+          path: ./ess-nextjs/out 
 
   deploy:
     environment:

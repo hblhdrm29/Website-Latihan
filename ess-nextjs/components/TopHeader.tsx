@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function TopHeader() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showRoleMenu, setShowRoleMenu] = useState(false);
-  const [role, setRole] = useState('Pengguna'); // Default role
+  const [role, setRole] = useState('Pengguna'); 
 
   return (
     <>
@@ -13,8 +13,8 @@ export default function TopHeader() {
             <div className="container-fluid">
                 {/* Apps Grid Trigger */}
                 <div className="d-flex align-items-center gap-3 me-auto">
-                    <div className="search-bar d-none d-lg-flex" style={{ height: '38px', width: '250px' }}>
-                        <i className="fas fa-search text-muted ps-3"></i>
+                    <div className="search-bar d-none d-lg-flex" style={{ height: '30px', width: '250px' }}>
+                        <i className="fas fa-search text-muted ps-0"></i>
                         <input type="text" placeholder="Search..." className="form-control border-0 bg-transparent shadow-none small" style={{ fontSize: '0.9rem' }} />
                     </div>
                 </div>
@@ -27,8 +27,8 @@ export default function TopHeader() {
                             id="notificationBtn"
                             onClick={() => setShowNotifications(!showNotifications)}
                         >
-                            <i className="fas fa-bell fa-lg"></i>
-                            <span className="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                            <i className="fas fa-bell"></i>
+                            <span className="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle" style={{ padding: '0.15rem !important', top: '7px' }}></span>
                         </div>
                         
                         {/* Custom Notification Popup */}
@@ -43,7 +43,7 @@ export default function TopHeader() {
                     <div className="user-info">
                         <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" />
                         <div className="d-none d-md-block">
-                            <h6 className="mb-0 fw-bold">Abi Smith</h6>
+                            <h6 className="mb-0 fw-bold" style={{ fontSize: '0.85rem' }}>Abi Smith</h6>
                             {}
                         <div className="position-relative">
                             <div 
@@ -80,7 +80,7 @@ export default function TopHeader() {
 
                 {/* Logout Button */}
                 <a href="#" className="btn btn-link text-danger p-0 ms-2" title="Logout">
-                    <i className="fas fa-sign-out-alt fa-lg"></i>
+                    <i className="fas fa-sign-out-alt"></i>
                 </a>
             </div>
         </div>
