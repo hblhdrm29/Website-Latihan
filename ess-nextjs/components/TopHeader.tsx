@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function TopHeader() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -41,10 +42,13 @@ export default function TopHeader() {
                     </div>
 
                     <div className="user-info">
-                        <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" />
-                        <div className="d-none d-md-block">
-                            <h6 className="mb-0 fw-bold" style={{ fontSize: '0.85rem' }}>Abi Smith</h6>
-                            {}
+                        <Link href="/profile" className="d-flex align-items-center gap-3 text-decoration-none text-dark">
+                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" />
+                            <div className="d-none d-md-block">
+                                <h6 className="mb-0 fw-bold" style={{ fontSize: '0.85rem' }}>Abi Smith</h6>
+                            </div>
+                        </Link>
+                        
                         <div className="position-relative">
                             <div 
                                 className="d-flex align-items-center justify-content-between gap-1 cursor-pointer border rounded px-2" 
@@ -83,17 +87,15 @@ export default function TopHeader() {
                     <i className="fas fa-sign-out-alt"></i>
                 </a>
             </div>
-        </div>
-  </nav>
+      </nav>
 
-
-   {/* Overlay Click Handler could be added to close when clicking outside */}
-   {(showNotifications || showRoleMenu) && (
-    <div 
-        style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
-        onClick={() => { setShowNotifications(false); setShowRoleMenu(false); }}
-    />
-   )}
+        {/* Overlay Click Handler */}
+        {(showNotifications || showRoleMenu) && (
+            <div 
+                style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
+                onClick={() => { setShowNotifications(false); setShowRoleMenu(false); }}
+            />
+        )}
     </>
   );
 }
