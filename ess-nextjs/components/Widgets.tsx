@@ -1,6 +1,14 @@
+"use client";
+
 import { useState, useEffect } from 'react';
 
 export function AgendaWidget() {
+    const [dateString, setDateString] = useState('');
+
+    useEffect(() => {
+        setDateString(new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
+    }, []);
+
     return (
         <div className="card border-0 shadow-sm rounded-4 p-3 h-100" style={{ backgroundColor: '#f8f9fa' }}>
             <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
@@ -12,8 +20,8 @@ export function AgendaWidget() {
             
             <div className="text-muted small mb-2" style={{ fontSize: '0.8rem' }}>
                 Jadwal Hari Ini <br />
-                <span className="fw-semibold text-dark">
-                    {new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                <span className="fw-semibold text-dark" suppressHydrationWarning>
+                    {dateString}
                 </span>
             </div>
             
@@ -99,6 +107,15 @@ export function LemburWidget() {
                 </div>
                 
 
+                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }} suppressHydrationWarning>
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }} suppressHydrationWarning>
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                    <span className="visually-hidden">Next</span>
+                </button>
+
                 <div className="d-flex justify-content-center gap-2 mt-3 pb-2">
                     {items.map((_, index) => (
                         <div 
@@ -171,6 +188,15 @@ export function CutiWidget() {
                     </div>
                 </div>
                 
+
+                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }} suppressHydrationWarning>
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }} suppressHydrationWarning>
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                    <span className="visually-hidden">Next</span>
+                </button>
 
                 <div className="d-flex justify-content-center gap-2 mt-3 pb-2">
                     {items.map((_, index) => (
@@ -245,6 +271,15 @@ export function PerizinanWidget() {
                     </div>
                 </div>
                 
+
+                <button className="carousel-control-prev custom-carousel-nav" type="button" onClick={prev} style={{ width: '10%' }} suppressHydrationWarning>
+                    <i className="fas fa-chevron-left" aria-hidden="true"></i>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next custom-carousel-nav" type="button" onClick={next} style={{ width: '10%' }} suppressHydrationWarning>
+                    <i className="fas fa-chevron-right" aria-hidden="true"></i>
+                    <span className="visually-hidden">Next</span>
+                </button>
 
                 <div className="d-flex justify-content-center gap-2 mt-3 pb-2">
                     {items.map((_, index) => (

@@ -15,7 +15,7 @@ export default function TopHeader() {
                 <div className="d-flex align-items-center gap-3 me-auto">
                     <div className="search-bar d-none d-lg-flex" style={{ height: '30px', width: '250px' }}>
                         <i className="fas fa-search text-muted ps-0"></i>
-                        <input type="text" placeholder="Search..." className="form-control border-0 bg-transparent shadow-none small" style={{ fontSize: '0.9rem' }} />
+                        <input type="text" placeholder="Search..." className="form-control border-0 bg-transparent shadow-none small" style={{ fontSize: '0.9rem' }} suppressHydrationWarning />
                     </div>
                 </div>
                 
