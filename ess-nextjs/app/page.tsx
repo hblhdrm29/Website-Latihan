@@ -1,14 +1,14 @@
 "use client";
 
-import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import TopHeader from "@/components/dashboard/TopHeader";
 import StatisticsChart from "@/components/dashboard/StatisticsChart";
 import ApprovalWidget from "@/components/dashboard/ApprovalWidget";
 import { AgendaWidget, LemburWidget, CutiWidget, PerizinanWidget } from "@/components/dashboard/Widgets";
 import ProfileView from "@/components/profile/ProfileView";
+import AgendaView from "@/components/agenda/AgendaView";
 
-function HomeContent() {
+export default function Home() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -97,15 +97,15 @@ function HomeContent() {
                      <ProfileView onBack={() => setView('dashboard')} />
                 </div>
             )}
+
+            {/* View C: Agenda */}
+            {currentView === 'agenda' && (
+                <div className="py-4">
+                     <AgendaView />
+                </div>
+            )}
+
         </div>
     </div>
   );
-}
-
-export default function Home() {
-    return (
-        <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
-            <HomeContent />
-        </Suspense>
-    );
 }

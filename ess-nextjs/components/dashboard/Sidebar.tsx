@@ -77,13 +77,13 @@ export default function Sidebar() {
             </div>
             <div className="apps-grid">
                 <Link href="/?view=profile" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-user-circle"></i></div><span className="app-label">Profil</span></Link>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-clipboard-list"></i></div><span className="app-label">Agenda</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-user-clock"></i></div><span className="app-label">Kehadiran</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-clock"></i></div><span className="app-label">Lembur</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-plane"></i></div><span className="app-label">Cuti</span></a>
+                <Link href="/?view=agenda" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-clipboard-list"></i></div><span className="app-label">Agenda</span></Link>
+                <Link href="/?view=kehadiran" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-user-clock"></i></div><span className="app-label">Kehadiran</span></Link>
+                <Link href="/?view=lembur" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-clock"></i></div><span className="app-label">Lembur</span></Link>
+                <Link href="/?view=cuti" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-plane"></i></div><span className="app-label">Cuti</span></Link>
                 
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-envelope"></i></div><span className="app-label">Izin</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-car"></i></div><span className="app-label">Dinas</span></a>
+                <Link href="/?view=izin" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-envelope"></i></div><span className="app-label">Izin</span></Link>
+                <Link href="/?view=dinas" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-car"></i></div><span className="app-label">Dinas</span></Link>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-info-circle"></i></div><span className="app-label">Informasi</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-briefcase"></i></div><span className="app-label">Pelatihan</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file-alt"></i></div><span className="app-label">SPBE</span></a>
