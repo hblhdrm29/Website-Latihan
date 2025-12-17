@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import TopHeader from "@/components/dashboard/TopHeader";
 import StatisticsChart from "@/components/dashboard/StatisticsChart";
@@ -8,7 +9,7 @@ import { AgendaWidget, LemburWidget, CutiWidget, PerizinanWidget } from "@/compo
 import ProfileView from "@/components/profile/ProfileView";
 import AgendaView from "@/components/agenda/AgendaView";
 
-export default function Home() {
+function HomeContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -108,4 +109,12 @@ export default function Home() {
         </div>
     </div>
   );
+}
+
+export default function Home() {
+    return (
+        <Suspense fallback={<div className="p-4 text-center">Loading...</div>}>
+            <HomeContent />
+        </Suspense>
+    );
 }
