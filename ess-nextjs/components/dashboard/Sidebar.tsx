@@ -76,7 +76,7 @@ export default function Sidebar() {
                 )}
             </div>
             <div className="apps-grid">
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-user-circle"></i></div><span className="app-label">Profil</span></a>
+                <Link href="/?view=profile" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-user-circle"></i></div><span className="app-label">Profil</span></Link>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-clipboard-list"></i></div><span className="app-label">Agenda</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-user-clock"></i></div><span className="app-label">Kehadiran</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-clock"></i></div><span className="app-label">Lembur</span></a>
