@@ -4,7 +4,7 @@
 /* Legacy Custom CSS */
 
 :root {
-    --primary-color: #008dcf; 
+    --primary-color: #20288E; 
     --secondary-color: #004e8e; 
     --accent-color: #6e268a; 
     --sidebar-width: 220px;
@@ -453,4 +453,29 @@ a.nav-link:hover i, a.nav-link.active i {
 
 .marquee-content:hover {
     animation-play-state: paused;
+}
+
+/* Hover Utilities */
+.hover-bg-white:hover {
+    background-color: #ffffff !important;
+}
+
+
+
+.hover-shadow-sm:hover {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+}
+
+.hover-bg-blue:hover {
+    background-color: #2f80ed !important; /* Brighter blue to match reference '3' */
+    color: white !important;
+    opacity: 1; /* Removed transparency to match active state */
+}
+
+/* Bootstrap Overrides for Consistency */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+.text-primary {
+    color: var(--primary-color) !important;
 }

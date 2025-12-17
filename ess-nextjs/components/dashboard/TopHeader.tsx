@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from 'react';
-import Link from 'next/link';
 
 export default function TopHeader() {
-  const [showNotifications, setShowNotifications] = useState(false);
   const [showRoleMenu, setShowRoleMenu] = useState(false);
-  const [role, setRole] = useState('Pengguna'); 
+  const [role, setRole] = useState('Pengguna');
+  const [searchText, setSearchText] = useState('');
+
+  const clearSearch = () => setSearchText('');
 
   return (
     <>
@@ -14,40 +15,43 @@ export default function TopHeader() {
             <div className="container-fluid">
                 {/* Apps Grid Trigger */}
                 <div className="d-flex align-items-center gap-3 me-auto">
-                    <div className="search-bar d-none d-lg-flex" style={{ height: '30px', width: '250px' }}>
-                        <i className="fas fa-search text-muted ps-0"></i>
-                        <input type="text" placeholder="Search..." className="form-control border-0 bg-transparent shadow-none small" style={{ fontSize: '0.9rem' }} suppressHydrationWarning />
+                    <div className="search-bar d-none d-lg-flex position-relative align-items-center" style={{ height: '35px', width: '280px' }}>
+                        <i className="fas fa-search text-muted ps-0 opacity-50"></i>
+                        <input 
+                            type="text" 
+                            placeholder="Search..." 
+                            className="form-control border-0 bg-transparent shadow-none small text-muted" 
+                            style={{ fontSize: '0.85rem' }} 
+                            suppressHydrationWarning 
+                            value={searchText}
+                            onChange={(e) => setSearchText(e.target.value)}
+                        />
+                        {searchText && (
+                            <i 
+                                className="fas fa-times text-muted cursor-pointer hover-text-danger opacity-75"
+                                onClick={clearSearch}
+                                style={{ cursor: 'pointer', fontSize: '0.9rem' }}
+                            ></i>
+                        )}
                     </div>
                 </div>
                 
                 <div className="d-flex align-items-center gap-4">
                     
-                    <div className="position-relative">
-                        <div 
-                            className="notification-badge text-muted" 
-                            id="notificationBtn"
-                            onClick={() => setShowNotifications(!showNotifications)}
-                        >
-                            <i className="fas fa-bell"></i>
-                            <span className="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle" style={{ padding: '0.15rem !important', top: '7px' }}></span>
-                        </div>
-                        
-                        {/* Custom Notification Popup */}
-                        <div className={`notification-popup ${showNotifications ? 'show' : ''}`} id="notificationPopup">
-                            <div className="d-flex align-items-center gap-3">
-                                <h6 className="mb-0 fw-bold">Anda mendapatkan email. <span className="fw-normal"
-                                    style={{ color: 'red' }}>Cek sekarang!</span></h6>
-                            </div>
-                        </div>
-                    </div>
-
+                    {/* User Info & Role */}
                     <div className="user-info">
-                        <Link href="/profile" className="d-flex align-items-center gap-3 text-decoration-none text-dark">
-                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" />
-                            <div className="d-none d-md-block">
-                                <h6 className="mb-0 fw-bold" style={{ fontSize: '0.85rem' }}>Abi Smith</h6>
+                        <div className="d-flex align-items-center gap-2">
+                            <div className="d-none d-md-flex flex-column align-items-center">
+                                <h6 className="mb-1 fw-bold text-dark" style={{ fontSize: '0.65rem', lineHeight: '1.2' }}>7825 - ABI SMITH</h6>
+                                <div className="text-center border rounded-pill px-2 py-1 bg-white shadow-sm" style={{ width: '140px' }}>
+                                    {/* @ts-ignore */}
+                                    <marquee scrollamount="3" style={{ width: '100%', fontSize: '0.6rem', lineHeight: '1.2', color: '#6c757d', display: 'block' }}>
+                                        45B00 - Departemen Pengembangan Teknologi Informasi
+                                    </marquee>
+                                </div>
                             </div>
-                        </Link>
+                            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/fotoorang.jpg`} alt="User" style={{ width: '38px', height: '38px' }} className="rounded-circle" />
+                        </div>
                         
                         <div className="position-relative">
                             <div 
@@ -90,10 +94,10 @@ export default function TopHeader() {
       </nav>
 
         {/* Overlay Click Handler */}
-        {(showNotifications || showRoleMenu) && (
+        {showRoleMenu && (
             <div 
                 style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
-                onClick={() => { setShowNotifications(false); setShowRoleMenu(false); }}
+                onClick={() => setShowRoleMenu(false)}
             />
         )}
     </>

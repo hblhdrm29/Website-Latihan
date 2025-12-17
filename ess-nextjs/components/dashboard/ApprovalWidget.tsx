@@ -147,8 +147,8 @@ export default function ApprovalWidget() {
                 {/* VIEW A : (Tampilan Awal Sebelum Klik) */}
                 {viewMode === 'summary' && (
                     <div className="h-100 d-flex flex-column align-items-center justify-content-center text-center animate__animated animate__fadeIn">
-                        <div className="position-relative mb-3 group cursor-pointer" onClick={() => setViewMode('idle')}>
-                            <div className="bg-primary bg-opacity-10 rounded-circle p-3 position-relative z-1 transition-all hover-scale">
+                        <div className="position-relative mb-3 group">
+                            <div className="bg-primary bg-opacity-10 rounded-circle p-3 position-relative z-1 transition-all">
                                 <i className="fas fa-bell text-primary" style={{ fontSize: '2rem' }}></i>
                             </div>
                             {pendingCount > 0 && (
@@ -288,9 +288,14 @@ export default function ApprovalWidget() {
                                 {rejectedData.map((item, index) => (
                                     <div key={index} className="p-2 rounded-3 bg-white border border-danger-subtle shadow-sm hover-shadow-md transition-all">
                                         <div className="d-flex justify-content-between align-items-center mb-1">
-                                            <span className="badge bg-danger text-white rounded-pill" style={{ fontSize: '0.65rem' }}>
-                                                {item.sourceCategory}
-                                            </span>
+                                            <div className="d-flex align-items-center gap-1">
+                                                <span className="badge bg-dark text-white rounded-pill" style={{ fontSize: '0.65rem' }}>
+                                                    {item.id}
+                                                </span>
+                                                <span className="badge bg-danger text-white rounded-pill" style={{ fontSize: '0.65rem' }}>
+                                                    {item.sourceCategory}
+                                                </span>
+                                            </div>
                                             <span className="text-secondary" style={{ fontSize: '0.65rem' }}>
                                                 {item.date}
                                             </span>

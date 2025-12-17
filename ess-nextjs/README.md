@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Employee Self Service (ESS) - Next.js
 
-## Getting Started
+Aplikasi dashboard mandiri untuk karyawan (ESS), dibangun menggunakan [Next.js](https://nextjs.org/) dan Bootstrap.
 
-First, run the development server:
+## 📋 Prasyarat
+
+Sebelum memulai, pastikan Anda telah menginstal software berikut di komputer Anda:
+
+1.  **Node.js** (Versi 18 atau lebih baru direkomendasikan) - [Download Node.js](https://nodejs.org/)
+2.  **Git** - [Download Git](https://git-scm.com/)
+
+---
+
+## 🚀 Cara Menjalankan Project
+
+Ikuti langkah-langkah di bawah ini untuk mengunduh dan menjalankan aplikasi di komputer lokal Anda.
+
+### 1. Clone Repository
+
+Buka terminal (Command Prompt, PowerShell, atau Git Bash) dan jalankan perintah berikut untuk mendownload project ini:
+
+```bash
+git clone https://github.com/hblhdrm29/Website-Latihan.git
+```
+
+### 2. Masuk ke Folder Project
+
+Setelah proses clone selesai, masuk ke direktori project folder `ess-nextjs` (karena project Next.js ada di dalam folder ini):
+
+```bash
+cd Website-Latihan/ess-nextjs
+```
+
+### 3. Install Dependencies
+
+Install semua library yang dibutuhkan menggunakan `npm`:
+
+```bash
+npm install
+```
+
+### 4. Jalankan Development Server
+
+Untuk menjalankan aplikasi dalam mode development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka browser Anda dan akses alamat berikut:
+[http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Perintah Lainnya
 
-## Learn More
+### Build untuk Production
+Untuk membuat build aplikasi yang siap depploy:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Struktur Project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/` - Halaman dan layout utama Next.js (App Router).
+- `components/` - Komponen UI yang dapat digunakan kembali (Header, Sidebar, ProfileView, dll).
+- `public/` - Aset statis seperti gambar dan ikon.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Fitur Utama
+- **Dashboard Karyawan**: Ringkasan data cuti, lembur, dan agenda.
+- **Profil Karyawan**: Tampilan profil modern dengan data pribadi dan kepegawaian.
+- **Responsive**: Tampilan yang menyesuaikan dengan layar desktop dan mobile.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Dibuat dengan ❤️ menggunakan Next.js.

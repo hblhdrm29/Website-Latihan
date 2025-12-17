@@ -73,13 +73,13 @@ export default function StatisticsChart() {
                 {/* Employee Dropdown */}
                 <div className="position-relative">
                     <div 
-                        className="bg-white border rounded ps-2 pe-1 py-1 d-flex align-items-center gap-1 cursor-pointer hover-bg-light transition-all"
+                        className="bg-white border rounded ps-2 pe-1 py-1 d-flex align-items-center gap-1 cursor-pointer hover-bg-light transition-all hover-text-blue"
                         style={{ fontSize: '0.7rem' }}
                         onClick={() => toggleDropdown('employee')}
                     >
-                        <span className="fw-bold text-dark">Employee:</span>
-                        <span className="text-secondary text-truncate" style={{ maxWidth: '80px' }}>7825 Abi Smith</span>
-                        <i className="fas fa-chevron-down text-secondary ms-1" style={{ fontSize: '0.65rem' }}></i>
+                        <span className="fw-bold text-dark transition-all">Employee:</span>
+                        <span className="text-secondary text-truncate transition-all" style={{ maxWidth: '80px' }}>7825 Abi Smith</span>
+                        <i className="fas fa-chevron-down text-secondary ms-1 transition-all" style={{ fontSize: '0.65rem' }}></i>
                     </div>
                     {openDropdown === 'employee' && (
                         <div className="position-absolute end-0 mt-1 bg-white border shadow-sm rounded-2 p-1 animate__animated animate__fadeIn" style={{ zIndex: 1000, width: '180px' }}>
@@ -91,12 +91,12 @@ export default function StatisticsChart() {
                 {/* Month Dropdown */}
                 <div className="position-relative">
                     <div 
-                        className="bg-white border rounded px-2 py-1 d-flex align-items-center gap-2 cursor-pointer hover-bg-light transition-all"
+                        className="bg-white border rounded px-2 py-1 d-flex align-items-center gap-2 cursor-pointer hover-bg-light transition-all hover-text-blue"
                         style={{ fontSize: '0.7rem' }}
                         onClick={() => toggleDropdown('month')}
                     >
-                        <span className="text-secondary">{selectedMonth}</span>
-                        <i className="fas fa-chevron-down text-secondary" style={{ fontSize: '0.65rem' }}></i>
+                        <span className="text-secondary transition-all">{selectedMonth}</span>
+                        <i className="fas fa-chevron-down text-secondary transition-all" style={{ fontSize: '0.65rem' }}></i>
                     </div>
                     {openDropdown === 'month' && (
                         <div className="position-absolute end-0 mt-1 bg-white border shadow-sm rounded-2 p-1 custom-scrollbar animate__animated animate__fadeIn" style={{ zIndex: 1000, minWidth: '120px', maxHeight: '150px', overflowY: 'auto' }}>
@@ -119,12 +119,12 @@ export default function StatisticsChart() {
                 {/* Year Dropdown */}
                 <div className="position-relative">
                    <div 
-                        className="bg-white border rounded px-2 py-1 d-flex align-items-center gap-2 cursor-pointer hover-bg-light transition-all"
+                        className="bg-white border rounded px-2 py-1 d-flex align-items-center gap-2 cursor-pointer hover-bg-light transition-all hover-text-blue"
                         style={{ fontSize: '0.7rem' }}
                         onClick={() => toggleDropdown('year')}
                     >
-                        <span className="text-secondary">{selectedYear}</span>
-                        <i className="fas fa-chevron-down text-secondary" style={{ fontSize: '0.65rem' }}></i>
+                        <span className="text-secondary transition-all">{selectedYear}</span>
+                        <i className="fas fa-chevron-down text-secondary transition-all" style={{ fontSize: '0.65rem' }}></i>
                     </div>
                     {openDropdown === 'year' && (
                         <div className="position-absolute end-0 mt-1 bg-white border shadow-sm rounded-2 p-1 custom-scrollbar animate__animated animate__fadeIn" style={{ zIndex: 1000, minWidth: '80px', maxHeight: '150px', overflowY: 'auto' }}>
@@ -151,6 +151,11 @@ export default function StatisticsChart() {
             <div className="position-relative d-flex justify-content-center align-items-center" style={{ width: '200px', flexShrink: 0 }}>
                 <div style={{ height: '180px', width: '180px' }}>
                      <Doughnut data={data} options={options} />
+                </div>
+                {/* Center Text Overlay */}
+                <div className="position-absolute top-50 start-50 translate-middle text-center pointer-events-none">
+                    <h4 className="fw-bold text-dark mb-0">80%</h4>
+                    <span className="text-secondary small" style={{ fontSize: '0.65rem' }}>Kehadiran</span>
                 </div>
             </div>
 

@@ -2,15 +2,33 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Sidebar() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [showGridMenu, setShowGridMenu] = useState(false);
+  const [searchText, setSearchText] = useState('');
 
-  const isActive = (path: string) => {
+  // Helper to check active state including query params
+  const isActive = (path: string, queryParam?: { key: string, value: string }) => {
+    if (path === '/') {
+        // Special case for root: only active if NO query param 'view' exists (unless looking for specific view)
+        if (pathname !== '/') return '';
+        const currentView = searchParams.get('view');
+        
+        if (queryParam) {
+            return currentView === queryParam.value ? 'active' : '';
+        } else {
+            // Dashboard case: no view param should be present or view is not profile/agenda
+            return !currentView || (currentView !== 'profile' && currentView !== 'agenda') ? 'active' : '';
+        }
+    }
+    // Standard path check for other pages
     return pathname === path ? 'active' : '';
   };
+
+  const clearSearch = () => setSearchText('');
 
   return (
     <div className="sidebar d-flex flex-column">
@@ -40,8 +58,22 @@ export default function Sidebar() {
         
         {/* Apps Grid Overlay */}
         <div className={`apps-grid-overlay ${showGridMenu ? 'show' : ''}`} id="appsGridOverlay">    
-            <div className="apps-grid-header">
-                <input type="text" className="apps-grid-search" placeholder="Find ESS Apps" />
+            <div className="apps-grid-header position-relative">
+                <input 
+                    type="text" 
+                    className="apps-grid-search" 
+                    placeholder="Find ESS Apps" 
+                    value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    style={{ paddingRight: '40px' }}
+                />
+                {searchText && (
+                    <i 
+                        className="fas fa-times position-absolute top-50 end-0 translate-middle-y me-3 text-muted cursor-pointer hover-text-danger"
+                        onClick={clearSearch}
+                        style={{ cursor: 'pointer' }}
+                    ></i>
+                )}
             </div>
             <div className="apps-grid">
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-user-circle"></i></div><span className="app-label">Profil</span></a>
@@ -73,13 +105,17 @@ export default function Sidebar() {
        )}
         
         <nav className="nav flex-column">
+            {/* Dashboard: Active only if NO 'view' param is present */}
             <Link href="/" className={`nav-link ${isActive('/')}`}>
                 <i className="fas fa-home"></i> Dashboard
             </Link>
-            <Link href="/profil" className={`nav-link ${isActive('/profil')}`}>
+            
+            {/* Profile: Active only if 'view=profile' */}
+            <Link href="/?view=profile" className={`nav-link ${isActive('/', { key: 'view', value: 'profile' })}`}>
                 <i className="fas fa-user"></i> Profil
             </Link>
-            <Link href="/agenda" className={`nav-link ${isActive('/agenda')}`}>
+            
+            <Link href="/?view=agenda" className={`nav-link ${isActive('/', { key: 'view', value: 'agenda' })}`}>
                 <i className="fas fa-calendar-alt"></i> Agenda
             </Link>
             <Link href="/kehadiran" className={`nav-link ${isActive('/kehadiran')}`}>
