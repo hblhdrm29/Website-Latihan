@@ -167,9 +167,6 @@ export default function AgendaView() {
                                                             }}
                                                         >
                                                             {row.time}
-                                                            {row.isHalf && (
-                                                                <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, borderTop: '2px dashed #4cd964', zIndex: 0 }}></div>
-                                                            )}
                                                         </td>
                                                         {[1, 2, 3, 4, 5].map(colDay => {
                                                              const event = row.events?.find(e => e.day === colDay);
@@ -181,9 +178,7 @@ export default function AgendaView() {
                                                                         backgroundColor: '#f8f9fa'
                                                                     }}
                                                                 >
-                                                                    {row.isHalf && (
-                                                                        <div style={{ position: 'absolute', top: '50%', left: 0, right: 0, borderTop: '2px dashed #4cd964', zIndex: 0 }}></div>
-                                                                    )}
+
                                                                     {event && (
                                                                         <div className={`p-2 rounded-3 text-white text-start shadow-sm position-absolute top-50 start-50 translate-middle w-90 overflow-hidden ${event.color || 'bg-primary'}`} style={{ zIndex: 1, height: '85%', fontSize: '0.75rem', opacity: 0.9, width: '95%' }}>
                                                                             <div className="fw-bold text-truncate">{event.title}</div>
