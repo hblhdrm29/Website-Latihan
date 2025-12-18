@@ -103,6 +103,18 @@ export default function ProfileView({ onBack }: { onBack: () => void }) {
                                         <div className="col-sm-7 fw-medium text-dark">Seksi Pengembangan Aplikasi Internal</div>
                                     </div>
                                     <div className="row">
+                                        <div className="col-sm-5 text-muted small">Departemen</div>
+                                        <div className="col-sm-7 fw-medium text-dark">Departemen Pengembangan Teknologi Informasi</div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-sm-5 text-muted small">Divisi</div>
+                                        <div className="col-sm-7 fw-medium text-dark">Teknlogi Informasi</div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-sm-5 text-muted small">Direktorat</div>
+                                        <div className="col-sm-7 fw-medium text-dark">SDM & Teknologi Informasi</div>
+                                    </div>
+                                    <div className="row">
                                         <div className="col-sm-5 text-muted small">Kode Unit</div>
                                         <div className="col-sm-7 fw-medium text-dark">45610</div>
                                     </div>
