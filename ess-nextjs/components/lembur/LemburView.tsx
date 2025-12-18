@@ -78,12 +78,12 @@ export default function LemburView() {
                                     <th className="py-3 border-end fw-bold text-bold">Nama Pegawai</th>
                                     <th className="py-3 border-end fw-bold text-bold">Tertanggal</th>
                                     <th className="py-3 border-end fw-bold text-bold text-nowrap">Input Mulai</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Input Selesai</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Lembur Diakui</th>
+                                    <th className="py-3 border-end fw-bold text-bold text-nowrap">Input Selesai</th>
+                                    <th className="py-3 border-end fw-bold text-bold text-nowrap">Lembur Diakui</th>
                                     <th className="py-3 border-end fw-bold text-bold">Jenis Alasan</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Keterangan</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Ket</th>
                                     <th className="py-3 border-end fw-bold text-bold">Status</th>
-                                    <th className="py-3 fw-bold text-bold ">Aksi</th>
+                                    <th className="py-3 fw-bold text-bold">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-transparent">
