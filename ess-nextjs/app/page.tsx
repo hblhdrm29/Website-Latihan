@@ -8,6 +8,8 @@ import ApprovalWidget from "@/components/dashboard/ApprovalWidget";
 import { AgendaWidget, LemburWidget, CutiWidget, PerizinanWidget } from "@/components/dashboard/Widgets";
 import ProfileView from "@/components/profile/ProfileView";
 import AgendaView from "@/components/agenda/AgendaView";
+import KehadiranView from "@/components/kehadiran/KehadiranView";
+import LemburView from "@/components/lembur/LemburView";
 
 function HomeContent() {
   const searchParams = useSearchParams();
@@ -15,7 +17,10 @@ function HomeContent() {
   
   // Get view from URL param, default to 'dashboard'
   const viewParam = searchParams.get('view');
-  const currentView = viewParam === 'profile' ? 'profile' : viewParam === 'agenda' ? 'agenda' : 'dashboard';
+  const currentView = viewParam === 'profile' ? 'profile' : 
+                     viewParam === 'agenda' ? 'agenda' : 
+                     viewParam === 'kehadiran' ? 'kehadiran' : 
+                     viewParam === 'lembur' ? 'lembur' : 'dashboard';
 
   // Helper to switch views
   const setView = (view: string) => {
@@ -39,12 +44,14 @@ function HomeContent() {
                 <div className="animate__animated animate__fadeIn">
                     {/* Filter Section */}
                     <div className="d-flex flex-wrap align-items-center justify-content-between mb-4">
-                        <div>
-                            <h2 className="fw-bold text-primary mb-0">Dashboard</h2>
-                            <p className="text-muted mb-0">Welcome back, Abi</p>
-                            <hr className="mt-2" style={{ width: '963px', opacity: 0.2, margin: 0 }}/>
+                        <div className="d-flex align-items-center gap-3">
+                            <div>
+                                <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Dashboard</h2>
+                                <p className="text-muted mb-0">Welcome back, Abi</p>
+                            </div>
                         </div>
                     </div>
+                    <hr className="mt-2 text-muted" style={{ opacity: 0.1, margin: 0 }}/>
 
                     {/* Announcement Banner */}
                     <div className="announcement-bar d-flex align-items-center shadow-sm overflow-hidden p-0 ps-3">
@@ -102,7 +109,43 @@ function HomeContent() {
             {/* View C: Agenda */}
             {currentView === 'agenda' && (
                 <div className="py-4">
-                     <AgendaView />
+                     <AgendaView onBack={() => setView('dashboard')} />
+                </div>
+            )}
+
+            {currentView === 'kehadiran' && (
+                <div className="py-4 px-3">
+                    <div className="d-flex align-items-center gap-3 mb-4">
+                        <button 
+                            onClick={() => setView('dashboard')}
+                            className="btn btn-light border rounded-circle shadow-sm"
+                            style={{ width: '40px', height: '40px' }}
+                        >
+                            <i className="fas fa-arrow-left"></i>
+                        </button>
+                        <div>
+                            <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Kehadiran</h2>
+                        </div>
+                    </div>
+                     <KehadiranView />
+                </div>
+            )}
+
+            {currentView === 'lembur' && (
+                <div className="py-4 px-3">
+                    <div className="d-flex align-items-center gap-3 mb-4">
+                        <button 
+                            onClick={() => setView('dashboard')}
+                            className="btn btn-light border rounded-circle shadow-sm"
+                            style={{ width: '40px', height: '40px' }}
+                        >
+                            <i className="fas fa-arrow-left"></i>
+                        </button>
+                        <div>
+                            <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Lembur</h2>
+                        </div>
+                    </div>
+                     <LemburView />
                 </div>
             )}
 

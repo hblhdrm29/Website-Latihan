@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export function AgendaWidget() {
     const [dateString, setDateString] = useState('');
@@ -44,9 +45,9 @@ export function AgendaWidget() {
             </div>
 
             <div className="mt-auto pt-2 text-end">
-                <a href="#" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
+                <Link href="/?view=agenda" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
                     Tracking Details <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
-                </a>
+                </Link>
             </div>
         </div>
     );
@@ -129,9 +130,9 @@ export function LemburWidget() {
             </div>
 
             <div className="mt-auto pt-2 text-end">
-                <a href="#" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
+                <Link href="/?view=lembur" className="text-secondary text-decoration-none fw-semibold tracking-details-link" style={{ fontSize: '0.75rem' }}>
                     Tracking Details <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
-                </a>
+                </Link>
             </div>
         </div>
     );

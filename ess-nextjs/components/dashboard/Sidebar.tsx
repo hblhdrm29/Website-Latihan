@@ -20,8 +20,9 @@ export default function Sidebar() {
         if (queryParam) {
             return currentView === queryParam.value ? 'active' : '';
         } else {
-            // Dashboard case: no view param should be present or view is not profile/agenda
-            return !currentView || (currentView !== 'profile' && currentView !== 'agenda') ? 'active' : '';
+            // Dashboard case: no view param should be present or view is not profile/agenda/kehadiran/etc
+            const views = ['profile', 'agenda', 'kehadiran', 'lembur', 'cuti', 'izin', 'dinas'];
+            return !currentView || !views.includes(currentView) ? 'active' : '';
         }
     }
     // Standard path check for other pages
@@ -118,16 +119,16 @@ export default function Sidebar() {
             <Link href="/?view=agenda" className={`nav-link ${isActive('/', { key: 'view', value: 'agenda' })}`}>
                 <i className="fas fa-calendar-alt"></i> Agenda
             </Link>
-            <Link href="/kehadiran" className={`nav-link ${isActive('/kehadiran')}`}>
+            <Link href="/?view=kehadiran" className={`nav-link ${isActive('/', { key: 'view', value: 'kehadiran' })}`}>
                 <i className="fas fa-user-clock"></i> Kehadiran
             </Link>
-            <Link href="/lembur" className={`nav-link ${isActive('/lembur')}`}>
+            <Link href="/?view=lembur" className={`nav-link ${isActive('/', { key: 'view', value: 'lembur' })}`}>
                 <i className="fas fa-clock"></i> Lembur
             </Link>
-            <Link href="/cuti" className={`nav-link ${isActive('/cuti')}`}>
+            <Link href="/?view=cuti" className={`nav-link ${isActive('/', { key: 'view', value: 'cuti' })}`}>
                 <i className="fas fa-plane-departure"></i> Cuti
             </Link>
-            <Link href="/izin" className={`nav-link ${isActive('/izin')}`}>
+            <Link href="/?view=izin" className={`nav-link ${isActive('/', { key: 'view', value: 'izin' })}`}>
                 <i className="fas fa-envelope-open-text"></i> Izin
             </Link>
         </nav>
