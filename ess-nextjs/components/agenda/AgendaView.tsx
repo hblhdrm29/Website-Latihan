@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 
 interface ScheduleEvent {
     day: number;
@@ -37,7 +36,6 @@ export default function AgendaView({ onBack }: { onBack?: () => void }) {
                         <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Agenda</h2>
                     </div>
                 </div>
-                <AnnouncementBanner />
             </div>
             
             <div className="row g-4">

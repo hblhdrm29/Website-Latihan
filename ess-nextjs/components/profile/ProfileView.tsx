@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 
 export default function ProfileView({ onBack }: { onBack: () => void }) {
     return (
@@ -20,7 +19,6 @@ export default function ProfileView({ onBack }: { onBack: () => void }) {
                         <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Profile</h2>
                     </div>
                 </div>
-                <AnnouncementBanner />
             </div>
 
             <div className="px-3 pb-5">

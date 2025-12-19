@@ -58,8 +58,10 @@ function HomeContent() {
                                 <p className="text-muted mb-0">Welcome back, Abi</p>
                             </div>
                         </div>
-
-                        {/* Announcement Banner */}
+                    </div>
+                    
+                    {/* Announcement Banner */}
+                    <div className="px-3 mb-4">
                         <AnnouncementBanner />
                     </div>
                     {/* Widgets Structure */}
@@ -130,7 +132,6 @@ function HomeContent() {
                                 <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Kehadiran</h2>
                             </div>
                         </div>
-                        <AnnouncementBanner />
                     </div>
                      <KehadiranView />
                 </div>
@@ -151,7 +152,6 @@ function HomeContent() {
                                 <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Lembur</h2>
                             </div>
                         </div>
-                         <AnnouncementBanner />
                     </div>
                      <LemburView />
                 </div>
@@ -172,7 +172,6 @@ function HomeContent() {
                                 <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Cuti</h2>
                             </div>
                         </div>
-                         <AnnouncementBanner />
                     </div>
                      <CutiView />
                 </div>
@@ -193,7 +192,6 @@ function HomeContent() {
                                 <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Izin</h2>
                             </div>
                         </div>
-                         <AnnouncementBanner />
                     </div>
                      <IzinView />
                 </div>

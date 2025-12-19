@@ -34,10 +34,11 @@ export function AgendaWidget() {
         return () => clearInterval(interval);
     }, [items.length]);
 
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
     const bgImages = [
-        '/assets/img/p1_wide.png',
-        '/assets/img/p2.jpg',
-        '/assets/img/p3.jpeg'
+        `${basePath}/assets/img/p1_wide.png`,
+        `${basePath}/assets/img/p2.jpg`,
+        `${basePath}/assets/img/p3.jpeg`
     ];
 
     return (
