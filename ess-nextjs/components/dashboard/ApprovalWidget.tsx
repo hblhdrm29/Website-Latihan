@@ -97,7 +97,7 @@ export default function ApprovalWidget() {
             
             {/* 1. Header Logic */}
             {viewMode !== 'summary' && (
-                <div className="px-3 py-2 border-bottom d-flex flex-column gap-2 animate__animated animate__fadeInDown">
+                <div className="px-3 py-2 border-bottom d-flex flex-column gap-1 animate__animated animate__fadeInDown">
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center gap-2">
                             <button 
@@ -108,8 +108,8 @@ export default function ApprovalWidget() {
                                 <i className="fas fa-arrow-left text-dark" style={{ fontSize: '0.9rem' }}></i>
                             </button>
                             <div>
-                                <h6 className="fw-bold text-dark mb-0">Pusat Persetujuan</h6>
-                                <span className="text-secondary small" style={{ fontSize: '0.75rem' }}>Kelola permintaan masuk</span>
+                                <h6 className="fw-bold text-dark mb-0" style={{ fontSize: '0.85rem' }}>Pusat Persetujuan</h6>
+                                <span className="text-secondary small d-block" style={{ fontSize: '0.65rem', lineHeight: 1 }}>Kelola permintaan</span>
                             </div>
                         </div>
                         
@@ -121,18 +121,18 @@ export default function ApprovalWidget() {
 
                     {/* Segmented Pill Toggle - Hide in Detail View */}
                     {viewMode !== 'detail' && (
-                        <div className="p-1 bg-light rounded-pill d-flex position-relative border">
+                        <div className="p-1 bg-light rounded-pill d-flex position-relative border mt-1">
                             <button 
                                 className={`flex-fill btn btn-sm rounded-pill fw-bold border-0 transition-all hover-text-blue ${viewMode === 'list' ? 'bg-white shadow-sm text-dark' : 'text-secondary'}`}
                                 onClick={() => setViewMode('list')}
-                                style={{ fontSize: '0.8rem', zIndex: 1 }}
+                                style={{ fontSize: '0.75rem', zIndex: 1, padding: '2px 0' }}
                             >
                                 Menunggu <span className="ms-1 opacity-75">({pendingCount})</span>
                             </button>
                             <button 
                                 className={`flex-fill btn btn-sm rounded-pill fw-bold border-0 transition-all hover-text-red ${viewMode === 'rejected' ? 'bg-white shadow-sm text-danger' : 'text-secondary'}`}
                                 onClick={() => setViewMode('rejected')}
-                                style={{ fontSize: '0.8rem', zIndex: 1 }}
+                                style={{ fontSize: '0.75rem', zIndex: 1, padding: '2px 0' }}
                             >
                                 Ditolak <span className={`ms-1 ${viewMode === 'rejected' ? 'opacity-100' : 'opacity-75'}`}>({rejectedData.length})</span>
                             </button>
@@ -147,9 +147,9 @@ export default function ApprovalWidget() {
                 {/* VIEW A : (Tampilan Awal Sebelum Klik) */}
                 {viewMode === 'summary' && (
                     <div className="h-100 d-flex flex-column align-items-center justify-content-center text-center animate__animated animate__fadeIn">
-                        <div className="position-relative mb-3 group">
+                        <div className="position-relative mb-2 group">
                             <div className="bg-primary bg-opacity-10 rounded-circle p-3 position-relative z-1 transition-all">
-                                <i className="fas fa-bell text-primary" style={{ fontSize: '2rem' }}></i>
+                                <i className="fas fa-bell text-primary" style={{ fontSize: '1.5rem' }}></i>
                             </div>
                             {pendingCount > 0 && (
                                 <div className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-2 border-white shadow-sm z-2 px-2 py-1 animate__animated animate__bounceIn" style={{ fontSize: '0.75rem' }}>
@@ -157,9 +157,9 @@ export default function ApprovalWidget() {
                                 </div>
                             )}
                         </div>
-                        <h5 className="fw-bold text-dark mb-1">Halo, Super Admin!</h5>
-                        <p className="text-secondary small px-3 mb-4">
-                            Anda memiliki <span className="fw-bold text-dark">{pendingCount} persetujuan baru</span> yang perlu ditinjau hari ini.
+                        <h5 className="fw-bold text-dark mb-1" style={{ fontSize: '1rem' }}>Halo, Super Admin!</h5>
+                        <p className="text-secondary small px-3 mb-3" style={{ fontSize: '0.75rem' }}>
+                            Anda memiliki <span className="fw-bold text-dark">{pendingCount} persetujuan baru</span>.
                         </p>
                         <button 
                             className="btn btn-sm btn-primary rounded-pill px-3 py-1 fw-semibold shadow-sm hover-shadow-md transition-all d-flex align-items-center gap-2"

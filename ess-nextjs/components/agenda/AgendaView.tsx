@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 
 interface ScheduleEvent {
     day: number;
@@ -22,17 +23,21 @@ export default function AgendaView({ onBack }: { onBack?: () => void }) {
     return (
         <div className="container-fluid px-3">
              {/* Header */}
-            <div className="d-flex align-items-center gap-3 mb-1">
-                <button 
-                    onClick={onBack}
-                    className="btn btn-light border rounded-circle shadow-sm"
-                    style={{ width: '40px', height: '40px' }}
-                >
-                    <i className="fas fa-arrow-left"></i>
-                </button>
-                <div>
-                    <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Agenda</h2>
+             {/* Header */}
+            <div className="d-flex align-items-center gap-3 mb-2">
+                <div className="d-flex align-items-center gap-3 flex-shrink-0">
+                    <button 
+                        onClick={onBack}
+                        className="btn btn-light border rounded-circle shadow-sm"
+                        style={{ width: '40px', height: '40px' }}
+                    >
+                        <i className="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Agenda</h2>
+                    </div>
                 </div>
+                <AnnouncementBanner />
             </div>
             
             <div className="row g-4">

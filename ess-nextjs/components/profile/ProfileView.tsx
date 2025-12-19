@@ -1,22 +1,26 @@
 "use client";
 
 import React from 'react';
+import AnnouncementBanner from "@/components/dashboard/AnnouncementBanner";
 
 export default function ProfileView({ onBack }: { onBack: () => void }) {
     return (
         <div className="container-fluid p-0">
             {/* Header */}
-            <div className="px-3 mb-4 d-flex align-items-center gap-3">
-                <button 
-                    onClick={onBack}
-                    className="btn btn-light border rounded-circle shadow-sm"
-                    style={{ width: '40px', height: '40px' }}
-                >
-                    <i className="fas fa-arrow-left"></i>
-                </button>
-                <div>
-                    <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Profil Karyawan</h2>
+            <div className="px-3 mb-2 d-flex align-items-center gap-3">
+                <div className="d-flex align-items-center gap-3 flex-shrink-0">
+                    <button 
+                        onClick={onBack}
+                        className="btn btn-light border rounded-circle shadow-sm"
+                        style={{ width: '40px', height: '40px' }}
+                    >
+                        <i className="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Profile</h2>
+                    </div>
                 </div>
+                <AnnouncementBanner />
             </div>
 
             <div className="px-3 pb-5">
@@ -44,7 +48,7 @@ export default function ProfileView({ onBack }: { onBack: () => void }) {
                                     </div>
                                     <div className="col-auto">
                                         <button className="btn btn-primary rounded-pill px-4 shadow-sm fw-medium" style={{ backgroundColor: '#20288E', fontSize: '0.9rem' }}>
-                                            Edit Profil
+                                            Edit Profile
                                         </button>
                                     </div>
                                 </div>

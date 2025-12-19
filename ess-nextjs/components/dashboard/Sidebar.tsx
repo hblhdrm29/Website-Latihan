@@ -113,7 +113,7 @@ export default function Sidebar() {
             
             {/* Profile: Active only if 'view=profile' */}
             <Link href="/?view=profile" className={`nav-link ${isActive('/', { key: 'view', value: 'profile' })}`}>
-                <i className="fas fa-user"></i> Profil
+                <i className="fas fa-user"></i> Profile
             </Link>
             
             <Link href="/?view=agenda" className={`nav-link ${isActive('/', { key: 'view', value: 'agenda' })}`}>

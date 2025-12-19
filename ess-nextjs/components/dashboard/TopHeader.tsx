@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 export default function TopHeader() {
   const [showRoleMenu, setShowRoleMenu] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [role, setRole] = useState('Pengguna');
   const [searchText, setSearchText] = useState('');
 
@@ -87,18 +88,73 @@ export default function TopHeader() {
                 </div>
 
                 {/* Logout Button */}
-                <a href="#" className="btn btn-link text-danger p-0 ms-2" title="Logout">
+                <a 
+                    href="#" 
+                    className="btn btn-link text-danger p-0 ms-2" 
+                    title="Logout"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        setShowLogoutModal(true);
+                    }}
+                >
                     <i className="fas fa-sign-out-alt"></i>
                 </a>
             </div>
       </nav>
 
-        {/* Overlay Click Handler */}
+        {/* Overlay Click Handler for Role Menu */}
         {showRoleMenu && (
             <div 
                 style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
                 onClick={() => setShowRoleMenu(false)}
             />
+        )}
+
+        {/* Logout Modal */}
+        {showLogoutModal && (
+            <>
+                <div 
+                    className="modal-backdrop show" 
+                    style={{ backgroundColor: 'rgba(0,0,0,0.2)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', zIndex: 1050, opacity: 1 }}
+                    onClick={() => setShowLogoutModal(false)}
+                ></div>
+                <div className="modal d-block" tabIndex={-1} style={{ zIndex: 1055 }}>
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content border-0 rounded-4 p-4 text-center" style={{ maxWidth: '500px', boxShadow: '0 0 20px rgba(0,0,0,0.1)' }}>
+                            <div className="modal-body p-2">
+                                <h3 className="fw-bold mb-4" style={{ color: '#000' }}>
+                                    Are you sure you<br />want to log out?
+                                </h3>
+                                <p className="text-secondary mb-1 fs-5">
+                                    Log out of Employee Self Service as
+                                </p>
+                                <p className="text-secondary fw-bold fs-5 mb-5">
+                                    Abismith19@gmail.com
+                                </p>
+                                
+                                <div className="d-flex justify-content-center gap-4">
+                                    <button 
+                                        type="button" 
+                                        className="btn btn-dark rounded-3 px-4 py-2 fs-5 fw-bold"
+                                        style={{ minWidth: '140px' }}
+                                        onClick={() => setShowLogoutModal(false)}
+                                    >
+                                        Log out
+                                    </button>
+                                    <button 
+                                        type="button" 
+                                        className="btn btn-light border border-secondary rounded-3 px-4 py-2 fs-5 fw-bold"
+                                        style={{ minWidth: '140px', backgroundColor: '#fff' }}
+                                        onClick={() => setShowLogoutModal(false)}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </>
         )}
     </>
   );
