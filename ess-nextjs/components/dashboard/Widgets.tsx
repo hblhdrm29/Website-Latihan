@@ -35,7 +35,7 @@ export function AgendaWidget() {
     }, [items.length]);
 
     const bgImages = [
-        '/assets/img/p1.jpg',
+        '/assets/img/p1_wide.png',
         '/assets/img/p2.jpg',
         '/assets/img/p3.jpeg'
     ];
@@ -90,7 +90,7 @@ export function AgendaWidget() {
                 </div>
 
                 <div className="d-flex justify-content-between align-items-center mt-2 px-2">
-                    <button className="btn btn-sm text-secondary custom-carousel-nav" type="button" onClick={prev} style={{ fontSize: '0.8rem' }}>
+                    <button className="btn btn-sm text-secondary custom-carousel-nav" type="button" onClick={prev} style={{ fontSize: '0.8rem' }} suppressHydrationWarning>
                         <i className="fas fa-chevron-left"></i>
                     </button>
                     
@@ -105,7 +105,7 @@ export function AgendaWidget() {
                         ))}
                     </div>
 
-                    <button className="btn btn-sm text-secondary custom-carousel-nav" type="button" onClick={next} style={{ fontSize: '0.8rem' }}>
+                    <button className="btn btn-sm text-secondary custom-carousel-nav" type="button" onClick={next} style={{ fontSize: '0.8rem' }} suppressHydrationWarning>
                         <i className="fas fa-chevron-right"></i>
                     </button>
                 </div>
