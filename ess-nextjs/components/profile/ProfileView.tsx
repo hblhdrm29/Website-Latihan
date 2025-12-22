@@ -8,13 +8,6 @@ export default function ProfileView({ onBack }: { onBack: () => void }) {
             {/* Header */}
             <div className="px-3 mb-2 d-flex align-items-center gap-3">
                 <div className="d-flex align-items-center gap-3 flex-shrink-0">
-                    <button 
-                        onClick={onBack}
-                        className="btn btn-light border rounded-circle shadow-sm"
-                        style={{ width: '40px', height: '40px' }}
-                    >
-                        <i className="fas fa-arrow-left"></i>
-                    </button>
                     <div>
                         <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Profile</h2>
                     </div>

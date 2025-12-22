@@ -21,7 +21,7 @@ export default function Sidebar() {
             return currentView === queryParam.value ? 'active' : '';
         } else {
             // Dashboard case: no view param should be present or view is not profile/agenda/kehadiran/etc
-            const views = ['profile', 'agenda', 'kehadiran', 'lembur', 'cuti', 'izin', 'dinas'];
+            const views = ['profile', 'agenda', 'kehadiran', 'lembur', 'cuti', 'izin', 'dinas', 'organization'];
             return !currentView || !views.includes(currentView) ? 'active' : '';
         }
     }
@@ -54,11 +54,24 @@ export default function Sidebar() {
                 </svg>
             </div>
 
-            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/Logo_Peruri2.png`} alt="PERURI Logo" style={{ maxWidth: '100px', marginBottom: 0 }} />
+            <Link href="/" className="text-decoration-none" style={{ cursor: 'pointer' }}>
+                <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/assets/img/Logo_Peruri2.png`} alt="PERURI Logo" style={{ maxWidth: '100px', marginBottom: 0 }} />
+            </Link>
         </div>
         
         {/* Apps Grid Overlay */}
-        <div className={`apps-grid-overlay ${showGridMenu ? 'show' : ''}`} id="appsGridOverlay">    
+        <div className={`apps-grid-overlay ${showGridMenu ? 'show' : ''}`} id="appsGridOverlay">
+            <style jsx>{`
+                .apps-grid-overlay .app-item.active .app-icon {
+                    background-color: #e7f1ff !important;
+                    color: #0d6efd !important;
+                    border: 1px solid rgba(13, 110, 253, 0.2) !important;
+                }
+                .apps-grid-overlay .app-item.active .app-label {
+                    color: #0d6efd !important;
+                    font-weight: 600 !important;
+                }
+            `}</style>    
             <div className="apps-grid-header position-relative">
                 <input 
                     type="text" 
@@ -77,14 +90,12 @@ export default function Sidebar() {
                 )}
             </div>
             <div className="apps-grid">
-                <Link href="/?view=profile" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-user-circle"></i></div><span className="app-label">Profil</span></Link>
-                <Link href="/?view=agenda" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-clipboard-list"></i></div><span className="app-label">Agenda</span></Link>
-                <Link href="/?view=kehadiran" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-user-clock"></i></div><span className="app-label">Kehadiran</span></Link>
-                <Link href="/?view=lembur" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-clock"></i></div><span className="app-label">Lembur</span></Link>
-                <Link href="/?view=cuti" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-plane"></i></div><span className="app-label">Cuti</span></Link>
+                <Link href="/?view=kehadiran" className={`app-item ${isActive('/', { key: 'view', value: 'kehadiran' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-user-clock"></i></div><span className="app-label">Kehadiran</span></Link>
+                <Link href="/?view=lembur" className={`app-item ${isActive('/', { key: 'view', value: 'lembur' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-clock"></i></div><span className="app-label">Lembur</span></Link>
+                <Link href="/?view=cuti" className={`app-item ${isActive('/', { key: 'view', value: 'cuti' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-plane"></i></div><span className="app-label">Cuti</span></Link>
                 
-                <Link href="/?view=izin" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-envelope"></i></div><span className="app-label">Izin</span></Link>
-                <Link href="/?view=dinas" className="app-item" onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-car"></i></div><span className="app-label">Dinas</span></Link>
+                <Link href="/?view=izin" className={`app-item ${isActive('/', { key: 'view', value: 'izin' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-envelope"></i></div><span className="app-label">Izin</span></Link>
+                <Link href="/?view=dinas" className={`app-item ${isActive('/', { key: 'view', value: 'dinas' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-car"></i></div><span className="app-label">Dinas</span></Link>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-info-circle"></i></div><span className="app-label">Informasi</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-briefcase"></i></div><span className="app-label">Pelatihan</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file-alt"></i></div><span className="app-label">SPBE</span></a>
@@ -106,31 +117,151 @@ export default function Sidebar() {
        )}
         
         <nav className="nav flex-column">
-            {/* Dashboard: Active only if NO 'view' param is present */}
-            <Link href="/" className={`nav-link ${isActive('/')}`}>
-                <i className="fas fa-home"></i> Dashboard
-            </Link>
-            
-            {/* Profile: Active only if 'view=profile' */}
-            <Link href="/?view=profile" className={`nav-link ${isActive('/', { key: 'view', value: 'profile' })}`}>
-                <i className="fas fa-user"></i> Profile
-            </Link>
-            
-            <Link href="/?view=agenda" className={`nav-link ${isActive('/', { key: 'view', value: 'agenda' })}`}>
-                <i className="fas fa-calendar-alt"></i> Agenda
-            </Link>
-            <Link href="/?view=kehadiran" className={`nav-link ${isActive('/', { key: 'view', value: 'kehadiran' })}`}>
-                <i className="fas fa-user-clock"></i> Kehadiran
-            </Link>
-            <Link href="/?view=lembur" className={`nav-link ${isActive('/', { key: 'view', value: 'lembur' })}`}>
-                <i className="fas fa-clock"></i> Lembur
-            </Link>
-            <Link href="/?view=cuti" className={`nav-link ${isActive('/', { key: 'view', value: 'cuti' })}`}>
-                <i className="fas fa-plane-departure"></i> Cuti
-            </Link>
-            <Link href="/?view=izin" className={`nav-link ${isActive('/', { key: 'view', value: 'izin' })}`}>
-                <i className="fas fa-envelope-open-text"></i> Izin
-            </Link>
+            {searchParams.get('view') === 'dinas' ? (
+                // DINAS SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-2 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Dinas</span>
+                    </div>
+                    <Link href="/?view=dinas" className="nav-link active">
+                        <i className="fas fa-home"></i> Home Dinas
+                    </Link>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-file-signature"></i> Pengajuan
+                    </a>
+                    
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-history"></i> Riwayat
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-file-alt"></i> Laporan
+                    </a>
+                    <div className="nav-item px-3 mb-2 mt-4">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                     <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'kehadiran' ? (
+                // KEHADIRAN SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-2 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Kehadiran</span>
+                    </div>
+                    <Link href="/?view=kehadiran" className="nav-link active">
+                        <i className="fas fa-home"></i> Home Kehadiran
+                    </Link>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-file-signature"></i> Pengajuan
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-history"></i> Riwayat
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-file-alt"></i> Laporan
+                    </a>
+                    <div className="nav-item px-3 mb-2 mt-4">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                     <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'lembur' ? (
+                 // LEMBUR SPECIFIC SIDEBAR
+                 <>
+                    <div className="nav-item px-3 mb-2 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Lembur</span>
+                    </div>
+                    <Link href="/?view=lembur" className="nav-link active">
+                        <i className="fas fa-home"></i> Home Lembur
+                    </Link>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-file-signature"></i> Pengajuan
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-history"></i> Riwayat
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-file-alt"></i> Laporan
+                    </a>
+                    <div className="nav-item px-3 mb-2 mt-4">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                     <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'cuti' ? (
+                // CUTI SPECIFIC SIDEBAR
+                <>
+                   <div className="nav-item px-3 mb-2 mt-2">
+                       <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Cuti</span>
+                   </div>
+                   <Link href="/?view=cuti" className="nav-link active">
+                       <i className="fas fa-home"></i> Home Cuti
+                   </Link>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-file-signature"></i> Pengajuan
+                   </a>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-history"></i> Riwayat
+                   </a>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-file-alt"></i> Laporan
+                   </a>
+                   <div className="nav-item px-3 mb-2 mt-4">
+                       <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                   </div>
+                    <Link href="/" className="nav-link">
+                       <i className="fas fa-arrow-left"></i> Main Dashboard
+                   </Link>
+               </>
+           ) : searchParams.get('view') === 'izin' ? (
+                // IZIN SPECIFIC SIDEBAR
+                <>
+                   <div className="nav-item px-3 mb-2 mt-2">
+                       <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Izin</span>
+                   </div>
+                   <Link href="/?view=izin" className="nav-link active">
+                       <i className="fas fa-home"></i> Home Izin
+                   </Link>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-file-signature"></i> Pengajuan
+                   </a>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-history"></i> Riwayat
+                   </a>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-file-alt"></i> Laporan
+                   </a>
+                   <div className="nav-item px-3 mb-2 mt-4">
+                       <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                   </div>
+                    <Link href="/" className="nav-link">
+                       <i className="fas fa-arrow-left"></i> Main Dashboard
+                   </Link>
+               </>
+           ) : (
+                // STANDARD SIDEBAR
+                <>
+                    <Link href="/" className={`nav-link ${isActive('/')}`}>
+                        <i className="fas fa-home"></i> Dashboard
+                    </Link>
+                    
+                    <Link href="/?view=profile" className={`nav-link ${isActive('/', { key: 'view', value: 'profile' })}`}>
+                        <i className="fas fa-user"></i> Profile
+                    </Link>
+                    
+                    <Link href="/?view=agenda" className={`nav-link ${isActive('/', { key: 'view', value: 'agenda' })}`}>
+                        <i className="fas fa-calendar-alt"></i> Agenda
+                    </Link>
+                    <Link href="/?view=organization" className={`nav-link ${isActive('/', { key: 'view', value: 'organization' })}`}>
+                        <i className="fas fa-sitemap"></i> Organization
+                    </Link>
+                </>
+            )}
         </nav>
     </div>
   );

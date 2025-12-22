@@ -8,8 +8,14 @@ export default function ApprovalWidget() {
     // 'list' = Tampilan daftar kategori (setelah klik Menunggu)
     // 'detail' = Tampilan detail item (setelah klik salah satu kategori)
     // 'rejected' = Tampilan ditolak
+    // 'summary' = Tampilan awal (sebelum klik)
+    // 'idle' = Tampilan setelah klik Tinjau (Header muncul, tapi konten belum dipilih)
+    // 'list' = Tampilan daftar kategori (setelah klik Menunggu)
+    // 'detail' = Tampilan detail item (setelah klik salah satu kategori)
+    // 'rejected' = Tampilan ditolak
     const [viewMode, setViewMode] = useState<'summary' | 'idle' | 'list' | 'detail' | 'rejected'>('summary');
     const [selectedDetail, setSelectedDetail] = useState<string | null>(null);
+    const [isMinimized, setIsMinimized] = useState(false);
 
     // Initial Data
     const [trainingData, setTrainingData] = useState([
@@ -92,12 +98,42 @@ export default function ApprovalWidget() {
         }
     };
 
+    if (isMinimized) {
+        return (
+            <div className="position-fixed bottom-0 end-0 p-2" style={{ zIndex: 1050 }}>
+                <button 
+                    className="btn btn-primary position-relative rounded-circle shadow-lg d-flex align-items-center justify-content-center animate__animated animate__fadeIn"
+                    style={{ width: '40px', height: '40px' }}
+                    onClick={() => setIsMinimized(false)}
+                >
+                    <i className="fas fa-file-signature text-white" style={{ fontSize: '1rem' }}></i>
+                    {pendingCount > 0 && (
+                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-2 border-white" style={{ fontSize: '0.5rem', marginTop: '5px', marginLeft: '-5px' }}>
+                            {pendingCount}
+                        </span>
+                    )}
+                </button>
+            </div>
+        );
+    }
+
     return (
-        <div className="card border-0 rounded-4 overflow-hidden h-100 d-flex flex-column" style={{ backgroundColor: '#f8f9fa' }}>
+        <div className="position-fixed bottom-0 end-0 p-4" style={{ zIndex: 1050, width: '400px', maxWidth: '100vw' }}>
+            <div className="card border-0 rounded-4 overflow-hidden h-100 d-flex flex-column shadow-lg" style={{ backgroundColor: '#f8f9fa', maxHeight: '70vh' }}>
             
             {/* 1. Header Logic */}
+            <div className="px-3 py-2 border-bottom d-flex align-items-center justify-content-between bg-white">
+                 <div className="d-flex align-items-center gap-2">
+                     <i className="fas fa-file-signature text-primary"></i>
+                     <span className="fw-bold text-dark" style={{ fontSize: '0.9rem' }}>Pusat Persetujuan</span>
+                 </div>
+                 <button onClick={() => setIsMinimized(true)} className="btn btn-sm btn-light rounded-circle shadow-sm" style={{ width: '28px', height: '28px' }}>
+                    <i className="fas fa-minus text-secondary" style={{ fontSize: '0.8rem' }}></i>
+                 </button>
+            </div>
+
             {viewMode !== 'summary' && (
-                <div className="px-3 py-2 border-bottom d-flex flex-column gap-1 animate__animated animate__fadeInDown">
+                    <div className="px-3 py-1 border-bottom d-flex flex-column gap-1 animate__animated animate__fadeInDown">
                     <div className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center gap-2">
                             <button 
@@ -108,8 +144,7 @@ export default function ApprovalWidget() {
                                 <i className="fas fa-arrow-left text-dark" style={{ fontSize: '0.9rem' }}></i>
                             </button>
                             <div>
-                                <h6 className="fw-bold text-dark mb-0" style={{ fontSize: '0.85rem' }}>Pusat Persetujuan</h6>
-                                <span className="text-secondary small d-block" style={{ fontSize: '0.65rem', lineHeight: 1 }}>Kelola permintaan</span>
+                                <h6 className="fw-bold text-dark mb-0" style={{ fontSize: '0.85rem' }}>Detail</h6>
                             </div>
                         </div>
                         
@@ -328,6 +363,7 @@ export default function ApprovalWidget() {
                          )}
                     </div>
                 )}
+            </div>
             </div>
         </div>
     );

@@ -23,15 +23,9 @@ export default function AgendaView({ onBack }: { onBack?: () => void }) {
         <div className="container-fluid px-3">
              {/* Header */}
              {/* Header */}
+             {/* Header */}
             <div className="d-flex align-items-center gap-3 mb-2">
                 <div className="d-flex align-items-center gap-3 flex-shrink-0">
-                    <button 
-                        onClick={onBack}
-                        className="btn btn-light border rounded-circle shadow-sm"
-                        style={{ width: '40px', height: '40px' }}
-                    >
-                        <i className="fas fa-arrow-left"></i>
-                    </button>
                     <div>
                         <h2 className="fw-bold mb-0" style={{ color: '#20288E' }}>Agenda</h2>
                     </div>

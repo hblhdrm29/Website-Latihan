@@ -64,7 +64,7 @@ export default function StatisticsChart() {
   };
 
   return (
-    <div className="card border-0 shadow-sm rounded-4 p-3" style={{ backgroundColor: '#f8f9fa' }}>
+    <div className="card border-0 shadow-sm rounded-4 p-3" style={{ backgroundColor: '#f8f9fa', width: '65%' }}>
         {/* Header with Filters */}
         <div className="d-flex justify-content-between align-items-center mb-3 bg-white text-dark p-2 rounded shadow-sm border">
             <h6 className="fw-bold mb-0" style={{ fontSize: '0.9rem' }}>Statistics</h6>
@@ -148,19 +148,19 @@ export default function StatisticsChart() {
         
         <div className="d-flex align-items-center justify-content-start h-100 pb-2">
             {/* Chart Section */}
-            <div className="position-relative d-flex justify-content-center align-items-center" style={{ width: '200px', flexShrink: 0 }}>
-                <div style={{ height: '180px', width: '180px' }}>
+            <div className="position-relative d-flex justify-content-center align-items-center" style={{ width: '150px', flexShrink: 0 }}>
+                <div style={{ height: '130px', width: '130px' }}>
                      <Doughnut data={data} options={options} />
                 </div>
                 {/* Center Text Overlay */}
                 <div className="position-absolute top-50 start-50 translate-middle text-center pointer-events-none">
-                    <h4 className="fw-bold text-dark mb-0">80%</h4>
-                    <span className="text-secondary small" style={{ fontSize: '0.65rem' }}>Kehadiran</span>
+                    <h4 className="fw-bold text-dark mb-0 fs-3">80%</h4>
+                    <span className="text-secondary small" style={{ fontSize: '0.6rem' }}>Kehadiran</span>
                 </div>
             </div>
 
             {/* Vertical Line Separator */}
-            <div className="vr mx-2" style={{ height: '170px', opacity: 0.2 }}></div>
+            <div className="vr mx-2" style={{ height: '120px', opacity: 0.2 }}></div>
 
             {/* Legend Section */}
             <div className="d-flex flex-column gap-3 flex-grow-1 ps-2">
