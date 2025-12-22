@@ -89,7 +89,7 @@ export default function DinasView() {
                     <div className="col-md-2">
                         <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Nama</label>
                         <div className="input-group input-group-sm">
-                            <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                 <option>Filter</option>
                             </select>
                         </div>
@@ -97,7 +97,7 @@ export default function DinasView() {
                     <div className="col-md-1">
                         <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>NP</label>
                         <div className="input-group input-group-sm">
-                            <select className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                 <option>Filter</option>
                             </select>
                         </div>
@@ -105,7 +105,7 @@ export default function DinasView() {
                     <div className="col-md-2">
                         <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Start Date</label>
                         <div className="input-group input-group-sm">
-                            <select className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                 <option>Filter</option>
                             </select>
                         </div>
@@ -113,7 +113,7 @@ export default function DinasView() {
                     <div className="col-md-2">
                         <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>End Date</label>
                         <div className="input-group input-group-sm">
-                            <select className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                 <option>Filter</option>
                             </select>
                         </div>
@@ -121,7 +121,7 @@ export default function DinasView() {
                     <div className="col-md-1">
                         <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Tahun</label>
                         <div className="input-group input-group-sm">
-                            <select className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                 <option>Filter</option>
                             </select>
                         </div>
@@ -129,13 +129,13 @@ export default function DinasView() {
                     <div className="col-md-2">
                         <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Jenis Perjalanan</label>
                         <div className="input-group input-group-sm">
-                            <select className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                 <option>Filter</option>
                             </select>
                         </div>
                     </div>
                     <div className="col-md-2">
-                        <button className="btn btn-sm btn-light border-0 border-secondary shadow-sm rounded-pill px-0 w-100 fw-bold text-secondary" style={{ fontSize: '0.8rem' }}>
+                        <button suppressHydrationWarning className="btn btn-sm btn-light border-0 border-secondary shadow-sm rounded-pill px-0 w-100 fw-bold text-secondary" style={{ fontSize: '0.8rem' }}>
                             Filter <i className="fas fa-filter ms-1 small"></i>
                         </button>
                     </div>

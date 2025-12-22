@@ -12,7 +12,7 @@ export default function CutiView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Nama</label>
                             <div className="input-group input-group-sm">
-                                <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -20,7 +20,7 @@ export default function CutiView() {
                         <div className="col-md-1">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>NP</label>
                             <div className="input-group input-group-sm">
-                                <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -28,7 +28,7 @@ export default function CutiView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Tanggal</label>
                             <div className="input-group input-group-sm">
-                                <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -36,7 +36,7 @@ export default function CutiView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Bulan</label>
                             <div className="input-group input-group-sm">
-                                <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -44,7 +44,7 @@ export default function CutiView() {
                         <div className="col-md-1">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Tahun</label>
                             <div className="input-group input-group-sm">
-                                <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -52,13 +52,13 @@ export default function CutiView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Keterangan</label>
                             <div className="input-group input-group-sm">
-                                <select className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
                         </div>
                         <div className="col-md-2">
-                            <button className="btn btn-sm btn-light border-0 border-secondary shadow-sm rounded-pill px-0 w-100 fw-bold text-secondary" style={{ fontSize: '0.8rem' }}>
+                            <button suppressHydrationWarning className="btn btn-sm btn-light border-0 border-secondary shadow-sm rounded-pill px-0 w-100 fw-bold text-secondary" style={{ fontSize: '0.8rem' }}>
                                 Filter <i className="fas fa-filter ms-1 small"></i>
                             </button>
                         </div>
@@ -189,7 +189,7 @@ export default function CutiView() {
                                             </span>
                                         </td>
                                         <td className="py-4">
-                                            <button className="btn btn-sm btn-primary rounded-pill px-3 shadow-sm border-0 text-nowrap fw-medium" style={{ fontSize: '0.7rem', backgroundColor: '#4318FF' }}>
+                                            <button suppressHydrationWarning className="btn btn-sm btn-primary rounded-pill px-3 shadow-sm border-0 text-nowrap fw-medium" style={{ fontSize: '0.7rem', backgroundColor: '#4318FF' }}>
                                                 Submit ERP
                                             </button>
                                         </td>
