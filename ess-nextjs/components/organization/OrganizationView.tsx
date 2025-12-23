@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 
 // Types for the Org Chart Nodes
 interface OrgNodeProps {
@@ -8,20 +8,103 @@ interface OrgNodeProps {
     role: string;
     image: string;
     isOnline?: boolean;
+    location?: string;
+    email?: string;
+    phone?: string;
+    department?: string;
     subordinates?: React.ReactNode;
     color?: string; // primary, success, warning, info
+    onProfileClick?: (profile: any) => void;
 }
 
-const OrgCard = ({ name, role, image, isOnline, color = "primary" }: Omit<OrgNodeProps, 'subordinates'>) => (
+const UserProfileModal = ({ profile, onClose }: { profile: any, onClose: () => void }) => {
+    if (!profile) return null;
+
+    return (
+        <div className="position-fixed top-0 end-0 h-100 p-3" style={{ zIndex: 1050, width: '320px', maxWidth: '100%' }}>
+            {/* Backdrop for mobile mostly, but helpful for focus */}
+            
+            <div className="card border-0 shadow-lg h-70 rounded-4 overflow-hidden animate__animated animate__fadeInRight">
+                {/* Header Background */}
+                <div className="position-relative bg-primary p-3 text-center" style={{ height: '70px', background: 'linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%)' }}>
+                    <button onClick={onClose} className="btn btn-sm btn-white bg-white bg-opacity-25 border-0 text-white rounded-circle position-absolute top-0 end-0 m-2 d-flex align-items-center justify-content-center" style={{ width: '28px', height: '28px' }}>
+                        <i className="fas fa-times" style={{ fontSize: '0.8rem' }}></i>
+                    </button>
+                    <div className="position-absolute start-50 translate-middle-x" style={{ bottom: '-30px' }}>
+                        <div className="rounded-circle bg-white p-1 shadow">
+                            <div className="rounded-circle bg-light d-flex align-items-center justify-content-center" style={{ width: '60px', height: '60px' }}>
+                                <i className="fas fa-user fa-2x text-secondary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="card-body pt-5 text-center px-3 overflow-auto">
+                    <h6 className="fw-bold mb-1 mt-1">{profile.name}</h6>
+                    <p className="text-primary fw-bold mb-2" style={{ fontSize: '0.75rem' }}>{profile.role}</p>
+                    
+                    <div className="d-flex justify-content-center gap-3 text-muted mb-3" style={{ fontSize: '0.7rem' }}>
+                        <span><i className="fas fa-map-marker-alt me-1"></i> {profile.location || 'Jakarta Office'}</span>
+                        <span><i className="fas fa-clock me-1"></i> 08-17</span>
+                    </div>
+
+                    <div className="d-grid gap-2 mb-3">
+                        <button className="btn btn-sm btn-primary rounded-pill fw-bold shadow-sm" style={{ fontSize: '0.8rem' }}>
+                            <i className="fas fa-comment-dots me-2"></i> Message
+                        </button>
+                    </div>
+
+                    <div className="text-start">
+                        <label className="text-uppercase text-muted fw-bold mb-2" style={{ fontSize: '0.6rem', letterSpacing: '1px' }}>Contact Information</label>
+                        
+                        <div className="d-flex align-items-center gap-2 mb-2">
+                            <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary flex-shrink-0" style={{ width: '32px', height: '32px' }}>
+                                <i className="fas fa-envelope" style={{ fontSize: '0.8rem' }}></i>
+                            </div>
+                            <div className="overflow-hidden">
+                                <div className="text-muted text-uppercase" style={{ fontSize: '0.6rem' }}>Email Address</div>
+                                <div className="fw-medium text-dark text-truncate" style={{ fontSize: '0.75rem' }}>{profile.email || 'user@company.com'}</div>
+                            </div>
+                        </div>
+
+                        <div className="d-flex align-items-center gap-2 mb-2">
+                            <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-success flex-shrink-0" style={{ width: '32px', height: '32px' }}>
+                                <i className="fas fa-phone" style={{ fontSize: '0.8rem' }}></i>
+                            </div>
+                            <div>
+                                <div className="text-muted text-uppercase" style={{ fontSize: '0.6rem' }}>Phone Number</div>
+                                <div className="fw-medium text-dark" style={{ fontSize: '0.75rem' }}>{profile.phone || '+62 812 3456 7890'}</div>
+                            </div>
+                        </div>
+
+                        <div className="d-flex align-items-center gap-2 mb-2">
+                            <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-warning flex-shrink-0" style={{ width: '32px', height: '32px' }}>
+                                <i className="fas fa-building" style={{ fontSize: '0.8rem' }}></i>
+                            </div>
+                            <div>
+                                <div className="text-muted text-uppercase" style={{ fontSize: '0.6rem' }}>Department</div>
+                                <div className="fw-medium text-dark" style={{ fontSize: '0.75rem' }}>{profile.department || 'Departemen Pengembangan'}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const OrgCard = ({ name, role, image, isOnline, color = "primary", onClick }: any) => (
     <div 
-        className={`card border-0 shadow-sm position-relative mb-1 org-card-hover overflow-hidden`} 
+        onClick={onClick}
+        className={`card border-0 shadow-sm position-relative mb-1 org-card-hover overflow-hidden cursor-pointer`} 
         style={{ 
             width: '140px', 
             borderRadius: '8px', 
             zIndex: 2,
             background: 'rgba(255, 255, 255, 0.85)',
             backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 255, 255, 0.5)'
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+            cursor: 'pointer'
         }}
     >
         {/* Left Accent Bar */}
@@ -50,11 +133,20 @@ const OrgCard = ({ name, role, image, isOnline, color = "primary" }: Omit<OrgNod
     </div>
 );
 
-const OrgNode = ({ name, role, image, isOnline, subordinates, color }: OrgNodeProps) => {
+const OrgNode = (props: OrgNodeProps) => {
+    const { name, role, image, isOnline, subordinates, color, onProfileClick } = props;
+    
     return (
         <div className="d-flex flex-column align-items-center mx-1 mt-2">
              {/* The Card */}
-            <OrgCard name={name} role={role} image={image} isOnline={isOnline} color={color} />
+            <OrgCard 
+                name={name} 
+                role={role} 
+                image={image} 
+                isOnline={isOnline} 
+                color={color} 
+                onClick={() => onProfileClick && onProfileClick(props)}
+            />
             
             {/* The Lines & Children */}
             {subordinates && (
@@ -66,6 +158,8 @@ const OrgNode = ({ name, role, image, isOnline, subordinates, color }: OrgNodePr
                     <div className="d-flex justify-content-center align-items-start pt-2 position-relative">
                         {/* Horizontal Line logic */}
                          {React.Children.map(subordinates, (child, index) => {
+                             if (!React.isValidElement(child)) return null;
+                             
                              const childCount = React.Children.count(subordinates);
                              const isFirst = index === 0;
                              const isLast = index === childCount - 1;
@@ -101,7 +195,8 @@ const OrgNode = ({ name, role, image, isOnline, subordinates, color }: OrgNodePr
                                         }}
                                     ></div>
                                     
-                                    {child}
+                                    {/* Clone child to pass onProfileClick */}
+                                    {React.cloneElement(child as React.ReactElement<any>, { onProfileClick })}
                                 </div>
                              );
                         })}
@@ -114,13 +209,18 @@ const OrgNode = ({ name, role, image, isOnline, subordinates, color }: OrgNodePr
 
 export default function OrganizationView() {
     const [zoom, setZoom] = React.useState(1);
+    const [selectedProfile, setSelectedProfile] = useState<any>(null);
 
     const handleZoomIn = () => setZoom(prev => Math.min(prev + 0.1, 2));
     const handleZoomOut = () => setZoom(prev => Math.max(prev - 0.1, 0.5));
     const handleResetZoom = () => setZoom(1);
 
+    const handleProfileClick = (profile: any) => {
+        setSelectedProfile(profile);
+    };
+
     return (
-        <div className="container-fluid px-3 pb-5">
+        <div className="container-fluid px-3 pb-5 position-relative">
             <style jsx global>{`
                 .line-down {
                     width: 1px;
@@ -213,6 +313,10 @@ export default function OrganizationView() {
                         image=""
                         isOnline={true}
                         color="primary"
+                        onProfileClick={handleProfileClick}
+                        email="bowo.santoso@ess.com"
+                        phone="+62 812 3456 7890"
+                        department="Departemen Pengembangan"
                         subordinates={[
                             //Divisi Enterprise
                             <OrgNode 
@@ -222,6 +326,8 @@ export default function OrganizationView() {
                                 image=""
                                 isOnline={true}
                                 color="success"
+                                email="siti.rahma@ess.com"
+                                department="Departemen Pengembangan"
                                 subordinates={[
                                     <OrgNode 
                                         key="ent-sect-1"
@@ -230,6 +336,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={false}
                                         color="secondary"
+                                        email="andi.pratama@ess.com"
                                     />,
                                     <OrgNode 
                                         key="ent-sect-2"
@@ -238,6 +345,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={true}
                                         color="secondary"
+                                        email="budi.utomo@ess.com"
                                     />,
                                     <OrgNode 
                                         key="ent-sect-3"
@@ -246,6 +354,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={false}
                                         color="secondary"
+                                        email="citra.lestari@ess.com"
                                     />
                                 ]}
                             />,
@@ -258,6 +367,8 @@ export default function OrganizationView() {
                                 image=""
                                 isOnline={true}
                                 color="warning"
+                                email="rina.wati@ess.com"
+                                department="Departemen Pengembangan"
                                 subordinates={[
                                     <OrgNode 
                                         key="int-sect-1"
@@ -266,6 +377,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={true}
                                         color="secondary"
+                                        email="dedi.kurniawan@ess.com"
                                     />,
                                     <OrgNode 
                                         key="int-sect-2"
@@ -274,6 +386,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={false}
                                         color="secondary"
+                                        email="eko.prasetyo@ess.com"
                                     />,
                                     <OrgNode 
                                         key="int-sect-3"
@@ -282,6 +395,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={true}
                                         color="secondary"
+                                        email="fina.aulia@ess.com"
                                     />
                                 ]}
                             />,
@@ -294,6 +408,8 @@ export default function OrganizationView() {
                                 image=""
                                 isOnline={false}
                                 color="info"
+                                email="tono.gunawan@ess.com"
+                                department="Departemen Pengembangan"
                                 subordinates={[
                                     <OrgNode 
                                         key="inf-sect-1"
@@ -302,6 +418,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={false}
                                         color="secondary"
+                                        email="maya.putri@ess.com"
                                     />,
                                     <OrgNode 
                                         key="inf-sect-2"
@@ -310,6 +427,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={true}
                                         color="secondary"
+                                        email="hadi.nugroho@ess.com"
                                     />,
                                     <OrgNode 
                                         key="inf-sect-3"
@@ -318,6 +436,7 @@ export default function OrganizationView() {
                                         image=""
                                         isOnline={false}
                                         color="secondary"
+                                        email="indah.permata@ess.com"
                                     />
                                 ]}
                             />
@@ -327,12 +446,18 @@ export default function OrganizationView() {
             </div>
             </div>
 
+            {/* User Profile Modal */}
+            <UserProfileModal 
+                profile={selectedProfile} 
+                onClose={() => setSelectedProfile(null)} 
+            />
+
             {/* Floating Zoom Controls */}
             <div className="position-fixed shadow-sm bg-white rounded-3 d-flex flex-column p-1 border" 
                 style={{ 
                     bottom: '30px', 
                     left: '280px', // Adjusted to not overlap sidebar
-                    zIndex: 1000,
+                    zIndex: 90,
                     width: '40px'
                 }}>
                 <button onClick={handleZoomIn} className="btn btn-light btn-sm border-0 d-flex align-items-center justify-content-center" style={{ height: '36px' }} title="Zoom In">

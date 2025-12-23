@@ -21,7 +21,7 @@ export default function Sidebar() {
             return currentView === queryParam.value ? 'active' : '';
         } else {
             // Dashboard case: no view param should be present or view is not profile/agenda/kehadiran/etc
-            const views = ['profile', 'agenda', 'kehadiran', 'lembur', 'cuti', 'izin', 'dinas', 'organization'];
+            const views = ['profile', 'agenda', 'kehadiran', 'lembur', 'cuti', 'izin', 'dinas', 'organization', 'payslips'];
             return !currentView || !views.includes(currentView) ? 'active' : '';
         }
     }
@@ -96,6 +96,10 @@ export default function Sidebar() {
                 
                 <Link href="/?view=izin" className={`app-item ${isActive('/', { key: 'view', value: 'izin' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-envelope"></i></div><span className="app-label">Izin</span></Link>
                 <Link href="/?view=dinas" className={`app-item ${isActive('/', { key: 'view', value: 'dinas' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-car"></i></div><span className="app-label">Dinas</span></Link>
+                
+                <Link href="/?view=payslips" className={`app-item ${isActive('/', { key: 'view', value: 'payslips' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-file-invoice-dollar"></i></div><span className="app-label">Payslips</span></Link>
+                <Link href="/?view=payroll" className={`app-item ${isActive('/', { key: 'view', value: 'payroll' })}`} onClick={() => setShowGridMenu(false)} target="_blank"><div className="app-icon"><i className="fas fa-money-check-alt"></i></div><span className="app-label">Payroll</span></Link>
+
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-info-circle"></i></div><span className="app-label">Informasi</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-briefcase"></i></div><span className="app-label">Pelatihan</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file-alt"></i></div><span className="app-label">SPBE</span></a>
@@ -243,7 +247,54 @@ export default function Sidebar() {
                        <i className="fas fa-arrow-left"></i> Main Dashboard
                    </Link>
                </>
-           ) : (
+            ) : searchParams.get('view') === 'payroll' ? (
+                 // PAYROLL SPECIFIC SIDEBAR
+                 <>
+                    <div className="nav-item px-3 mb-2 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Payroll</span>
+                    </div>
+                    <Link href="/?view=payroll" className="nav-link active">
+                        <i className="fas fa-money-check-alt"></i> Dashboard Payroll
+                    </Link>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-cogs"></i> Proses Gaji
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-chart-bar"></i> Laporan
+                    </a>
+                    <a href="#" className="nav-link">
+                        <i className="fas fa-percent"></i> Pengaturan Pajak
+                    </a>
+                    <div className="nav-item px-3 mb-2 mt-4">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                     <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'payslips' ? (
+                // PAYSLIPS SPECIFIC SIDEBAR
+                <>
+                   <div className="nav-item px-3 mb-2 mt-2">
+                       <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Payslips</span>
+                   </div>
+                   <Link href="/?view=payslips" className="nav-link active">
+                       <i className="fas fa-file-invoice-dollar"></i> My Payslips
+                   </Link>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-chart-line"></i> Salary History
+                   </a>
+                   <a href="#" className="nav-link">
+                       <i className="fas fa-cog"></i> Tax Settings
+                   </a>
+                   <div className="nav-item px-3 mb-2 mt-4">
+                       <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                   </div>
+                    <Link href="/" className="nav-link">
+                       <i className="fas fa-arrow-left"></i> Main Dashboard
+                   </Link>
+               </>
+             ) : (
                 // STANDARD SIDEBAR
                 <>
                     <Link href="/" className={`nav-link ${isActive('/')}`}>

@@ -8,9 +8,9 @@ export function AgendaWidget() {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const [items, setItems] = useState([
-        { title: 'Meeting Client', time: '09:00 AM', type: 'meeting', status: 'pending' },
-        { title: 'Kesalahan Teknis', time: '10:30 AM', type: 'issue', status: 'pending' },
-        { title: 'Meeting Tim', time: '12:50 AM', type: 'meeting', status: 'pending' }
+        { title: 'Meeting Client', time: '09:00 AM', location: 'Gedung Utas', type: 'meeting', status: 'pending' },
+        { title: 'Kesalahan Teknis', time: '10:30 AM', location: 'Gedung Ugam', type: 'issue', status: 'pending' },
+        { title: 'Meeting Tim', time: '12:50 AM', location: 'Gedung SDM', type: 'meeting', status: 'pending' }
     ]);
 
     const setStatus = (index: number, newStatus: string) => {
@@ -137,6 +137,7 @@ export function AgendaWidget() {
                     {/* Bottom Glass Panel - Slider */}
                     <div className="glass-panel p-3 rounded-4 mt-auto position-relative overflow-hidden" 
                         style={{ 
+                            width: '50%',
                             background: 'rgba(255, 255, 255, 0.15)', 
                             backdropFilter: 'blur(25px)', 
                             border: '1px solid rgba(255, 255, 255, 0.2)',
@@ -172,6 +173,10 @@ export function AgendaWidget() {
                                 </div>
                             </div>
                             <h4 className="fw-bold mb-1 text-truncate" title={items[activeIndex].title} style={{ textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>{items[activeIndex].title}</h4>
+                            <div className="d-flex align-items-center gap-1 opacity-75 mb-2" style={{ fontSize: '0.8rem' }}>
+                                <i className="fas fa-map-marker-alt"></i>
+                                <span>{items[activeIndex].location}</span>
+                            </div>
                             
                             <div className="d-flex justify-content-between align-items-end mt-2">
                                 <div className="d-flex gap-1">
@@ -187,8 +192,8 @@ export function AgendaWidget() {
                                 
                                 <Link href="/?view=agenda" className="text-decoration-none">
                                     <div className="text-white opacity-75 hover-opacity-100 transition-all small d-flex align-items-center gap-1 bg-dark bg-opacity-25 px-2 py-1 rounded-pill agenda-tracking-pill">
-                                        <span>Tracking Details</span>
-                                        <i className="fas fa-arrow-right" style={{ fontSize: '0.7rem' }}></i>
+                                        <span style={{ fontSize: '0.7rem' }}>Tracking Details</span>
+                                        <i className="fas fa-eye ms-1" style={{ fontSize: '0.7rem' }}></i>
                                     </div>
                                 </Link>
                             </div>

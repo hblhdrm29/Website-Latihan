@@ -14,6 +14,9 @@ import LemburView from "@/components/lembur/LemburView";
 import CutiView from "@/components/cuti/CutiView";
 import IzinView from "@/components/izin/IzinView";
 import DinasView from '@/components/dinas/DinasView';
+import PayslipsView from '@/components/payslips/PayslipsView';
+import PayrollView from '@/components/payroll/PayrollView';
+
 
 function HomeContent() {
   const searchParams = useSearchParams();
@@ -28,7 +31,9 @@ function HomeContent() {
                      viewParam === 'lembur' ? 'lembur' : 
                      viewParam === 'cuti' ? 'cuti' : 
                      viewParam === 'izin' ? 'izin' : 
-                     viewParam === 'dinas' ? 'dinas' : 'dashboard';
+                     viewParam === 'dinas' ? 'dinas' : 
+                     viewParam === 'payslips' ? 'payslips' : 
+                     viewParam === 'payroll' ? 'payroll' : 'dashboard';
 
   // Helper to switch views
   const setView = (view: string) => {
@@ -198,6 +203,30 @@ function HomeContent() {
                 </div>
             )}
 
+            {currentView === 'payslips' && (
+                <div className="py-4 px-3">
+                     <PayslipsView />
+                </div>
+            )}
+
+            {currentView === 'payroll' && (
+                <div className="py-4 px-3">
+                     <PayrollView />
+                </div>
+            )}
+
+            {/* Footer */}
+            <footer className="text-center py-4 mt-4 text-muted small">
+                <p className="mb-0">
+                    &copy; 2025 ESS. All rights reserved. 
+                    <span className="mx-2">|</span> 
+                    <a href="#" className="text-decoration-none text-muted hover-text-primary">Privacy</a> 
+                    <span className="mx-2">&bull;</span> 
+                    <a href="#" className="text-decoration-none text-muted hover-text-primary">Terms of Service</a> 
+                    <span className="mx-2">&bull;</span> 
+                    <a href="#" className="text-decoration-none text-muted hover-text-primary">Cookies Settings</a>
+                </p>
+            </footer>
         </div>
     </div>
   );

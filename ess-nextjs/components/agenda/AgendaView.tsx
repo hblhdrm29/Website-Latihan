@@ -22,8 +22,6 @@ export default function AgendaView({ onBack }: { onBack?: () => void }) {
     return (
         <div className="container-fluid px-3">
              {/* Header */}
-             {/* Header */}
-             {/* Header */}
             <div className="d-flex align-items-center gap-3 mb-2">
                 <div className="d-flex align-items-center gap-3 flex-shrink-0">
                     <div>
@@ -68,8 +66,7 @@ export default function AgendaView({ onBack }: { onBack?: () => void }) {
                                                 p-1 rounded-circle cursor-pointer transition-all d-flex align-items-center justify-content-center mx-auto
                                                 ${activeDay === day ? 'bg-primary text-white shadow-sm' : `hover-bg-blue ${(day % 7 === 6 || day % 7 === 0) ? 'text-danger' : 'text-dark'}`}
                                             `}  
-                                            style={{ width: '28px', height: '28px', fontSize: '0.75rem' }}
-                                        >
+                                            style={{ width: '28px', height: '28px', fontSize: '0.75rem' }}>
                                             {day}
                                         </div>
                                     ))}
