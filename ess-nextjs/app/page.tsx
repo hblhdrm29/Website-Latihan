@@ -18,6 +18,7 @@ import PayslipsView from '@/components/payslips/PayslipsView';
 import PayrollView from '@/components/payroll/PayrollView';
 import GajiView from '@/components/informasi/GajiView';
 import PelatihanView from '@/components/pelatihan/PelatihanView';
+import RekapitulasiView from '@/components/informasi/RekapitulasiView';
 
 
 function HomeContent() {
@@ -37,7 +38,8 @@ function HomeContent() {
                      viewParam === 'payslips' ? 'payslips' : 
                      viewParam === 'payroll' ? 'payroll' : 
                      viewParam === 'informasi' ? 'informasi' : 
-                     viewParam === 'pelatihan' ? 'pelatihan' : 'dashboard';
+                     viewParam === 'pelatihan' ? 'pelatihan' : 
+                     viewParam === 'rekapitulasi' ? 'rekapitulasi' : 'dashboard';
 
   // Helper to switch views
   const setView = (view: string) => {
@@ -228,6 +230,12 @@ function HomeContent() {
             {currentView === 'pelatihan' && (
                 <div className="py-4 px-3">
                      <PelatihanView />
+                </div>
+            )}
+
+            {currentView === 'rekapitulasi' && (
+                <div className="py-4 px-3">
+                     <RekapitulasiView />
                 </div>
             )}
 

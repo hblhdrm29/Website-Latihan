@@ -154,16 +154,13 @@ export default function Sidebar() {
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Kehadiran</span>
                     </div>
                     <Link href="/?view=kehadiran" className="nav-link active">
-                        <i className="fas fa-home"></i> Home Kehadiran
+                        <i className="fas fa-user-clock"></i> Data Kehadiran
                     </Link>
                     <a href="#" className="nav-link">
-                        <i className="fas fa-file-signature"></i> Pengajuan
+                        <i className="fas fa-calendar-alt"></i> Perencanaan Jadwal Kerja
                     </a>
                     <a href="#" className="nav-link">
-                        <i className="fas fa-history"></i> Riwayat
-                    </a>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-file-alt"></i> Laporan
+                        <i className="fas fa-check-circle"></i> Persetujuan Kehadiran
                     </a>
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -294,29 +291,22 @@ export default function Sidebar() {
                        <i className="fas fa-arrow-left"></i> Main Dashboard
                    </Link>
                </>
-            ) : searchParams.get('view') === 'informasi' ? (
+            ) : ['informasi', 'rekapitulasi'].includes(searchParams.get('view') || '') ? (
                 // INFORMASI SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Informasi</span>
                     </div>
                     
-                    <a href="#" className="nav-link active">
+                    <Link href="/?view=informasi" className={`nav-link ${searchParams.get('view') === 'informasi' ? 'active' : ''}`}>
                         <i className="fas fa-chart-line"></i> Gaji
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link href="/?view=rekapitulasi" className={`nav-link ${searchParams.get('view') === 'rekapitulasi' ? 'active' : ''}`}>
                         <i className="fas fa-list-alt"></i> Rekapitulasi Bulanan
-                    </a>
+                    </Link>
                     <a href="#" className="nav-link">
                         <i className="fas fa-building"></i> Data Pamlek
                     </a>
-                    <a href="#" className="nav-link">
-                        <i className="far fa-newspaper"></i> SKEP
-                    </a>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-tags"></i> Pajak
-                    </a>
-                    
                     <a href="#" className="nav-link">
                         <i className="fas fa-bed"></i> Data Keterlambatan
                     </a>
@@ -324,7 +314,7 @@ export default function Sidebar() {
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                     </div>
-                     <Link href="/" className="nav-link">
+                    <Link href="/" className="nav-link">
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>

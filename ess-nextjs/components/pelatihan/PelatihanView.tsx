@@ -30,10 +30,11 @@ export default function PelatihanView() {
             <h2 className="fw-bold mb-4" style={{ color: '#20288E' }}>Usulan Kebutuhan Pelatihan</h2>
 
             {/* Main Action Button Area */}
-            <div className="bg-light border rounded-3 p-3 mb-4 d-flex align-items-center">
-                 <button className="btn btn-outline-secondary w-100 text-start fw-medium border-0 bg-transparent text-dark">
-                    Tambah Usulan Kebutuhan Pelatihan
-                 </button>
+            <div className="bg-light border rounded-4 p-1 mb-4">
+                 <div className="btn w-100 text-start fw-medium border-0 bg-transparent text-dark d-flex justify-content-between align-items-center action-button" style={{ cursor: 'pointer' }}>
+                    <span>Tambah Usulan Kebutuhan Pelatihan</span>
+                    <i className="fas fa-plus p-2 rounded-circle bg-white text-primary shadow-sm"></i>
+                 </div>
             </div>
 
             {/* Filter Section */}
@@ -44,6 +45,15 @@ export default function PelatihanView() {
                     <option>Januari</option>
                     <option>Februari</option>
                     <option>Maret</option>
+                    <option>April</option>
+                    <option>Mei</option>
+                    <option>Juni</option>
+                    <option>Juli</option>
+                    <option>Agustus</option>
+                    <option>September</option>
+                    <option>Oktober</option>
+                    <option>November</option>
+                    <option>Desember</option>
                 </select>
             </div>
 
@@ -117,6 +127,7 @@ export default function PelatihanView() {
             <style jsx>{`
                 .hover-bg-light:hover { background-color: #f9fafe; }
                 .transition-base { transition: all 0.2s ease; }
+                .action-button:hover { background-color: #e2e6ea; border-radius: 12px; }
             `}</style>
         </div>
     );
