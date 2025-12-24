@@ -16,6 +16,8 @@ import IzinView from "@/components/izin/IzinView";
 import DinasView from '@/components/dinas/DinasView';
 import PayslipsView from '@/components/payslips/PayslipsView';
 import PayrollView from '@/components/payroll/PayrollView';
+import GajiView from '@/components/informasi/GajiView';
+import PelatihanView from '@/components/pelatihan/PelatihanView';
 
 
 function HomeContent() {
@@ -33,7 +35,9 @@ function HomeContent() {
                      viewParam === 'izin' ? 'izin' : 
                      viewParam === 'dinas' ? 'dinas' : 
                      viewParam === 'payslips' ? 'payslips' : 
-                     viewParam === 'payroll' ? 'payroll' : 'dashboard';
+                     viewParam === 'payroll' ? 'payroll' : 
+                     viewParam === 'informasi' ? 'informasi' : 
+                     viewParam === 'pelatihan' ? 'pelatihan' : 'dashboard';
 
   // Helper to switch views
   const setView = (view: string) => {
@@ -215,11 +219,24 @@ function HomeContent() {
                 </div>
             )}
 
+            {currentView === 'informasi' && (
+                <div className="py-4 px-3">
+                     <GajiView />
+                </div>
+            )}
+
+            {currentView === 'pelatihan' && (
+                <div className="py-4 px-3">
+                     <PelatihanView />
+                </div>
+            )}
+
             {/* Footer */}
-            <footer className="text-center py-4 mt-4 text-muted small">
+            <footer className="d-flex justify-content-between py-4 mt-5 pt-5 text-muted small px-4">
                 <p className="mb-0">
-                    &copy; 2025 ESS. All rights reserved. 
-                    <span className="mx-2">|</span> 
+                    &copy; 2025 ESS. All rights reserved.
+                </p>
+                <p className="mb-0">
                     <a href="#" className="text-decoration-none text-muted hover-text-primary">Privacy</a> 
                     <span className="mx-2">&bull;</span> 
                     <a href="#" className="text-decoration-none text-muted hover-text-primary">Terms of Service</a> 

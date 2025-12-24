@@ -56,30 +56,46 @@ export default function TopHeader() {
                         
                         <div className="position-relative">
                             <div 
-                                className="d-flex align-items-center justify-content-between gap-1 cursor-pointer border rounded px-2" 
-                                style={{ cursor: 'pointer', minWidth: '120px' }}
+                                className="d-flex align-items-center gap-1 bg-white rounded-pill p-1 ps-1 pe-2 border shadow-sm cursor-pointer hover-translate-y transition-base" 
+                                style={{ cursor: 'pointer', transition: 'all 0.2s' }}
                                 onClick={() => setShowRoleMenu(!showRoleMenu)}
                             >
-                                <span className="text-muted small text-truncate" style={{ fontSize: '0.85em' }}>{role}</span>
-                                <i className="fas fa-chevron-down text-muted" style={{ fontSize: '0.7em' }}></i>
+                                <div className="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white shadow-sm" style={{ width: '26px', height: '26px' }}>
+                                    <i className="fas fa-id-badge" style={{ fontSize: '0.75rem' }}></i>
+                                </div>
+                                
+                                <div className="d-flex flex-column lh-1 ms-1 text-start">
+                                    <span className="text-uppercase text-muted fw-bold mb-0" style={{ fontSize: '0.45rem', letterSpacing: '0.3px' }}>Current Role</span>
+                                    <h6 className="mb-0 fw-bold text-dark" style={{ fontSize: '0.65rem' }}>
+                                        {role === 'Super Admin' ? 'Admin View' : 'Employee View'}
+                                    </h6>
+                                </div>
+                                
+                                <i className="fas fa-chevron-down text-muted ms-1" style={{ fontSize: '0.6rem' }}></i>
                             </div>
 
                             {/* Custom Role Menu */}
                             {showRoleMenu && (
-                                <div className="position-absolute bg-white shadow-sm rounded py-1" style={{ top: '100%', left: 0, minWidth: '120px', zIndex: 1001 }}>
+                                <div className="position-absolute bg-white shadow-sm rounded-4 py-1 mt-1 border-0 animated fadeIn" style={{ top: '100%', right: 0, minWidth: '180px', zIndex: 1001 }}>
                                     <div 
-                                        className="dropdown-item" 
-                                        style={{ fontSize: '0.85em', cursor: 'pointer' }}
+                                        className="dropdown-item px-3 py-2 d-flex align-items-center gap-2" 
+                                        style={{ fontSize: '0.85rem', cursor: 'pointer' }}
                                         onClick={() => { setRole('Pengguna'); setShowRoleMenu(false); }}
                                     >
-                                        Pengguna
+                                        <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary" style={{ width: '24px', height: '24px' }}>
+                                            <i className="fas fa-user" style={{ fontSize: '0.7rem' }}></i>
+                                        </div>
+                                        Employee View
                                     </div>
                                     <div 
-                                        className="dropdown-item"
-                                        style={{ fontSize: '0.85em', cursor: 'pointer' }}
+                                        className="dropdown-item px-3 py-2 d-flex align-items-center gap-2"
+                                        style={{ fontSize: '0.85rem', cursor: 'pointer' }}
                                         onClick={() => { setRole('Super Admin'); setShowRoleMenu(false); }}
                                     >
-                                        Super Admin
+                                        <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-danger" style={{ width: '24px', height: '24px' }}>
+                                            <i className="fas fa-user-shield" style={{ fontSize: '0.7rem' }}></i>
+                                        </div>
+                                        Admin View
                                     </div>
                                 </div>
                             )}

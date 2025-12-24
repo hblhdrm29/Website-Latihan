@@ -48,15 +48,18 @@ const UserProfileModal = ({ profile, onClose }: { profile: any, onClose: () => v
                         <span><i className="fas fa-clock me-1"></i> 08-17</span>
                     </div>
 
-                    <div className="d-grid gap-2 mb-3">
-                        <button className="btn btn-sm btn-primary rounded-pill fw-bold shadow-sm" style={{ fontSize: '0.8rem' }}>
-                            <i className="fas fa-comment-dots me-2"></i> Message
-                        </button>
+                    <div className="text-center mb-3">
+                        <span className="badge bg-light text-dark border px-3 py-2 rounded-pill fw-medium" style={{ fontSize: '0.75rem' }}>
+                            {profile.department || 'Departemen Pengembangan'}
+                        </span>
                     </div>
 
                     <div className="text-start">
                         <label className="text-uppercase text-muted fw-bold mb-2" style={{ fontSize: '0.6rem', letterSpacing: '1px' }}>Contact Information</label>
                         
+
+
+                        {/* 2. Email */}
                         <div className="d-flex align-items-center gap-2 mb-2">
                             <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-primary flex-shrink-0" style={{ width: '32px', height: '32px' }}>
                                 <i className="fas fa-envelope" style={{ fontSize: '0.8rem' }}></i>
@@ -67,23 +70,14 @@ const UserProfileModal = ({ profile, onClose }: { profile: any, onClose: () => v
                             </div>
                         </div>
 
+                        {/* 3. Extension (was Phone) */}
                         <div className="d-flex align-items-center gap-2 mb-2">
                             <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-success flex-shrink-0" style={{ width: '32px', height: '32px' }}>
-                                <i className="fas fa-phone" style={{ fontSize: '0.8rem' }}></i>
+                                <i className="fas fa-phone-alt" style={{ fontSize: '0.8rem' }}></i>
                             </div>
                             <div>
-                                <div className="text-muted text-uppercase" style={{ fontSize: '0.6rem' }}>Phone Number</div>
-                                <div className="fw-medium text-dark" style={{ fontSize: '0.75rem' }}>{profile.phone || '+62 812 3456 7890'}</div>
-                            </div>
-                        </div>
-
-                        <div className="d-flex align-items-center gap-2 mb-2">
-                            <div className="rounded-circle bg-light d-flex align-items-center justify-content-center text-warning flex-shrink-0" style={{ width: '32px', height: '32px' }}>
-                                <i className="fas fa-building" style={{ fontSize: '0.8rem' }}></i>
-                            </div>
-                            <div>
-                                <div className="text-muted text-uppercase" style={{ fontSize: '0.6rem' }}>Department</div>
-                                <div className="fw-medium text-dark" style={{ fontSize: '0.75rem' }}>{profile.department || 'Departemen Pengembangan'}</div>
+                                <div className="text-muted text-uppercase" style={{ fontSize: '0.6rem' }}>Extension</div>
+                                <div className="fw-medium text-dark" style={{ fontSize: '0.75rem' }}>{profile.phone ? profile.phone.replace('+62 ', '+62 ') : '+62 8821323456'}</div>
                             </div>
                         </div>
                     </div>
@@ -309,7 +303,7 @@ export default function OrganizationView() {
                     {/*Depbang */}
                     <OrgNode 
                         name="Bowo Santoso" 
-                        role="Kepala Depbang" 
+                        role="Kepala Departemen Pengembangan" 
                         image=""
                         isOnline={true}
                         color="primary"

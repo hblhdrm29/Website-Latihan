@@ -7,8 +7,6 @@ export default function PayrollView() {
     const payrollStats = [
         { label: 'Total Penggajian', value: 'Rp 1.2M', change: '+2.5%', icon: 'fa-funnel-dollar', color: 'primary' },
         { label: 'Karyawan Terbayar', value: '142', subValue: '/ 150', icon: 'fa-users', color: 'success' },
-        { label: 'Menunggu Proses', value: '8', subValue: '/Perlu Review', icon: 'fa-clock', color: 'warning' },
-        { label: 'Total Pajak', value: 'Rp 180jt', change: '+2.5%', icon: 'fa-file-invoice-dollar', color: 'info' },
     ];
 
     const employees = [
@@ -240,6 +238,118 @@ export default function PayrollView() {
                             <td className="py-2 px-2 border-end text-muted text-nowrap text-center">28 Okt 2025</td>
                             <td className="py-2 px-2 border-end fw-medium text-dark text-end">14.000.000</td>
                             <td className="py-2 px-2 border-end fw-bold text-primary text-end" style={{ color: '#20288E' }}>12.500.000</td>
+                            <td className="py-2 px-2 border-end text-center">
+                                <span className="badge rounded-pill px-3 py-1 fw-medium small bg-success bg-opacity-10 text-success">
+                                    Terbayar
+                                </span>
+                            </td>
+                            <td className="py-2 px-2 text-center">
+                                <button className="btn btn-sm text-primary hover-text-dark p-0 border-0 bg-transparent transition-base">
+                                    <i className="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        {/* Existing rows 1-8 are preserved by the replacement range starting after them, but wait.
+                        The user asked to ADD 5 rows.
+                        The tool replaces content between StartLine and EndLine.
+                        StartLine should be the end of the current tbody content, i.e., line 252 (closing tbody tag).
+                        Actually, replace_file_content replaces the specific lines.
+                        If I want to append, I should include the last row or simply insert before the closing tbody tag.
+                        Better approach: Replace the closing `</tbody>` with the new rows + closing `</tbody>`.
+                        Wait, line 252 is </tbody>.
+                        So if I target StartLine: 252, EndLine: 252, TargetContent: </tbody> ...
+                        */}
+                        <tr className="border-bottom">
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-center">9</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-start">William Brown</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Departemen IT</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Divisi Security</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Security Analyst</td>
+                            <td className="py-2 px-2 border-end text-muted text-nowrap text-center">28 Okt 2025</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-end">16.500.000</td>
+                            <td className="py-2 px-2 border-end fw-bold text-primary text-end" style={{ color: '#20288E' }}>15.200.000</td>
+                            <td className="py-2 px-2 border-end text-center">
+                                <span className="badge rounded-pill px-3 py-1 fw-medium small bg-success bg-opacity-10 text-success">
+                                    Terbayar
+                                </span>
+                            </td>
+                            <td className="py-2 px-2 text-center">
+                                <button className="btn btn-sm text-primary hover-text-dark p-0 border-0 bg-transparent transition-base">
+                                    <i className="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr className="border-bottom">
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-center">10</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-start">Linda Martinez</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Departemen Sales</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Divisi B2B</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Sales Manager</td>
+                            <td className="py-2 px-2 border-end text-muted text-nowrap text-center">28 Okt 2025</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-end">21.000.000</td>
+                            <td className="py-2 px-2 border-end fw-bold text-primary text-end" style={{ color: '#20288E' }}>19.500.000</td>
+                            <td className="py-2 px-2 border-end text-center">
+                                <span className="badge rounded-pill px-3 py-1 fw-medium small bg-success bg-opacity-10 text-success">
+                                    Terbayar
+                                </span>
+                            </td>
+                            <td className="py-2 px-2 text-center">
+                                <button className="btn btn-sm text-primary hover-text-dark p-0 border-0 bg-transparent transition-base">
+                                    <i className="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr className="border-bottom">
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-center">11</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-start">Richard Lee</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Departemen Produksi</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Divisi QC</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">QC Specialist</td>
+                            <td className="py-2 px-2 border-end text-muted text-nowrap text-center">28 Okt 2025</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-end">11.000.000</td>
+                            <td className="py-2 px-2 border-end fw-bold text-primary text-end" style={{ color: '#20288E' }}>10.100.000</td>
+                            <td className="py-2 px-2 border-end text-center">
+                                <span className="badge rounded-pill px-3 py-1 fw-medium small bg-success bg-opacity-10 text-success">
+                                    Terbayar
+                                </span>
+                            </td>
+                            <td className="py-2 px-2 text-center">
+                                <button className="btn btn-sm text-primary hover-text-dark p-0 border-0 bg-transparent transition-base">
+                                    <i className="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr className="border-bottom">
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-center">12</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-start">Susan Clark</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Departemen Admin</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Divisi Umum</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Admin Staff</td>
+                            <td className="py-2 px-2 border-end text-muted text-nowrap text-center">28 Okt 2025</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-end">8.500.000</td>
+                            <td className="py-2 px-2 border-end fw-bold text-primary text-end" style={{ color: '#20288E' }}>7.900.000</td>
+                            <td className="py-2 px-2 border-end text-center">
+                                <span className="badge rounded-pill px-3 py-1 fw-medium small bg-success bg-opacity-10 text-success">
+                                    Terbayar
+                                </span>
+                            </td>
+                            <td className="py-2 px-2 text-center">
+                                <button className="btn btn-sm text-primary hover-text-dark p-0 border-0 bg-transparent transition-base">
+                                    <i className="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr className="border-bottom">
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-center">13</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-start">Joseph Young</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Departemen IT</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Divisi Infrastructure</td>
+                            <td className="py-2 px-2 border-end text-muted text-start">Network Admin</td>
+                            <td className="py-2 px-2 border-end text-muted text-nowrap text-center">28 Okt 2025</td>
+                            <td className="py-2 px-2 border-end fw-medium text-dark text-end">13.500.000</td>
+                            <td className="py-2 px-2 border-end fw-bold text-primary text-end" style={{ color: '#20288E' }}>12.200.000</td>
                             <td className="py-2 px-2 border-end text-center">
                                 <span className="badge rounded-pill px-3 py-1 fw-medium small bg-success bg-opacity-10 text-success">
                                     Terbayar
