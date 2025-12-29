@@ -108,7 +108,7 @@ export default function Sidebar() {
                 {/* Disabled items */}
                 
                 <Link href="/?view=kesehatan" className={`app-item ${isActive('/', { key: 'view', value: 'kesehatan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-plus-square"></i></div><span className="app-label">Kesehatan</span></Link>
-                <Link href="/?view=transport" className={`app-item ${isActive('/', { key: 'view', value: 'transport' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-bus"></i></div><span className="app-label">Transport</span></Link>
+                <Link href="/?view=transport" className={`app-item ${isActive('/', { key: 'view', value: 'transport' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-bus"></i></div><span className="app-label">Transport</span></Link>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas text-danger fa-tasks"></i></div><span className="app-label">Tasklist</span></a>
                 <a href="#" className="app-item"><div className="app-icon"><i className="fas text-danger fa-heartbeat"></i></div><span className="app-label">Health</span></a>
             </div>
