@@ -102,17 +102,18 @@ export default function Sidebar() {
 
                 <Link href="/?view=informasi" className={`app-item ${isActive('/', { key: 'view', value: 'informasi' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-info-circle"></i></div><span className="app-label">Informasi</span></Link>
                 <Link href="/?view=pelatihan" className={`app-item ${isActive('/', { key: 'view', value: 'pelatihan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-briefcase"></i></div><span className="app-label">Pelatihan</span></Link>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file-alt"></i></div><span className="app-label">SPBE</span></a>
-
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-file"></i></div><span className="app-label">SPBI</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-plus-square"></i></div><span className="app-label">Kesehatan</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-bus"></i></div><span className="app-label">Transport</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-tasks"></i></div><span className="app-label">Tasklist</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas fa-heartbeat"></i></div><span className="app-label">Health</span></a>
+                <Link href="/?view=spbe" className={`app-item ${isActive('/', { key: 'view', value: 'spbe' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-file-alt"></i></div><span className="app-label">SPBE</span></Link>
+                <Link href="/?view=spbi" className={`app-item ${isActive('/', { key: 'view', value: 'spbi' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-file"></i></div><span className="app-label">SPBI</span></Link>
+                
+                {/* Disabled items */}
+                
+                <Link href="/?view=kesehatan" className={`app-item ${isActive('/', { key: 'view', value: 'kesehatan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-plus-square"></i></div><span className="app-label">Kesehatan</span></Link>
+                <Link href="/?view=transport" className={`app-item ${isActive('/', { key: 'view', value: 'transport' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-bus"></i></div><span className="app-label">Transport</span></Link>
+                <a href="#" className="app-item"><div className="app-icon"><i className="fas text-danger fa-tasks"></i></div><span className="app-label">Tasklist</span></a>
+                <a href="#" className="app-item"><div className="app-icon"><i className="fas text-danger fa-heartbeat"></i></div><span className="app-label">Health</span></a>
             </div>
         </div>
 
-        {/* Overlay Click Grid Menu */}
        {showGridMenu && (
         <div 
             style={{position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 900}} 
@@ -339,6 +340,132 @@ export default function Sidebar() {
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                     </div>
                     <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'spbe' ? (
+                // SPBE SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-2 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu SPBE</span>
+                    </div>
+                    
+                    <Link href="/?view=spbe" className="nav-link active">
+                         <i className="fas fa-file-alt"></i> Permohonan SPBE
+                    </Link>
+                    <a href="#" className="nav-link">
+                         <i className="fas fa-check-square"></i> Persetujuan SPBE
+                    </a>
+                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                         <div className="d-flex align-items-center">
+                             <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
+                             <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBE Keluar oleh Pengawas/Pengawal/Penyegel</span>
+                         </div>
+                    </a>
+                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                         <div className="d-flex align-items-center">
+                             <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
+                             <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBE Masuk oleh Pengguna</span>
+                         </div>
+                    </a>
+
+                    <div className="nav-item px-3 mb-2 mt-4">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                    <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'spbi' ? (
+                // SPBI SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-2 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu SPBI</span>
+                    </div>
+                    
+                    <Link href="/?view=spbi" className="nav-link active">
+                         <i className="fas fa-file-alt"></i> Permohonan SPBI
+                    </Link>
+                    <a href="#" className="nav-link">
+                         <i className="fas fa-check-square"></i> Persetujuan SPBI
+                    </a>
+                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                         <div className="d-flex align-items-center">
+                             <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
+                             <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBI Keluar oleh Pengawas/Pengawal/Penyegel</span>
+                         </div>
+                    </a>
+                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                         <div className="d-flex align-items-center">
+                             <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
+                             <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBI Masuk oleh Pengguna</span>
+                         </div>
+                    </a>
+
+                    <div className="nav-item px-3 mb-2 mt-4">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                    <Link href="/" className="nav-link">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'kesehatan' ? (
+                // KESEHATAN SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-1 mt-1">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Kesehatan</span>
+                    </div>
+                    
+                    <Link href="/?view=kesehatan" className="nav-link active py-2">
+                         <i className="fas fa-male me-2"></i> Biodata
+                    </Link>
+                    <a href="#" className="nav-link py-2">
+                         <i className="fas fa-money-bill-wave me-2"></i> Biaya Kesehatan
+                    </a>
+                    <a href="#" className="nav-link py-2">
+                         <i className="fas fa-pills me-2"></i> Daftar Obat
+                    </a>
+                    <a href="#" className="nav-link py-2">
+                         <i className="fas fa-tint me-2"></i> Donor Darah
+                    </a>
+                    <a href="#" className="nav-link py-2">
+                         <i className="fas fa-heartbeat me-2"></i> Hasil MCU
+                    </a>
+                    <a href="#" className="nav-link py-2" style={{ lineHeight: '1.2' }}>
+                         <div className="d-flex align-items-center">
+                             <i className="fas fa-hospital me-2 flex-shrink-0"></i>
+                             <span className="text-wrap">Info RS dan Klinik Provider</span>
+                         </div>
+                    </a>
+                    <a href="#" className="nav-link py-2">
+                         <i className="fas fa-glasses me-2"></i> Riwayat Kacamata
+                    </a>
+
+                    <div className="nav-item px-3 mb-1 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                    <Link href="/" className="nav-link py-2">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'transport' ? (
+                // TRANSPORT SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-1 mt-1">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Go Transport</span>
+                    </div>
+                    
+                    <Link href="/?view=transport" className="nav-link active py-2">
+                         <i className="fas fa-calendar-alt me-2"></i> Data Pemesanan Kendaraan
+                    </Link>
+                    <a href="#" className="nav-link py-2">
+                         <i className="fas fa-check-square me-2"></i> Persetujuan Pemesanan Kendaraan
+                    </a>
+
+                    <div className="nav-item px-3 mb-1 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                    <Link href="/" className="nav-link py-2">
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>

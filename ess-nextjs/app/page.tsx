@@ -19,6 +19,10 @@ import PayrollView from '@/components/payroll/PayrollView';
 import GajiView from '@/components/informasi/GajiView';
 import PelatihanView from '@/components/pelatihan/PelatihanView';
 import RekapitulasiView from '@/components/informasi/RekapitulasiView';
+import PermohonanSPBEView from '@/components/spbe/PermohonanSPBEView';
+import PermohonanSPBIView from '@/components/spbi/PermohonanSPBIView';
+import BiodataView from '@/components/kesehatan/BiodataView';
+import DPKView from '@/components/transport/DPKView';
 
 
 function HomeContent() {
@@ -39,7 +43,11 @@ function HomeContent() {
                      viewParam === 'payroll' ? 'payroll' : 
                      viewParam === 'informasi' ? 'informasi' : 
                      viewParam === 'pelatihan' ? 'pelatihan' : 
-                     viewParam === 'rekapitulasi' ? 'rekapitulasi' : 'dashboard';
+                     viewParam === 'rekapitulasi' ? 'rekapitulasi' : 
+                     viewParam === 'spbe' ? 'spbe' : 
+                     viewParam === 'spbi' ? 'spbi' : 
+                     viewParam === 'kesehatan' ? 'kesehatan' : 
+                     viewParam === 'transport' ? 'transport' : 'dashboard';
 
   // Helper to switch views
   const setView = (view: string) => {
@@ -236,6 +244,30 @@ function HomeContent() {
             {currentView === 'rekapitulasi' && (
                 <div className="py-4 px-3">
                      <RekapitulasiView />
+                </div>
+            )}
+
+            {currentView === 'spbe' && (
+                <div className="py-4 px-3">
+                     <PermohonanSPBEView />
+                </div>
+            )}
+
+            {currentView === 'spbi' && (
+                <div className="py-4 px-3">
+                     <PermohonanSPBIView />
+                </div>
+            )}
+
+            {currentView === 'kesehatan' && (
+                <div className="py-4 px-3">
+                     <BiodataView />
+                </div>
+            )}
+
+            {currentView === 'transport' && (
+                <div className="py-4 px-3">
+                     <DPKView />
                 </div>
             )}
 
