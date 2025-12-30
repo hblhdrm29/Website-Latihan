@@ -109,8 +109,8 @@ export default function Sidebar() {
                 
                 <Link href="/?view=kesehatan" className={`app-item ${isActive('/', { key: 'view', value: 'kesehatan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-plus-square"></i></div><span className="app-label">Kesehatan</span></Link>
                 <Link href="/?view=transport" className={`app-item ${isActive('/', { key: 'view', value: 'transport' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-bus"></i></div><span className="app-label">Transport</span></Link>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas text-danger fa-tasks"></i></div><span className="app-label">Tasklist</span></a>
-                <a href="#" className="app-item"><div className="app-icon"><i className="fas text-danger fa-heartbeat"></i></div><span className="app-label">Health</span></a>
+                <Link href="/?view=tasklist" className={`app-item ${isActive('/', { key: 'view', value: 'tasklist' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-tasks"></i></div><span className="app-label">Tasklist</span></Link>
+                <Link href="/?view=health" className={`app-item ${isActive('/', { key: 'view', value: 'health' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-heartbeat"></i></div><span className="app-label">Health</span></Link>
             </div>
         </div>
 
@@ -177,16 +177,10 @@ export default function Sidebar() {
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Lembur</span>
                     </div>
                     <Link href="/?view=lembur" className="nav-link active">
-                        <i className="fas fa-home"></i> Home Lembur
+                        <i className="fas fa-clipboard-check"></i> Persetujuan mbur
                     </Link>
                     <a href="#" className="nav-link">
-                        <i className="fas fa-file-signature"></i> Pengajuan
-                    </a>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-history"></i> Riwayat
-                    </a>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-file-alt"></i> Laporan
+                        <i className="fas fa-file-signature"></i> Pengajuan Lembur
                     </a>
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -202,16 +196,10 @@ export default function Sidebar() {
                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Cuti</span>
                    </div>
                    <Link href="/?view=cuti" className="nav-link active">
-                       <i className="fas fa-home"></i> Home Cuti
+                       <i className="fas fa-file-signature"></i> Permohonan Cuti
                    </Link>
                    <a href="#" className="nav-link">
-                       <i className="fas fa-file-signature"></i> Pengajuan
-                   </a>
-                   <a href="#" className="nav-link">
-                       <i className="fas fa-history"></i> Riwayat
-                   </a>
-                   <a href="#" className="nav-link">
-                       <i className="fas fa-file-alt"></i> Laporan
+                       <i className="fas fa-clipboard-check"></i> Persetujuan Cuti
                    </a>
                    <div className="nav-item px-3 mb-2 mt-4">
                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -461,6 +449,41 @@ export default function Sidebar() {
                     <a href="#" className="nav-link py-2">
                          <i className="fas fa-check-square me-2"></i> Persetujuan Pemesanan Kendaraan
                     </a>
+
+                    <div className="nav-item px-3 mb-1 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                    <Link href="/" className="nav-link py-2">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'tasklist' ? (
+                // TASKLIST SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-1 mt-1">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Task Management</span>
+                    </div>
+                    
+                    <Link href="/?view=tasklist" className="nav-link active py-2">
+                         <i className="fas fa-columns me-2"></i> Tasklist Dashboard
+                    </Link>
+                    <div className="nav-item px-3 mb-1 mt-2">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
+                    </div>
+                    <Link href="/" className="nav-link py-2">
+                        <i className="fas fa-arrow-left"></i> Main Dashboard
+                    </Link>
+                </>
+            ) : searchParams.get('view') === 'health' ? (
+                // HEALTH SPECIFIC SIDEBAR
+                <>
+                    <div className="nav-item px-3 mb-1 mt-1">
+                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Health Monitoring</span>
+                    </div>
+                    
+                    <Link href="/?view=health" className="nav-link active py-2">
+                         <i className="fas fa-notes-medical me-2"></i> Health Dashboard
+                    </Link>
 
                     <div className="nav-item px-3 mb-1 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>

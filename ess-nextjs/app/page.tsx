@@ -23,6 +23,8 @@ import PermohonanSPBEView from '@/components/spbe/PermohonanSPBEView';
 import PermohonanSPBIView from '@/components/spbi/PermohonanSPBIView';
 import BiodataView from '@/components/kesehatan/BiodataView';
 import DPKView from '@/components/transport/DPKView';
+import Dashboardtasklist from '@/components/tasklist/Dashboardtasklist';
+import DashboardHealth from '@/components/health/dashboardhealth';
 
 
 function HomeContent() {
@@ -47,7 +49,9 @@ function HomeContent() {
                      viewParam === 'spbe' ? 'spbe' : 
                      viewParam === 'spbi' ? 'spbi' : 
                      viewParam === 'kesehatan' ? 'kesehatan' : 
-                     viewParam === 'transport' ? 'transport' : 'dashboard';
+                     viewParam === 'transport' ? 'transport' : 
+                     viewParam === 'tasklist' ? 'tasklist' : 
+                     viewParam === 'health' ? 'health' : 'dashboard';
 
   // Helper to switch views
   const setView = (view: string) => {
@@ -268,6 +272,18 @@ function HomeContent() {
             {currentView === 'transport' && (
                 <div className="py-4 px-3">
                      <DPKView />
+                </div>
+            )}
+
+            {currentView === 'tasklist' && (
+                <div className="py-4 px-3">
+                     <Dashboardtasklist />
+                </div>
+            )}
+
+            {currentView === 'health' && (
+                <div className="py-4 px-3">
+                     <DashboardHealth />
                 </div>
             )}
 

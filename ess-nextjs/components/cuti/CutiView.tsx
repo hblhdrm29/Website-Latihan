@@ -75,7 +75,7 @@ export default function CutiView() {
                                 <tr>
                                     <th className="py-3 border-end fw-bold text-bold">No</th>
                                     <th className="py-3 border-end fw-bold text-bold">NP</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Nama Pegawai</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Nama</th>
                                     <th className="py-3 border-end fw-bold text-bold">Tipe</th>
                                     <th className="py-3 border-end fw-bold text-bold">Start Date</th>
                                     <th className="py-3 border-end fw-bold text-bold">End Date</th>
