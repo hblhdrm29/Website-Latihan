@@ -201,48 +201,52 @@ export default function DashboardHealth() {
             </div>
 
             {/* Table */}
-            <div className="card rounded-0 border text-muted small shadow-sm" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-                <table className="table table-hover table-bordered mb-0 align-middle w-100">
-                    <thead className="bg-white text-center align-middle sticky-top" style={{ top: 0, zIndex: 1 }}>
-                            <tr style={{borderBottom: '2px solid #dee2e6'}}>
-                                <th style={{width: '50px'}}>No</th>
-                                <th style={{width: '80px'}}>NP</th>
-                                <th style={{minWidth: '200px'}}>Nama</th>
-                                <th style={{minWidth: '120px'}}>Tertanggal</th>
-                                <th>Pernah Keluar</th>
-                                <th>Transportasi Umum</th>
-                                <th>Luar Kota</th>
-                                <th>Kegiatan Orang Banyak</th>
-                                <th>Riwayat Kontak</th>
-                                <th>Pernah Gejala</th>
-                                <th style={{minWidth: '100px'}}>Last Update</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {logs.map((log) => (
-                                <tr key={log.id}>
-                                    <td className="text-center fw-bold">{log.id}</td>
-                                    <td className="text-center fw-medium">{log.nik}</td>
-                                    <td style={{ textAlign: 'justify' }}>
-                                        <div className="fw-bold text-dark">{log.name}</div>
-                                        <div className="text-muted" style={{fontSize: '0.85em'}}>({log.dept})</div>
-                                    </td>
-                                    <td style={{ textAlign: 'justify' }}>{log.date}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.travel}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.publicTransport}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.outOfTown}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.crowd}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.contact}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.symptoms}</td>
-                                    <td style={{ textAlign: 'justify' }}>{log.lastUpdate}</td>
-                                    <td className="text-center">
-                                        <button className="btn btn-primary btn-sm rounded-1 px-3" style={{fontSize: '0.85rem'}}>Lihat</button>
-                                    </td>
+            <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4" style={{ backgroundColor: '#f8f9fa' }}>
+                <div className="card-body p-0">
+                    <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
+                        <table className="table table-hover mb-0 text-start align-middle" style={{ fontSize: '0.85rem' }}>
+                            <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
+                                <tr>
+                                    <th className="py-3 border-end fw-bold text-center ps-4" style={{ width: '50px' }}>No</th>
+                                    <th className="py-3 border-end fw-bold ps-3" style={{ width: '80px' }}>NP</th>
+                                    <th className="py-3 border-end fw-bold ps-3" style={{ minWidth: '200px' }}>Nama</th>
+                                    <th className="py-3 border-end fw-bold ps-3" style={{ minWidth: '120px' }}>Tertanggal</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Pernah Keluar</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Transportasi Umum</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Luar Kota</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Kegiatan Orang Banyak</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Riwayat Kontak</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Pernah Gejala</th>
+                                    <th className="py-3 border-end fw-bold ps-3" style={{ minWidth: '100px' }}>Last Update</th>
+                                    <th className="py-3 fw-bold text-center">Aksi</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody className="bg-transparent">
+                                {logs.map((log) => (
+                                    <tr key={log.id} className="border-bottom">
+                                        <td className="py-4 border-end text-center">{log.id}</td>
+                                        <td className="py-4 border-end ps-3 fw-medium">{log.nik}</td>
+                                        <td className="py-4 border-end ps-3">
+                                            <div className="fw-bold">{log.name}</div>
+                                            <div className="text-muted small">({log.dept})</div>
+                                        </td>
+                                        <td className="py-4 border-end ps-3">{log.date}</td>
+                                        <td className="py-4 border-end ps-3">{log.travel}</td>
+                                        <td className="py-4 border-end ps-3">{log.publicTransport}</td>
+                                        <td className="py-4 border-end ps-3">{log.outOfTown}</td>
+                                        <td className="py-4 border-end ps-3">{log.crowd}</td>
+                                        <td className="py-4 border-end ps-3">{log.contact}</td>
+                                        <td className="py-4 border-end ps-3">{log.symptoms}</td>
+                                        <td className="py-4 border-end ps-3">{log.lastUpdate}</td>
+                                        <td className="py-4 text-center">
+                                            <button className="btn btn-sm btn-outline-primary rounded-1" style={{ fontSize: '0.75rem' }}>Detail</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             
 
