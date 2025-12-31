@@ -70,7 +70,7 @@ export default function KehadiranView() {
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="card-body p-0">
                     <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-                        <table className="table mb-0 text-center align-middle" style={{ fontSize: '0.8rem' }}>
+                        <table className="table table-hover mb-0 text-center align-middle" style={{ fontSize: '0.8rem' }}>
                             <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
                                 <tr>
                                     <th className="py-3 border-end fw-bold text-bold">No</th>

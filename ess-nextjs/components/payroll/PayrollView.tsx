@@ -73,7 +73,7 @@ export default function PayrollView() {
             {/* Employee Table Section */}
             <h5 className="fw-bold mb-3 text-dark">Daftar Gaji Karyawan</h5>
             <div className="bg-white rounded-4 shadow-sm" style={{ maxHeight: '500px', overflowY: 'auto' }}>
-                <table className="table align-middle mb-0 small w-100" style={{ borderCollapse: 'separate', borderSpacing: '0', fontSize: '0.8rem' }}>
+                <table className="table table-hover align-middle mb-0 small w-100" style={{ borderCollapse: 'separate', borderSpacing: '0', fontSize: '0.8rem' }}>
                     <thead className="bg-light sticky-top" style={{ top: 0, zIndex: 1 }}>
                         <tr className="border-bottom">
                             <th className="py-2 px-2 border-end bg-light fw-bold text-dark text-center">No</th>

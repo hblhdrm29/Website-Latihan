@@ -2,14 +2,14 @@
 
 import React from 'react';
 
-export default function BiodataView() {
+export default function DataKeterlambatanView() {
     return (
         <div className="container-fluid p-0">
-             <div className="d-flex align-items-center gap-3 mb-4">
-                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Biodata Kesehatan</h3>
+             <div className="d-flex justify-content-between align-items-center mb-4">
+                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Data Keterlambatan</h3>
             </div>
             
-            {/* Filter Section - Based on DataKeterlambatanView */}
+            {/* Filter Section */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">
                 <div className="card-body p-3">
                     <div className="row g-2 align-items-end justify-content-between" style={{ fontSize: '0.85rem' }}>
@@ -54,52 +54,45 @@ export default function BiodataView() {
                 </div>
             </div>
 
-             {/* Biodata Table */}
+             {/* Data Keterlambatan Table */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="card-body p-0">
                     <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
                         <table className="table table-hover mb-0 text-center align-middle" style={{ fontSize: '0.8rem' }}>
                             <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
                                 <tr>
-                                    <th className="py-3 border-end fw-bold text-bold" style={{width: '50px'}}>No</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Karyawan</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Tempat Tanggal Lahir</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Usia</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Jenis Kelamin</th>
-                                    <th className="py-3 border-end fw-bold text-bold">ID BPJS</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Kelas BPJS</th>
-                                    <th className="py-3 fw-bold text-bold">Aksi</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{width: '60px'}}>No</th>
+                                    <th className="py-3 border-end fw-bold text-bold">NP</th>
+                                    <th className="py-3 border-end fw-bold text-bold" >Nama</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Tanggal</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Nama Jadwal</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Jadwal Masuk</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Waktu Datang</th>
+                                    <th className="py-3 fw-bold text-bold">Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody className="bg-white">
                                 {[
-                                    { no: 1, karyawan: 'K594 - MOHAMAD ALDA', dept: '(Dep Pengembangan Teknologi Informasi)', ttl: 'Karawang', tgl: '20 Mei 2000', usia: 25, jk: 'Laki-laki', bpjs: '0003379692611', kelas: 'I', perawatan: '', keluarga: 0 },
-                                    { no: 2, karyawan: 'K595 - BUDI SANTOSO', dept: '(Dep Pengembangan Teknologi Informasi)', ttl: 'Bandung', tgl: '15 Agustus 1995', usia: 30, jk: 'Laki-laki', bpjs: '0003379692612', kelas: 'I', perawatan: '', keluarga: 1 },
-                                    { no: 3, karyawan: 'K596 - SITI AMINAH', dept: '(Dep Keuangan)', ttl: 'Jakarta', tgl: '01 Januari 1990', usia: 35, jk: 'Perempuan', bpjs: '0003379692613', kelas: 'II', perawatan: '', keluarga: 2 },
-                                    { no: 4, karyawan: 'K597 - ANDI WIJAYA', dept: '(Dep HRD)', ttl: 'Surabaya', tgl: '10 Februari 1988', usia: 37, jk: 'Laki-laki', bpjs: '0003379692614', kelas: 'I', perawatan: '', keluarga: 1 },
-                                    { no: 5, karyawan: 'K598 - RINA SARI', dept: '(Dep Pemasaran)', ttl: 'Yogyakarta', tgl: '25 Maret 1992', usia: 33, jk: 'Perempuan', bpjs: '0003379692615', kelas: 'II', perawatan: '', keluarga: 0 },
-                                    { no: 6, karyawan: 'K599 - DEWI LESTARI', dept: '(Dep Operasional)', ttl: 'Semarang', tgl: '12 April 1998', usia: 27, jk: 'Perempuan', bpjs: '0003379692616', kelas: 'I', perawatan: '', keluarga: 2 },
-                                    { no: 7, karyawan: 'K600 - AGUS PRATAMA', dept: '(Dep IT)', ttl: 'Medan', tgl: '05 Mei 1985', usia: 40, jk: 'Laki-laki', bpjs: '0003379692617', kelas: 'I', perawatan: '', keluarga: 1 },
+                                    { no: 1, np: '7528', nama: 'Mohammad Alda', tanggal: '11 Februari 2025', jadwal: 'Gilir I Umum 2024', masuk: '11 Februari 2025 07:45', datang: '11 Februari 2025 07:49', keterangan: '-' },
+                                    { no: 2, np: '7528', nama: 'Mohammad Alda', tanggal: '21 Februari 2025', jadwal: 'Gilir I Umum 2024', masuk: '21 Februari 2025 07:45', datang: '21 Februari 2025 08:08', keterangan: '-' },
+                                    { no: 3, np: '7528', nama: 'Mohammad Alda', tanggal: '2 Juli 2025', jadwal: 'Gilir I Umum 2024', masuk: '2 Juli 2025 07:45', datang: '2 Juli 2025 07:54', keterangan: '-' },
+                                    { no: 4, np: '7528', nama: 'Mohammad Alda', tanggal: '10 Agustus 2025', jadwal: 'Gilir I Umum 2024', masuk: '10 Agustus 2025 07:45', datang: '10 Agustus 2025 07:50', keterangan: '-' },
+                                    { no: 5, np: '7528', nama: 'Mohammad Alda', tanggal: '15 September 2025', jadwal: 'Gilir I Umum 2024', masuk: '15 September 2025 07:45', datang: '15 September 2025 08:00', keterangan: '-' },
+                                    { no: 6, np: '7528', nama: 'Mohammad Alda', tanggal: '1 Oktober 2025', jadwal: 'Gilir I Umum 2024', masuk: '1 Oktober 2025 07:45', datang: '1 Oktober 2025 07:48', keterangan: '-' },
+                                    { no: 7, np: '7528', nama: 'Mohammad Alda', tanggal: '12 November 2025', jadwal: 'Gilir I Umum 2024', masuk: '12 November 2025 07:45', datang: '12 November 2025 07:55', keterangan: '-' },
+                                    { no: 8, np: '7528', nama: 'Mohammad Alda', tanggal: '5 Desember 2025', jadwal: 'Gilir I Umum 2024', masuk: '5 Desember 2025 07:45', datang: '5 Desember 2025 07:51', keterangan: '-' },
+                                    { no: 9, np: '7528', nama: 'Mohammad Alda', tanggal: '20 Januari 2026', jadwal: 'Gilir I Umum 2024', masuk: '20 Januari 2026 07:45', datang: '20 Januari 2026 08:05', keterangan: '-' },
+                                    { no: 10, np: '7528', nama: 'Mohammad Alda', tanggal: '14 Februari 2026', jadwal: 'Gilir I Umum 2024', masuk: '14 Februari 2026 07:45', datang: '14 Februari 2026 07:47', keterangan: '-' },
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border-bottom">
                                         <td className="py-3 border-end">{row.no}</td>
-                                        <td className="py-3 border-end text-start px-3">
-                                            <div className="fw-bold text-dark">{row.karyawan}</div>
-                                            <div className="text-muted small">{row.dept}</div>
-                                        </td>
-                                        <td className="py-3 border-end text-start px-3">
-                                            <div className="fw-bold text-dark">{row.ttl}</div>
-                                            <div className="text-muted small">{row.tgl}</div>
-                                        </td>
-                                        <td className="py-3 border-end">{row.usia}</td>
-                                        <td className="py-3 border-end">{row.jk}</td>
-                                        <td className="py-3 border-end">{row.bpjs}</td>
-                                        <td className="py-3 border-end">{row.kelas}</td>
-                                        <td className="py-3">
-                                            <button className="btn btn-success btn-sm rounded-1 px-2 py-0" style={{ fontSize: '0.75rem' }}>
-                                                {row.keluarga} Keluarga
-                                            </button>
-                                        </td>
+                                        <td className="py-3 border-end">{row.np}</td>
+                                        <td className="py-3 border-end fw-medium">{row.nama}</td>
+                                        <td className="py-3 border-end">{row.tanggal}</td>
+                                        <td className="py-3 border-end">{row.jadwal}</td>
+                                        <td className="py-3 border-end">{row.masuk}</td>
+                                        <td className="py-3 border-end">{row.datang}</td>
+                                        <td className="py-3">{row.keterangan}</td>
                                     </tr>
                                 ))}
                             </tbody>

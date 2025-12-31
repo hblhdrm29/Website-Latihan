@@ -2,16 +2,12 @@
 
 import React from 'react';
 
-export default function DPKView() {
-
+export default function PPKView() {
 
     return (
         <div className="container-fluid p-0">
             <div className="d-flex align-items-center gap-3 mb-4">
-                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Data Pemesanan Kendaraan</h3>
-                <div className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
-                    <i className="fas fa-plus small"></i>
-                </div>
+                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Persetujuan Pemesanan Kendaraan</h3>
             </div>
 
             {/* Filter Section */}

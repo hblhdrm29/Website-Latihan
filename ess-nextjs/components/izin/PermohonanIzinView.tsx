@@ -2,9 +2,15 @@
 
 import React from 'react';
 
-export default function LemburView() {
+export default function PermohonanIzinView() {
     return (
         <div className="container-fluid p-0">
+            <div className="d-flex align-items-center gap-3 mb-4">
+                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Permohonan Izin</h3>
+                <div className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
+                    <i className="fas fa-plus small"></i>
+                </div>
+            </div>
             {/* Filter Section */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">
                 <div className="card-body p-3">
@@ -66,117 +72,81 @@ export default function LemburView() {
                 </div>
             </div>
 
-            {/* Attendance Table */}
+            {/* Izin Table */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="card-body p-0">
                     <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
                         <table className="table table-hover mb-0 text-center align-middle" style={{ fontSize: '0.8rem' }}>
                             <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
                                 <tr>
-                                    <th className="py-3 border-end fw-bold text-bold">No</th>
-                                    <th className="py-3 border-end fw-bold text-bold">NP</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Nama Pegawai</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Tertanggal</th>
-                                    <th className="py-3 border-end fw-bold text-bold text-nowrap">Input Mulai</th>
-                                    <th className="py-3 border-end fw-bold text-bold text-nowrap">Input Selesai</th>
-                                    <th className="py-3 border-end fw-bold text-bold text-nowrap">Lembur Diakui</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Jenis Alasan</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Ket</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{width: '50px'}}>No</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{width: '100px'}}>NP</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Nama</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Izin</th>
+                                    <th className="py-3 border-end fw-bold text-bold">From</th>
+                                    <th className="py-3 border-end fw-bold text-bold">To</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Pos</th>
                                     <th className="py-3 border-end fw-bold text-bold">Status</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Posisi</th>
                                     <th className="py-3 fw-bold text-bold">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody className="bg-transparent">
+                            <tbody className="bg-white">
                                 {[
-                                    {
-                                        no: 1,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        tertanggal: '25 Mei 2025',
-                                        inputMulai: { date: '25 Mei 2025', time: '11:16' },
-                                        inputSelesai: { date: '25 Mei 2025', time: '23:16' },
-                                        lemburDiakui: { start: '25 Mei 2025 11:16', end: '25 Mei 2025 23:16' },
-                                        jenisAlasan: 'Lembur Proyek',
-                                        keterangan: 'Persiapan acara satu data',
-                                        status: 'Disetujui SDM',
-                                    },
-                                    {
-                                        no: 2,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        tertanggal: '21 Mei 2025',
-                                        inputMulai: { date: '21 Mei 2025', time: '16:30' },
-                                        inputSelesai: { date: '21 Mei 2025', time: '19:30' },
-                                        lemburDiakui: { start: '21 Mei 2025 16:30', end: '21 Mei 2025 19:30' },
-                                        jenisAlasan: 'Lembur Akhir',
-                                        keterangan: 'Konfigurasi ESS',
-                                        status: 'Disetujui SDM',
-                                    },
-                                    {
-                                        no: 3,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        tertanggal: '17 Mei 2025',
-                                        inputMulai: { date: '17 Mei 2025', time: '10:30' },
-                                        inputSelesai: { date: '17 Mei 2025', time: '19:30' },
-                                        lemburDiakui: { start: '17 Mei 2025 10:30', end: '17 Mei 2025 19:30' },
-                                        jenisAlasan: 'Lembur Proyek',
-                                        keterangan: 'Development Aplikasi Candaltek',
-                                        status: 'Disetujui SDM',
-                                    },
-                                    {
-                                        no: 4,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        tertanggal: '15 Mei 2025',
-                                        inputMulai: { date: '15 Mei 2025', time: '13:00' },
-                                        inputSelesai: { date: '15 Mei 2025', time: '18:30' },
-                                        lemburDiakui: { start: '15 Mei 2025 13:00', end: '15 Mei 2025 18:30' },
-                                        jenisAlasan: 'Lembur Akhir',
-                                        keterangan: 'Development Karyawan',
-                                        status: 'Disetujui SDM',
-                                    },
-                                    {
-                                        no: 5,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        tertanggal: '13 Mei 2025',
-                                        inputMulai: { date: '13 Mei 2025', time: '14:00' },
-                                        inputSelesai: { date: '13 Mei 2025', time: '19:00' },
-                                        lemburDiakui: { start: '13 Mei 2025 14:00', end: '13 Mei 2025 19:00' },
-                                        jenisAlasan: 'Lembur Akhir',
-                                        keterangan: 'Konfirmasi ESS',
-                                        status: 'Disetujui SDM',
-                                    },
+                                    { no: 1, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '10 Juli 2025', t: '08:03:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Masuk' },
+                                    { no: 2, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '02 Juli 2025', t: '08:30:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Masuk' },
+                                    { no: 3, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '01 Juli 2025', t: '08:04:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Masuk' },
+                                    { no: 4, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Pulang Awal', from: { d: '05 Juli 2025', t: '14:00:00', m: 'machine : ess' }, to: '', pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Keluar' },
+                                    { no: 5, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Keluar Kantor', from: { d: '15 Juli 2025', t: '10:00:00', m: 'machine : ess' }, to: { d: '15 Juli 2025', t: '12:00:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Menunggu Atasan 2', statusColor: 'bg-warning', posisi: 'Keluar' },
+                                    { no: 6, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '20 Juli 2025', t: '08:15:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Ditolak', statusColor: 'bg-danger', posisi: 'Masuk' },
+                                    { no: 7, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '22 Juli 2025', t: '08:10:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Masuk' },
+                                    { no: 8, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Pulang Awal', from: { d: '25 Juli 2025', t: '15:30:00', m: 'machine : ess' }, to: '', pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Keluar' },
+                                    { no: 9, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '28 Juli 2025', t: '08:05:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Disetujui Atasan 1', statusColor: 'bg-success', posisi: 'Masuk' },
+                                    { no: 10, np: 'K594', nama: 'MOHAMAD ALDA', izin: 'Izin Datang Terlambat', from: '', to: { d: '30 Juli 2025', t: '08:20:00', m: 'machine : ess' }, pos: 'Pos Lobby SDM', status: 'Menunggu Atasan 1', statusColor: 'bg-warning', posisi: 'Masuk' },
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border-bottom">
                                         <td className="py-4 border-end">{row.no}</td>
                                         <td className="py-4 border-end">{row.np}</td>
-                                        <td className="py-4 border-end fw-medium">{row.nama}</td>
-                                        <td className="py-4 border-end">{row.tertanggal}</td>
                                         <td className="py-4 border-end">
-                                            <div>{row.inputMulai.date}</div>
-                                            <div className="fw-bold text-primary">{row.inputMulai.time}</div>
+                                            <div className="fw-medium text-dark">{row.nama}</div>
+                                        </td>
+                                        <td className="py-4 border-end fw-medium">{row.izin}</td>
+                                        <td className="py-4 border-end">
+                                            {typeof row.from === 'object' && row.from !== null ? (
+                                                <>
+                                                    <div>{row.from.d}</div>
+                                                    <div>{row.from.t}</div>
+                                                    <div className="text-primary small mt-1">{row.from.m}</div>
+                                                </>
+                                            ) : (
+                                                <div className="text-muted">{row.from}</div>
+                                            )}
                                         </td>
                                         <td className="py-4 border-end">
-                                            <div>{row.inputSelesai.date}</div>
-                                            <div className="fw-bold text-primary">{row.inputSelesai.time}</div>
+                                             {typeof row.to === 'object' && row.to !== null ? (
+                                                <>
+                                                    <div>{row.to.d}</div>
+                                                    <div>{row.to.t}</div>
+                                                    <div className="text-primary small mt-1">{row.to.m}</div>
+                                                </>
+                                            ) : (
+                                                <div className="text-muted">{row.to}</div>
+                                            )}
                                         </td>
+                                        <td className="py-4 border-end">{row.pos}</td>
                                         <td className="py-4 border-end">
-                                            <div className="text-muted small">{row.lemburDiakui.start}</div>
-                                            <div className="text-muted small">s/d</div>
-                                            <div className="text-muted small">{row.lemburDiakui.end}</div>
-                                        </td>
-                                        <td className="py-4 border-end">{row.jenisAlasan}</td>
-                                        <td className="py-4 border-end" style={{ maxWidth: '150px' }}>{row.keterangan}</td>
-                                        <td className="py-4 border-end">
-                                            <span className="badge bg-success bg-opacity-75 rounded-pill px-3 py-2 fw-normal" style={{ fontSize: '0.75rem' }}>
+                                            <span className={`badge ${row.statusColor} bg-opacity-75 rounded-pill px-3 py-2 fw-normal`} style={{ fontSize: '0.75rem' }}>
                                                 {row.status}
                                             </span>
                                         </td>
+                                        <td className="py-4 border-end">
+                                            <span className={`badge ${row.posisi === 'Masuk' ? 'bg-success' : 'bg-danger'} bg-opacity-75 text-white rounded-pill px-3 py-2 fw-normal`} style={{ fontSize: '0.75rem' }}>
+                                                {row.posisi}
+                                            </span>
+                                        </td>
                                         <td className="py-4">
-                                            <button suppressHydrationWarning className="btn btn-sm btn-primary rounded-pill px-3 shadow-sm border-0 text-nowrap fw-medium" style={{ fontSize: '0.7rem', backgroundColor: '#3b82f6' }}>
-                                                Submit ERP
+                                            <button suppressHydrationWarning className="btn btn-sm btn-outline-secondary rounded-pill shadow-sm px-3" style={{ fontSize: '0.7rem' }}>
+                                                Detail
                                             </button>
                                         </td>
                                     </tr>

@@ -12,74 +12,98 @@ export default function Dashboardtasklist() {
             createdAt: '2024-10-01 12:25:50',
             status: 'Pending'
         },
-        // Add one more example for visual balance if user allows "modify"
-        { 
-            id: 2, 
-            title: 'Review System Logs', 
-            description: 'Check for unauthorized access attempts', 
-            createdBy: 'SYSTEM', 
-            createdAt: '2024-10-02 08:00:00',
-            status: 'Completed'
-        },
     ];
 
     return (
-        <div className="container-fluid px-4 py-4">
-            <div className="d-flex justify-content-between align-items-center mb-4">
-                <h3 className="fw-bold mb-4" style={{ color: '#20288E' }}>Tasklist Dashboard</h3>
-                 <div className="input-group" style={{maxWidth: '250px'}}>
-                    <span className="input-group-text bg-white border-end-0"><i className="fas fa-search text-muted"></i></span>
-                    <input type="text" className="form-control border-start-0 ps-0" placeholder="Search tasks..." />
+        <div className="container-fluid p-0">
+             {/* Header with Add Button */}
+            <div className="d-flex align-items-center gap-3 mb-4">
+                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Tasklist Dashboard</h3>
+            </div>
+
+            {/* Filter Section */}
+            <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">
+                <div className="card-body p-3">
+                     <div className="row g-2 align-items-end justify-content-between" style={{ fontSize: '0.85rem' }}>
+                         <div className="col-md-3">
+                            <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Name</label>
+                            <div className="input-group input-group-sm">
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-3 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                    <option>Filter</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div className="col-md-3">
+                            <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Created By</label>
+                            <div className="input-group input-group-sm">
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-3 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                    <option>Filter</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div className="col-md-3">
+                            <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Status</label>
+                            <div className="input-group input-group-sm">
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-3 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                    <option>Filter</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div className="col-md-3">
+                             <button className="btn btn-sm btn-light border-0 border-secondary shadow-sm rounded-pill px-0 w-100 fw-bold text-secondary" style={{ fontSize: '0.8rem' }}>
+                                Filter <i className="fas fa-filter ms-1 small"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="card border-0 shadow-sm rounded-4">
-                <div className="table-responsive">
-                    <table className="table align-middle mb-0 table-hover">
-                        <thead className="bg-light border-bottom">
-                            <tr>
-                                <th className="px-4 py-3 text-muted small fw-bold text-uppercase border-0">Name</th>
-                                <th className="py-3 text-muted small fw-bold text-uppercase border-0">Description</th>
-                                <th className="py-3 text-muted small fw-bold text-uppercase border-0">Created By</th>
-                                <th className="py-3 text-muted small fw-bold text-uppercase border-0">Created At</th>
-                                <th className="py-3 text-muted small fw-bold text-uppercase border-0">Status</th>
-                                <th className="px-4 py-3 text-end text-muted small fw-bold text-uppercase border-0">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tasks.map((task) => (
-                                <tr key={task.id}>
-                                    <td className="px-4 py-3 border-bottom-0">
-                                        <span className="fw-bold text-dark">{task.title}</span>
-                                    </td>
-                                    <td className="py-3 border-bottom-0">
-                                        <span className="text-muted small text-wrap" style={{ maxWidth: '300px', display: 'block' }}>{task.description}</span>
-                                    </td>
-                                    <td className="py-3 border-bottom-0">
-                                        <div className="d-flex align-items-center">
-                                            <div className="rounded-circle bg-light text-primary d-flex align-items-center justify-content-center fw-bold small me-2 border" style={{ width: '30px', height: '30px' }}>
-                                                {task.createdBy.charAt(0)}
-                                            </div>
-                                            <span className="text-dark small fw-medium text-uppercase">{task.createdBy}</span>
-                                        </div>
-                                    </td>
-                                    <td className="py-3 border-bottom-0">
-                                        <span className="text-muted small">{task.createdAt}</span>
-                                    </td>
-                                    <td className="py-3 border-bottom-0">
-                                        <span className={`badge rounded-pill bg-${task.status === 'Completed' ? 'success' : 'warning'}-subtle text-${task.status === 'Completed' ? 'success' : 'warning'} border border-${task.status === 'Completed' ? 'success' : 'warning'}-subtle`}>
-                                            {task.status}
-                                        </span>
-                                    </td>
-                                    <td className="px-4 py-3 border-bottom-0 text-end">
-                                        <button className="btn btn-sm btn-icon btn-light rounded-circle text-muted">
-                                            <i className="fas fa-ellipsis-v"></i>
-                                        </button>
-                                    </td>
+            {/* Support Table */}
+            <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4" style={{ backgroundColor: '#f8f9fa' }}>
+                <div className="card-body p-0">
+                    <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
+                        <table className="table table-hover mb-0 text-start align-middle" style={{ fontSize: '0.85rem' }}>
+                            <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
+                                <tr>
+                                    <th className="py-3 border-end fw-bold text-center ps-4" style={{ width: '50px' }}>No</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Name</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Description</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Created By</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Created At</th>
+                                    <th className="py-3 border-end fw-bold ps-3">Status</th>
+                                    <th className="py-3 fw-bold text-center">Action</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody className="bg-transparent">
+                                {tasks.map((task, idx) => (
+                                    <tr key={task.id} className="border-bottom">
+                                        <td className="py-4 border-end text-center">{idx + 1}</td>
+                                        <td className="py-4 border-end ps-3 fw-bold">{task.title}</td>
+                                        <td className="py-4 border-end ps-3" style={{ maxWidth: '300px' }}>
+                                            <div className="text-wrap">{task.description}</div>
+                                        </td>
+                                        <td className="py-4 border-end ps-3">
+                                            <div className="d-flex align-items-center">
+                                                <div className="rounded-circle bg-light text-primary d-flex align-items-center justify-content-center fw-bold small me-2 border" style={{ width: '30px', height: '30px' }}>
+                                                    {task.createdBy.charAt(0)}
+                                                </div>
+                                                <span className="text-dark small fw-medium text-uppercase">{task.createdBy}</span>
+                                            </div>
+                                        </td>
+                                        <td className="py-4 border-end ps-3">{task.createdAt}</td>
+                                        <td className="py-4 border-end ps-3">
+                                            <span className={`badge rounded-pill ${task.status === 'Completed' ? 'bg-success' : 'bg-warning text-dark'}`}>
+                                                {task.status}
+                                            </span>
+                                        </td>
+                                        <td className="py-4 text-center">
+                                             <button className="btn btn-sm btn-outline-secondary rounded-1" style={{ fontSize: '0.75rem' }}>Detail</button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

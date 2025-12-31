@@ -21,8 +21,7 @@ export default function Sidebar() {
             return currentView === queryParam.value ? 'active' : '';
         } else {
             // Dashboard case: no view param should be present or view is not profile/agenda/kehadiran/etc
-            const views = ['profile', 'agenda', 'kehadiran', 'lembur', 'cuti', 'izin', 'dinas', 'organization', 'payslips'];
-            return !currentView || !views.includes(currentView) ? 'active' : '';
+            return !currentView || currentView === 'dashboard' ? 'active' : '';
         }
     }
     // Standard path check for other pages
@@ -102,15 +101,15 @@ export default function Sidebar() {
 
                 <Link href="/?view=informasi" className={`app-item ${isActive('/', { key: 'view', value: 'informasi' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-info-circle"></i></div><span className="app-label">Informasi</span></Link>
                 <Link href="/?view=pelatihan" className={`app-item ${isActive('/', { key: 'view', value: 'pelatihan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-briefcase"></i></div><span className="app-label">Pelatihan</span></Link>
-                <Link href="/?view=spbe" className={`app-item ${isActive('/', { key: 'view', value: 'spbe' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-file-alt"></i></div><span className="app-label">SPBE</span></Link>
-                <Link href="/?view=spbi" className={`app-item ${isActive('/', { key: 'view', value: 'spbi' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-file"></i></div><span className="app-label">SPBI</span></Link>
+                <Link href="/?view=spbe" className={`app-item ${isActive('/', { key: 'view', value: 'spbe' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-file-alt"></i></div><span className="app-label">SPBE</span></Link>
+                <Link href="/?view=spbi" className={`app-item ${isActive('/', { key: 'view', value: 'spbi' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-file"></i></div><span className="app-label">SPBI</span></Link>
                 
                 {/* Disabled items */}
                 
-                <Link href="/?view=kesehatan" className={`app-item ${isActive('/', { key: 'view', value: 'kesehatan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-plus-square"></i></div><span className="app-label">Kesehatan</span></Link>
-                <Link href="/?view=transport" className={`app-item ${isActive('/', { key: 'view', value: 'transport' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-bus"></i></div><span className="app-label">Transport</span></Link>
-                <Link href="/?view=tasklist" className={`app-item ${isActive('/', { key: 'view', value: 'tasklist' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-tasks"></i></div><span className="app-label">Tasklist</span></Link>
-                <Link href="/?view=health" className={`app-item ${isActive('/', { key: 'view', value: 'health' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas text-danger fa-heartbeat"></i></div><span className="app-label">Health</span></Link>
+                <Link href="/?view=kesehatan" className={`app-item ${isActive('/', { key: 'view', value: 'kesehatan' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-plus-square"></i></div><span className="app-label">Kesehatan</span></Link>
+                <Link href="/?view=transport" className={`app-item ${isActive('/', { key: 'view', value: 'transport' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-bus"></i></div><span className="app-label">Transport</span></Link>
+                <Link href="/?view=tasklist" className={`app-item ${isActive('/', { key: 'view', value: 'tasklist' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-tasks"></i></div><span className="app-label">Tasklist</span></Link>
+                <Link href="/?view=health" className={`app-item ${isActive('/', { key: 'view', value: 'health' })}`} onClick={() => setShowGridMenu(false)}><div className="app-icon"><i className="fas fa-heartbeat"></i></div><span className="app-label">Health</span></Link>
             </div>
         </div>
 
@@ -129,18 +128,8 @@ export default function Sidebar() {
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Dinas</span>
                     </div>
                     <Link href="/?view=dinas" className="nav-link active">
-                        <i className="fas fa-home"></i> Home Dinas
+                        <i className="fas fa-home"></i> SPPD
                     </Link>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-file-signature"></i> Pengajuan
-                    </a>
-                    
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-history"></i> Riwayat
-                    </a>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-file-alt"></i> Laporan
-                    </a>
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                     </div>
@@ -148,21 +137,21 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'kehadiran' ? (
+            ) : ['kehadiran', 'perencanaan', 'persetujuankehadiran'].includes(searchParams.get('view') || '') ? (
                 // KEHADIRAN SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Kehadiran</span>
                     </div>
-                    <Link href="/?view=kehadiran" className="nav-link active">
+                    <Link href="/?view=kehadiran" className={`nav-link ${isActive('/', { key: 'view', value: 'kehadiran' })}`}>
                         <i className="fas fa-user-clock"></i> Data Kehadiran
                     </Link>
-                    <a href="#" className="nav-link">
+                    <Link href="/?view=perencanaan" className={`nav-link ${isActive('/', { key: 'view', value: 'perencanaan' })}`}>
                         <i className="fas fa-calendar-alt"></i> Perencanaan Jadwal Kerja
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link href="/?view=persetujuankehadiran" className={`nav-link ${isActive('/', { key: 'view', value: 'persetujuankehadiran' })}`}>
                         <i className="fas fa-check-circle"></i> Persetujuan Kehadiran
-                    </a>
+                    </Link>
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                     </div>
@@ -170,18 +159,18 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'lembur' ? (
+            ) : ['lembur', 'pengajuanlembur'].includes(searchParams.get('view') || '') ? (
                  // LEMBUR SPECIFIC SIDEBAR
                  <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Lembur</span>
                     </div>
-                    <Link href="/?view=lembur" className="nav-link active">
-                        <i className="fas fa-clipboard-check"></i> Persetujuan mbur
+                    <Link href="/?view=lembur" className={`nav-link ${isActive('/', { key: 'view', value: 'lembur' })}`}>
+                        <i className="fas fa-clipboard-check"></i> Persetujuan Lembur
                     </Link>
-                    <a href="#" className="nav-link">
+                    <Link href="/?view=pengajuanlembur" className={`nav-link ${isActive('/', { key: 'view', value: 'pengajuanlembur' })}`}>
                         <i className="fas fa-file-signature"></i> Pengajuan Lembur
-                    </a>
+                    </Link>
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                     </div>
@@ -189,18 +178,18 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'cuti' ? (
+            ) : ['cuti', 'persetujuancuti'].includes(searchParams.get('view') || '') ? (
                 // CUTI SPECIFIC SIDEBAR
                 <>
                    <div className="nav-item px-3 mb-2 mt-2">
                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Cuti</span>
                    </div>
-                   <Link href="/?view=cuti" className="nav-link active">
+                   <Link href="/?view=cuti" className={`nav-link ${isActive('/', { key: 'view', value: 'cuti' })}`}>
                        <i className="fas fa-file-signature"></i> Permohonan Cuti
                    </Link>
-                   <a href="#" className="nav-link">
+                   <Link href="/?view=persetujuancuti" className={`nav-link ${isActive('/', { key: 'view', value: 'persetujuancuti' })}`}>
                        <i className="fas fa-clipboard-check"></i> Persetujuan Cuti
-                   </a>
+                   </Link>
                    <div className="nav-item px-3 mb-2 mt-4">
                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                    </div>
@@ -208,24 +197,21 @@ export default function Sidebar() {
                        <i className="fas fa-arrow-left"></i> Main Dashboard
                    </Link>
                </>
-           ) : searchParams.get('view') === 'izin' ? (
+           ) : searchParams.get('view') === 'izin' || searchParams.get('view') === 'permohonanizin' || searchParams.get('view') === 'persetujuanizin' ? (
                 // IZIN SPECIFIC SIDEBAR
                 <>
                    <div className="nav-item px-3 mb-2 mt-2">
                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu Izin</span>
                    </div>
-                   <Link href="/?view=izin" className="nav-link active">
-                       <i className="fas fa-home"></i> Home Izin
+                   <Link href="/?view=izin" className={`nav-link ${isActive('/', { key: 'view', value: 'izin' })}`}>
+                       <i className="fas fa-home"></i> Data Perizinan
                    </Link>
-                   <a href="#" className="nav-link">
-                       <i className="fas fa-file-signature"></i> Pengajuan
-                   </a>
-                   <a href="#" className="nav-link">
-                       <i className="fas fa-history"></i> Riwayat
-                   </a>
-                   <a href="#" className="nav-link">
-                       <i className="fas fa-file-alt"></i> Laporan
-                   </a>
+                   <Link href="/?view=persetujuanizin" className={`nav-link ${isActive('/', { key: 'view', value: 'persetujuanizin' })}`}>
+                       <i className="fas fa-file-signature"></i> Persetujuan Izin
+                   </Link>
+                   <Link href="/?view=permohonanizin" className={`nav-link ${isActive('/', { key: 'view', value: 'permohonanizin' })}`}>
+                       <i className="fas fa-history"></i> Permohonan Izin
+                   </Link>
                    <div className="nav-item px-3 mb-2 mt-4">
                        <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
                    </div>
@@ -280,25 +266,25 @@ export default function Sidebar() {
                        <i className="fas fa-arrow-left"></i> Main Dashboard
                    </Link>
                </>
-            ) : ['informasi', 'rekapitulasi'].includes(searchParams.get('view') || '') ? (
+            ) : ['informasi', 'rekapitulasi', 'pamlek', 'keterlambatan'].includes(searchParams.get('view') || '') ? (
                 // INFORMASI SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Informasi</span>
                     </div>
                     
-                    <Link href="/?view=informasi" className={`nav-link ${searchParams.get('view') === 'informasi' ? 'active' : ''}`}>
+                    <Link href="/?view=informasi" className={`nav-link ${isActive('/', { key: 'view', value: 'informasi' })}`}>
                         <i className="fas fa-chart-line"></i> Gaji
                     </Link>
-                    <Link href="/?view=rekapitulasi" className={`nav-link ${searchParams.get('view') === 'rekapitulasi' ? 'active' : ''}`}>
+                    <Link href="/?view=rekapitulasi" className={`nav-link ${isActive('/', { key: 'view', value: 'rekapitulasi' })}`}>
                         <i className="fas fa-list-alt"></i> Rekapitulasi Bulanan
                     </Link>
-                    <a href="#" className="nav-link">
+                    <Link href="/?view=pamlek" className={`nav-link ${isActive('/', { key: 'view', value: 'pamlek' })}`}>
                         <i className="fas fa-building"></i> Data Pamlek
-                    </a>
-                    <a href="#" className="nav-link">
-                        <i className="fas fa-bed"></i> Data Keterlambatan
-                    </a>
+                    </Link>
+                    <Link href="/?view=keterlambatan" className={`nav-link ${isActive('/', { key: 'view', value: 'keterlambatan' })}`}>
+                        <i className="fas fa-clock"></i> Data Keterlambatan
+                    </Link>
 
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -307,22 +293,22 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'pelatihan' ? (
+            ) : ['pelatihan', 'historypelatihan', 'persetujuanpelatihan'].includes(searchParams.get('view') || '') ? (
                 // PELATIHAN SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Pelatihan</span>
                     </div>
                     
-                    <a href="#" className="nav-link active">
+                    <Link href="/?view=pelatihan" className={`nav-link ${isActive('/', { key: 'view', value: 'pelatihan' })}`}>
                         <i className="fas fa-pen"></i> Input Pelatihan
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link href="/?view=historypelatihan" className={`nav-link ${isActive('/', { key: 'view', value: 'historypelatihan' })}`}>
                         <i className="fas fa-history"></i> History Pelatihan
-                    </a>
-                    <a href="#" className="nav-link">
+                    </Link>
+                    <Link href="/?view=persetujuanpelatihan" className={`nav-link ${isActive('/', { key: 'view', value: 'persetujuanpelatihan' })}`}>
                         <i className="fas fa-check-circle"></i> Persetujuan Pelatihan
-                    </a>
+                    </Link>
 
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -331,31 +317,31 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'spbe' ? (
+            ) : ['spbe', 'persetujuanspbe', 'konfirmasispbemasuk', 'konfirmasispbekeluar'].includes(searchParams.get('view') || '') ? (
                 // SPBE SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu SPBE</span>
                     </div>
                     
-                    <Link href="/?view=spbe" className="nav-link active">
+                    <Link href="/?view=spbe" className={`nav-link ${isActive('/', { key: 'view', value: 'spbe' })}`}>
                          <i className="fas fa-file-alt"></i> Permohonan SPBE
                     </Link>
-                    <a href="#" className="nav-link">
+                    <Link href="/?view=persetujuanspbe" className={`nav-link ${isActive('/', { key: 'view', value: 'persetujuanspbe' })}`}>
                          <i className="fas fa-check-square"></i> Persetujuan SPBE
-                    </a>
-                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                    </Link>
+                    <Link href="/?view=konfirmasispbekeluar" className={`nav-link ${isActive('/', { key: 'view', value: 'konfirmasispbekeluar' })}`} style={{ lineHeight: '1.2', height: 'auto' }}>
                          <div className="d-flex align-items-center">
                              <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
                              <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBE Keluar oleh Pengawas/Pengawal/Penyegel</span>
                          </div>
-                    </a>
-                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                    </Link>
+                    <Link href="/?view=konfirmasispbemasuk" className={`nav-link ${isActive('/', { key: 'view', value: 'konfirmasispbemasuk' })}`} style={{ lineHeight: '1.2', height: 'auto' }}>
                          <div className="d-flex align-items-center">
                              <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
                              <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBE Masuk oleh Pengguna</span>
                          </div>
-                    </a>
+                    </Link>
 
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -364,31 +350,31 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'spbi' ? (
+            ) : ['spbi', 'persetujuanspbi', 'konfirmasispbimasuk', 'konfirmasispbikeluar'].includes(searchParams.get('view') || '') ? (
                 // SPBI SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-2 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Menu SPBI</span>
                     </div>
                     
-                    <Link href="/?view=spbi" className="nav-link active">
+                    <Link href="/?view=spbi" className={`nav-link ${isActive('/', { key: 'view', value: 'spbi' })}`}>
                          <i className="fas fa-file-alt"></i> Permohonan SPBI
                     </Link>
-                    <a href="#" className="nav-link">
+                    <Link href="/?view=persetujuanspbi" className={`nav-link ${isActive('/', { key: 'view', value: 'persetujuanspbi' })}`}>
                          <i className="fas fa-check-square"></i> Persetujuan SPBI
-                    </a>
-                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                    </Link>
+                    <Link href="/?view=konfirmasispbikeluar" className={`nav-link ${isActive('/', { key: 'view', value: 'konfirmasispbikeluar' })}`} style={{ lineHeight: '1.2', height: 'auto' }}>
                          <div className="d-flex align-items-center">
                              <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
                              <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBI Keluar oleh Pengawas/Pengawal/Penyegel</span>
                          </div>
-                    </a>
-                    <a href="#" className="nav-link" style={{ lineHeight: '1.2', height: 'auto' }}>
+                    </Link>
+                    <Link href="/?view=konfirmasispbimasuk" className={`nav-link ${isActive('/', { key: 'view', value: 'konfirmasispbimasuk' })}`} style={{ lineHeight: '1.2', height: 'auto' }}>
                          <div className="d-flex align-items-center">
                              <i className="fas fa-file-alt mt-1 me-2 flex-shrink-0"></i>
                              <span style={{ whiteSpace: 'normal', maxWidth: '190px', wordBreak: 'break-word' }}>Konfirmasi SPBI Masuk oleh Pengguna</span>
                          </div>
-                    </a>
+                    </Link>
 
                     <div className="nav-item px-3 mb-2 mt-4">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -397,37 +383,37 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'kesehatan' ? (
+            ) : ['kesehatan', 'biayakesehatan', 'daftarobat', 'donordarah', 'infors', 'hasilmcu', 'riwayatkacamata'].includes(searchParams.get('view') || '') ? (
                 // KESEHATAN SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-1 mt-1">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Kesehatan</span>
                     </div>
                     
-                    <Link href="/?view=kesehatan" className="nav-link active py-2">
+                    <Link href="/?view=kesehatan" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'kesehatan' })}`}>
                          <i className="fas fa-male me-2"></i> Biodata
                     </Link>
-                    <a href="#" className="nav-link py-2">
+                    <Link href="/?view=biayakesehatan" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'biayakesehatan' })}`}>
                          <i className="fas fa-money-bill-wave me-2"></i> Biaya Kesehatan
-                    </a>
-                    <a href="#" className="nav-link py-2">
+                    </Link>
+                    <Link href="/?view=daftarobat" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'daftarobat' })}`}>
                          <i className="fas fa-pills me-2"></i> Daftar Obat
-                    </a>
-                    <a href="#" className="nav-link py-2">
+                    </Link>
+                    <Link href="/?view=donordarah" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'donordarah' })}`}>
                          <i className="fas fa-tint me-2"></i> Donor Darah
-                    </a>
-                    <a href="#" className="nav-link py-2">
+                    </Link>
+                    <Link href="/?view=hasilmcu" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'hasilmcu' })}`}>
                          <i className="fas fa-heartbeat me-2"></i> Hasil MCU
-                    </a>
-                    <a href="#" className="nav-link py-2" style={{ lineHeight: '1.2' }}>
+                    </Link>
+                    <Link href="/?view=infors" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'infors' })}`} style={{ lineHeight: '1.2' }}>
                          <div className="d-flex align-items-center">
                              <i className="fas fa-hospital me-2 flex-shrink-0"></i>
                              <span className="text-wrap">Info RS dan Klinik Provider</span>
                          </div>
-                    </a>
-                    <a href="#" className="nav-link py-2">
+                    </Link>
+                    <Link href="/?view=riwayatkacamata" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'riwayatkacamata' })}`}>
                          <i className="fas fa-glasses me-2"></i> Riwayat Kacamata
-                    </a>
+                    </Link>
 
                     <div className="nav-item px-3 mb-1 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -436,19 +422,18 @@ export default function Sidebar() {
                         <i className="fas fa-arrow-left"></i> Main Dashboard
                     </Link>
                 </>
-            ) : searchParams.get('view') === 'transport' ? (
+            ) : ['transport', 'dpk', 'ppk'].includes(searchParams.get('view') || '') ? (
                 // TRANSPORT SPECIFIC SIDEBAR
                 <>
                     <div className="nav-item px-3 mb-1 mt-1">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Go Transport</span>
                     </div>
-                    
-                    <Link href="/?view=transport" className="nav-link active py-2">
-                         <i className="fas fa-calendar-alt me-2"></i> Data Pemesanan Kendaraan
+                    <Link href="/?view=dpk" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'dpk' })}`}>
+                         <i className="fas fa-bus me-2"></i> Data Pemesanan Kendaraan
                     </Link>
-                    <a href="#" className="nav-link py-2">
+                    <Link href="/?view=ppk" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'ppk' })}`}>
                          <i className="fas fa-check-square me-2"></i> Persetujuan Pemesanan Kendaraan
-                    </a>
+                    </Link>
 
                     <div className="nav-item px-3 mb-1 mt-2">
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Other</span>
@@ -464,7 +449,7 @@ export default function Sidebar() {
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Task Management</span>
                     </div>
                     
-                    <Link href="/?view=tasklist" className="nav-link active py-2">
+                    <Link href="/?view=tasklist" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'tasklist' })}`}>
                          <i className="fas fa-columns me-2"></i> Tasklist Dashboard
                     </Link>
                     <div className="nav-item px-3 mb-1 mt-2">
@@ -481,7 +466,7 @@ export default function Sidebar() {
                         <span className="text-uppercase small fw-bold text-muted" style={{ fontSize: '0.7rem' }}>Health Monitoring</span>
                     </div>
                     
-                    <Link href="/?view=health" className="nav-link active py-2">
+                    <Link href="/?view=health" className={`nav-link py-2 ${isActive('/', { key: 'view', value: 'health' })}`}>
                          <i className="fas fa-notes-medical me-2"></i> Health Dashboard
                     </Link>
 

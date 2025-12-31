@@ -479,3 +479,11 @@ a.nav-link:hover i, a.nav-link.active i {
 .text-primary {
     color: var(--primary-color) !important;
 }
+
+.btn-hover-success:hover {
+    background-color: #198754 !important; /* Bootstrap Success Green */
+    color: white !important;
+}
+.btn-hover-success:hover i {
+    color: white !important;
+}

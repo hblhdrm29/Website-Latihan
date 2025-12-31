@@ -2,15 +2,9 @@
 
 import React from 'react';
 
-export default function CutiView() {
+export default function PersetujuanIzinView() {
     return (
         <div className="container-fluid p-0">
-            <div className="d-flex align-items-center gap-3 mb-4">
-                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Permohonan Cuti</h3>
-                <div className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
-                    <i className="fas fa-plus small"></i>
-                </div>
-            </div>
             {/* Filter Section */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">
                 <div className="card-body p-3">
@@ -26,7 +20,7 @@ export default function CutiView() {
                         <div className="col-md-1">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>NP</label>
                             <div className="input-group input-group-sm">
-                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -72,7 +66,7 @@ export default function CutiView() {
                 </div>
             </div>
 
-            {/* Cuti Table */}
+            {/* Persetujuan Izin Table */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4" style={{ backgroundColor: '#f8f9fa' }}>
                 <div className="card-body p-0">
                     <div className="table-responsive" style={{ maxHeight: '500px', overflowY: 'auto' }}>
@@ -81,13 +75,11 @@ export default function CutiView() {
                                 <tr>
                                     <th className="py-3 border-end fw-bold text-bold">No</th>
                                     <th className="py-3 border-end fw-bold text-bold">NP</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Nama</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Tipe</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Start Date</th>
-                                    <th className="py-3 border-end fw-bold text-bold">End Date</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Lama</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Jenis Alasan</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Keterangan</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Nama Pegawai</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Izin</th>
+                                    <th className="py-3 border-end fw-bold text-bold">From</th>
+                                    <th className="py-3 border-end fw-bold text-bold">To</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Pos</th>
                                     <th className="py-3 border-end fw-bold text-bold">Status</th>
                                     <th className="py-3 fw-bold text-bold">Aksi</th>
                                 </tr>
@@ -98,12 +90,10 @@ export default function CutiView() {
                                         no: 1,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Sakit',
-                                        startDate: { d: '10', m: 'November 2025' },
-                                        endDate: { d: '11', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Keperluan Keluarga',
-                                        ket: 'Dalam Kota',
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '24 Desember 2024', time: '08:30', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
                                         status: 'Disetujui Atasan 1',
                                         statusColor: 'bg-success'
                                     },
@@ -111,12 +101,10 @@ export default function CutiView() {
                                         no: 2,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Tahunan',
-                                        startDate: { d: '13', m: 'November 2025' },
-                                        endDate: { d: '14', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Cuti Tahunan',
-                                        ket: 'Dalam Kota',
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '25 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
                                         status: 'Disetujui Atasan 1',
                                         statusColor: 'bg-success'
                                     },
@@ -124,12 +112,10 @@ export default function CutiView() {
                                         no: 3,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Tahunan',
-                                        startDate: { d: '15', m: 'November 2025' },
-                                        endDate: { d: '16', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Sakit',
-                                        ket: 'Dalam kota',
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '27 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
                                         status: 'Disetujui Atasan 1',
                                         statusColor: 'bg-success'
                                     },
@@ -137,25 +123,21 @@ export default function CutiView() {
                                         no: 4,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Tahunan',
-                                        startDate: { d: '17', m: 'November 2025' },
-                                        endDate: { d: '18', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Keperluan Penting',
-                                        ket: 'Dalam Kota',
-                                        status: 'Disetujui Atasan 2',
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '28 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
+                                        status: 'Disetujui Atasan 1',
                                         statusColor: 'bg-success'
                                     },
                                     {
                                         no: 5,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Bersama',
-                                        startDate: { d: '19', m: 'November 2025' },
-                                        endDate: { d: '20', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Liburan',
-                                        ket: 'Luar Kota',
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '29 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
                                         status: 'Menunggu Atasan 2',
                                         statusColor: 'bg-warning'
                                     },
@@ -163,93 +145,81 @@ export default function CutiView() {
                                         no: 6,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Bersama',
-                                        startDate: { d: '21', m: 'November 2025' },
-                                        endDate: { d: '22', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Liburan',
-                                        ket: 'Luar Kota',
-                                        status: 'Menunggu Atasan 2',
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '30 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
+                                        status: 'Menunggu Atasan 1',
                                         statusColor: 'bg-warning'
                                     },
                                     {
                                         no: 7,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Tahunan',
-                                        startDate: { d: '23', m: 'November 2025' },
-                                        endDate: { d: '24', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Keperluan Keluarga',
-                                        ket: 'Dalam Kota',
-                                        status: 'Dibatalkan',
-                                        statusColor: 'bg-danger'
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '31 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
+                                        status: 'Disetujui Atasan 1',
+                                        statusColor: 'bg-success'
                                     },
                                     {
                                         no: 8,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Besar',
-                                        startDate: { d: '25', m: 'November 2025' },
-                                        endDate: { d: '26', m: 'November 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Sakit',
-                                        ket: 'Dalam Kota',
-                                        status: 'Dibatalkan',
-                                        statusColor: 'bg-danger'
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '01 Januari 2025', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
+                                        status: 'Disetujui Atasan 1',
+                                        statusColor: 'bg-success'
                                     },
                                     {
                                         no: 9,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Melahirkan',
-                                        startDate: { d: '27', m: 'November 2025' },
-                                        endDate: { d: '29', m: 'November 2025' },
-                                        lama: '3 Hari',
-                                        jenis: 'Melahirkan',
-                                        ket: 'Rumah Sakit',
-                                        status: 'Dibatalkan',
-                                        statusColor: 'bg-danger'
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '02 Januari 2025', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
+                                        status: 'Disetujui Atasan 1',
+                                        statusColor: 'bg-success'
                                     },
                                     {
                                         no: 10,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
-                                        tipe: 'Cuti Tahunan',
-                                        startDate: { d: '01', m: 'Desember 2025' },
-                                        endDate: { d: '02', m: 'Desember 2025' },
-                                        lama: '2 Hari',
-                                        jenis: 'Liburan',
-                                        ket: 'Luar Kota',
-                                        status: 'Dibatalkan',
-                                        statusColor: 'bg-danger'
+                                        izin: 'Datang Terlambat',
+                                        from: '-',
+                                        to: { date: '03 Januari 2025', time: '08:00', machine: 'machine : ess' },
+                                        pos: 'Pos Lobby SDM',
+                                        status: 'Disetujui Atasan 1',
+                                        statusColor: 'bg-success'
                                     }
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border-bottom">
                                         <td className="py-4 border-end">{row.no}</td>
                                         <td className="py-4 border-end">{row.np}</td>
                                         <td className="py-4 border-end fw-medium">{row.nama}</td>
-                                        <td className="py-4 border-end">{row.tipe}</td>
+                                        <td className="py-4 border-end">{row.izin}</td>
+                                        <td className="py-4 border-end">{row.from}</td>
                                         <td className="py-4 border-end">
-                                            <div className="fw-bold">{row.startDate.d}</div>
-                                            <div className="small text-muted text-nowrap">{row.startDate.m}</div>
+                                            <div>{row.to.date}</div>
+                                            <div>{row.to.time}</div>
+                                            <div className="text-primary small mt-1">{row.to.machine}</div>
                                         </td>
-                                        <td className="py-4 border-end">
-                                            <div className="fw-bold">{row.endDate.d}</div>
-                                            <div className="small text-muted text-nowrap">{row.endDate.m}</div>
-                                        </td>
-                                        <td className="py-4 border-end">{row.lama}</td>
-                                        <td className="py-4 border-end" style={{ maxWidth: '120px' }}>{row.jenis}</td>
-                                        <td className="py-4 border-end">{row.ket}</td>
+                                        <td className="py-4 border-end">{row.pos}</td>
                                         <td className="py-4 border-end">
                                             <span className={`badge ${row.statusColor} bg-opacity-75 rounded-pill px-3 py-2 fw-normal`} style={{ fontSize: '0.75rem' }}>
                                                 {row.status}
                                             </span>
                                         </td>
                                         <td className="py-4">
-                                            <button suppressHydrationWarning className="btn btn-sm btn-primary rounded-pill px-3 shadow-sm border-0 text-nowrap fw-medium" style={{ fontSize: '0.7rem', backgroundColor: '#4318FF' }}>
-                                                Submit ERP
-                                            </button>
+                                            <div className="d-flex justify-content-center px-3">
+                                                 <button suppressHydrationWarning className="btn btn-sm btn-outline-secondary rounded-pill shadow-sm" style={{ fontSize: '0.7rem' }}>
+                                                    Detail
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}
