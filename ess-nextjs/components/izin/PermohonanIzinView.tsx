@@ -7,9 +7,9 @@ export default function PermohonanIzinView() {
         <div className="container-fluid p-0">
             <div className="d-flex align-items-center gap-3 mb-4">
                 <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Permohonan Izin</h3>
-                <div className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
+                <a href="/?view=pengajuanizin" className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success text-decoration-none" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
                     <i className="fas fa-plus small"></i>
-                </div>
+                </a>
             </div>
             {/* Filter Section */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">
@@ -79,8 +79,8 @@ export default function PermohonanIzinView() {
                         <table className="table table-hover mb-0 text-center align-middle" style={{ fontSize: '0.8rem' }}>
                             <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
                                 <tr>
-                                    <th className="py-3 border-end fw-bold text-bold" style={{width: '50px'}}>No</th>
-                                    <th className="py-3 border-end fw-bold text-bold" style={{width: '100px'}}>NP</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{ width: '50px' }}>No</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{ width: '100px' }}>NP</th>
                                     <th className="py-3 border-end fw-bold text-bold">Nama</th>
                                     <th className="py-3 border-end fw-bold text-bold">Izin</th>
                                     <th className="py-3 border-end fw-bold text-bold">From</th>
@@ -123,7 +123,7 @@ export default function PermohonanIzinView() {
                                             )}
                                         </td>
                                         <td className="py-4 border-end">
-                                             {typeof row.to === 'object' && row.to !== null ? (
+                                            {typeof row.to === 'object' && row.to !== null ? (
                                                 <>
                                                     <div>{row.to.d}</div>
                                                     <div>{row.to.t}</div>

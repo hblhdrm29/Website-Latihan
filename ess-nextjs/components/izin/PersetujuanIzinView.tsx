@@ -5,6 +5,9 @@ import React from 'react';
 export default function PersetujuanIzinView() {
     return (
         <div className="container-fluid p-0">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+                <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Persetujuan Izin</h3>
+            </div>
             {/* Filter Section */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">
                 <div className="card-body p-3">
@@ -28,7 +31,7 @@ export default function PersetujuanIzinView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Tanggal</label>
                             <div className="input-group input-group-sm">
-                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -36,7 +39,7 @@ export default function PersetujuanIzinView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Bulan</label>
                             <div className="input-group input-group-sm">
-                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -44,7 +47,7 @@ export default function PersetujuanIzinView() {
                         <div className="col-md-1">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Tahun</label>
                             <div className="input-group input-group-sm">
-                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -52,7 +55,7 @@ export default function PersetujuanIzinView() {
                         <div className="col-md-2">
                             <label className="fw-bold mb-1 d-block" style={{ fontSize: '0.75rem' }}>Keterangan</label>
                             <div className="input-group input-group-sm">
-                                <select suppressHydrationWarning className="form-select form-select-sm border-0 border-secondary shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
+                                <select suppressHydrationWarning className="form-select form-select-sm border-0 shadow-sm bg-light rounded-pill px-2 text-secondary" style={{ fontSize: '0.8rem' }}>
                                     <option>Filter</option>
                                 </select>
                             </div>
@@ -73,153 +76,117 @@ export default function PersetujuanIzinView() {
                         <table className="table table-hover mb-0 text-center align-middle" style={{ fontSize: '0.8rem' }}>
                             <thead className="bg-light" style={{ position: 'sticky', top: 0, zIndex: 1 }}>
                                 <tr>
-                                    <th className="py-3 border-end fw-bold text-bold">No</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{ width: '60px' }}>No</th>
                                     <th className="py-3 border-end fw-bold text-bold">NP</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Nama Pegawai</th>
+                                    <th className="py-3 border-end fw-bold text-bold" style={{ textAlign: 'left', paddingLeft: '1.5rem' }}>Nama Pegawai</th>
                                     <th className="py-3 border-end fw-bold text-bold">Izin</th>
-                                    <th className="py-3 border-end fw-bold text-bold">From</th>
-                                    <th className="py-3 border-end fw-bold text-bold">To</th>
-                                    <th className="py-3 border-end fw-bold text-bold">Pos</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Tanggal</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Waktu</th>
+                                    <th className="py-3 border-end fw-bold text-bold">Pos / Lokasi</th>
                                     <th className="py-3 border-end fw-bold text-bold">Status</th>
                                     <th className="py-3 fw-bold text-bold">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody className="bg-transparent">
+                            <tbody className="bg-white">
                                 {[
                                     {
                                         no: 1,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
                                         izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '24 Desember 2024', time: '08:30', machine: 'machine : ess' },
+                                        date: '24 Des 2024',
+                                        time: '08:30',
                                         pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
+                                        status: 'Disetujui',
+                                        statusColor: 'bg-success-subtle text-success'
                                     },
                                     {
                                         no: 2,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
                                         izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '25 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        date: '25 Des 2024',
+                                        time: '08:00',
                                         pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
+                                        status: 'Disetujui',
+                                        statusColor: 'bg-success-subtle text-success'
                                     },
                                     {
                                         no: 3,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '27 Desember 2024', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
+                                        np: '7821',
+                                        nama: 'SARAH CONNOR',
+                                        izin: 'Izin Keluar',
+                                        date: '05 Jan 2026',
+                                        time: '14:00 - 16:00',
+                                        pos: 'Pos Security Gate 1',
+                                        status: 'Pending',
+                                        statusColor: 'bg-warning-subtle text-warning'
                                     },
                                     {
                                         no: 4,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '28 Desember 2024', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
+                                        np: '6654',
+                                        nama: 'JOHN DOE',
+                                        izin: 'Pulang Cepat',
+                                        date: '10 Jan 2026',
+                                        time: '15:00',
+                                        pos: 'Pos Lobby Utama',
+                                        status: 'Ditolak',
+                                        statusColor: 'bg-danger-subtle text-danger'
                                     },
                                     {
                                         no: 5,
                                         np: 'K594',
                                         nama: 'Mohammad Alda',
                                         izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '29 Desember 2024', time: '08:00', machine: 'machine : ess' },
+                                        date: '27 Des 2024',
+                                        time: '08:15',
                                         pos: 'Pos Lobby SDM',
-                                        status: 'Menunggu Atasan 2',
-                                        statusColor: 'bg-warning'
+                                        status: 'Disetujui',
+                                        statusColor: 'bg-success-subtle text-success'
                                     },
                                     {
                                         no: 6,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '30 Desember 2024', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Menunggu Atasan 1',
-                                        statusColor: 'bg-warning'
+                                        np: '5543',
+                                        nama: 'JANE DOE',
+                                        izin: 'Izin Keluar',
+                                        date: '12 Feb 2026',
+                                        time: '09:00 - 11:30',
+                                        pos: 'Pos Security Gate 2',
+                                        status: 'Pending',
+                                        statusColor: 'bg-warning-subtle text-warning'
                                     },
                                     {
                                         no: 7,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
+                                        np: '1122',
+                                        nama: 'EMILY BLUNT',
                                         izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '31 Desember 2024', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
+                                        date: '20 Feb 2026',
+                                        time: '08:45',
+                                        pos: 'Pos Lobby Belakang',
+                                        status: 'Pending',
+                                        statusColor: 'bg-warning-subtle text-warning'
                                     },
-                                    {
-                                        no: 8,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '01 Januari 2025', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
-                                    },
-                                    {
-                                        no: 9,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '02 Januari 2025', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
-                                    },
-                                    {
-                                        no: 10,
-                                        np: 'K594',
-                                        nama: 'Mohammad Alda',
-                                        izin: 'Datang Terlambat',
-                                        from: '-',
-                                        to: { date: '03 Januari 2025', time: '08:00', machine: 'machine : ess' },
-                                        pos: 'Pos Lobby SDM',
-                                        status: 'Disetujui Atasan 1',
-                                        statusColor: 'bg-success'
-                                    }
                                 ].map((row, idx) => (
                                     <tr key={idx} className="border-bottom">
-                                        <td className="py-4 border-end">{row.no}</td>
-                                        <td className="py-4 border-end">{row.np}</td>
-                                        <td className="py-4 border-end fw-medium">{row.nama}</td>
-                                        <td className="py-4 border-end">{row.izin}</td>
-                                        <td className="py-4 border-end">{row.from}</td>
-                                        <td className="py-4 border-end">
-                                            <div>{row.to.date}</div>
-                                            <div>{row.to.time}</div>
-                                            <div className="text-primary small mt-1">{row.to.machine}</div>
-                                        </td>
-                                        <td className="py-4 border-end">{row.pos}</td>
-                                        <td className="py-4 border-end">
-                                            <span className={`badge ${row.statusColor} bg-opacity-75 rounded-pill px-3 py-2 fw-normal`} style={{ fontSize: '0.75rem' }}>
+                                        <td className="py-3 border-end">{row.no}</td>
+                                        <td className="py-3 border-end">{row.np}</td>
+                                        <td className="py-3 border-end" style={{ textAlign: 'left', paddingLeft: '1.5rem' }}>{row.nama}</td>
+                                        <td className="py-3 border-end">{row.izin}</td>
+                                        <td className="py-3 border-end">{row.date}</td>
+                                        <td className="py-3 border-end">{row.time}</td>
+                                        <td className="py-3 border-end">{row.pos}</td>
+                                        <td className="py-3 border-end">
+                                            <span className={`badge rounded-pill ${row.statusColor}`}>
                                                 {row.status}
                                             </span>
                                         </td>
-                                        <td className="py-4">
-                                            <div className="d-flex justify-content-center px-3">
-                                                 <button suppressHydrationWarning className="btn btn-sm btn-outline-secondary rounded-pill shadow-sm" style={{ fontSize: '0.7rem' }}>
-                                                    Detail
-                                                </button>
-                                            </div>
+                                        <td className="py-3">
+                                            <button className="btn btn-sm btn-icon btn-light rounded-circle text-primary hover-bg-primary-subtle" title="Setujui">
+                                                <i className="fas fa-check"></i>
+                                            </button>
+                                            <button className="btn btn-sm btn-icon btn-light rounded-circle text-danger hover-bg-danger-subtle ms-1" title="Tolak">
+                                                <i className="fas fa-times"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
@@ -228,6 +195,7 @@ export default function PersetujuanIzinView() {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }

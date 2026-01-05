@@ -81,7 +81,7 @@ export default function PayslipsView() {
                             <div className="card border-0 shadow-sm rounded-4 h-100">
                                 <div className="card-header bg-transparent border-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
                                     <h5 className="fw-bold mb-0">Pendapatan</h5>
-                                    <i className="fas fa-arrow-up text-success bg-success bg-opacity-10 p-2 rounded-circle"></i>
+                                    <i className="fas fa-coins text-success bg-success bg-opacity-10 p-2 rounded-circle"></i>
                                 </div>
                                 <div className="card-body p-3">
                                     <div className="d-flex flex-column gap-2" style={{ fontSize: '0.9rem' }}>
@@ -118,7 +118,7 @@ export default function PayslipsView() {
                             <div className="card border-0 shadow-sm rounded-4 h-100">
                                 <div className="card-header bg-transparent border-0 pt-3 px-3 pb-0 d-flex justify-content-between align-items-center">
                                     <h5 className="fw-bold mb-0">Potongan</h5>
-                                    <i className="fas fa-arrow-down text-danger bg-danger bg-opacity-10 p-2 rounded-circle"></i>
+                                    <i className="fas fa-receipt text-danger bg-danger bg-opacity-10 p-2 rounded-circle"></i>
                                 </div>
                                 <div className="card-body p-3">
                                      <div className="d-flex flex-column gap-2" style={{ fontSize: '0.9rem' }}>

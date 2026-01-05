@@ -2,14 +2,14 @@
 
 import React from 'react';
 
-export default function CutiView() {
+export default function PermohonanCutiView() {
     return (
         <div className="container-fluid p-0">
             <div className="d-flex align-items-center gap-3 mb-4">
                 <h3 className="fw-bold mb-0" style={{ color: '#20288E' }}>Permohonan Cuti</h3>
-                <div className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
+                <a href="/?view=pengajuancuti" className="btn rounded-circle bg-white text-primary shadow-sm d-flex align-items-center justify-content-center border-0 btn-hover-success text-decoration-none" style={{ width: '32px', height: '32px', cursor: 'pointer' }}>
                     <i className="fas fa-plus small"></i>
-                </div>
+                </a>
             </div>
             {/* Filter Section */}
             <div className="card border border-secondary border-opacity-10 shadow-sm rounded-4 mb-4">

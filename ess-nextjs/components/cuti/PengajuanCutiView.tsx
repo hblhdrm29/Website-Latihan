@@ -3,20 +3,18 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function PengajuanLemburView() {
+export default function PengajuanCutiView() {
     const router = useRouter();
     const [name, setName] = useState('');
     const [np, setNp] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [startTime, setStartTime] = useState('');
-    const [endTime, setEndTime] = useState('');
     const [reason, setReason] = useState('');
 
     return (
         <div className="container-fluid p-0">
-            <h3 className="fw-bold mb-1" style={{ color: '#20288E' }}>Buat Pengajuan Lembur</h3>
-            <p className="text-muted mb-4">Fill out the form below to submit a new overtime request.</p>
+            <h3 className="fw-bold mb-1" style={{ color: '#20288E' }}>Buat Pengajuan Cuti</h3>
+            <p className="text-muted mb-4">Fill out the form below to submit a new leave request.</p>
 
             <div className="row g-4">
                 {/* Left Column: Form */}
@@ -32,8 +30,8 @@ export default function PengajuanLemburView() {
                                         style={{ position: 'relative' }}
                                     >
                                         <i className="fas fa-check-circle position-absolute top-0 end-0 m-2 small"></i>
-                                        <div className="mb-2"><i className="fas fa-clock fa-lg text-primary"></i></div>
-                                        <div className="fw-bold small">Lembur</div>
+                                        <div className="mb-2"><i className="fas fa-umbrella-beach fa-lg text-primary"></i></div>
+                                        <div className="fw-bold small">Cuti</div>
                                     </div>
                                 </div>
                             </div>
@@ -85,21 +83,6 @@ export default function PengajuanLemburView() {
                                     <input type="date" className="form-control border-start-0 ps-0" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
                                 </div>
                             </div>
-                            {/* Time Inputs */}
-                            <div className="col-md-6">
-                                <label className="fw-bold mb-2 small">Jam Mulai</label>
-                                <div className="input-group">
-                                    <span className="input-group-text bg-white border-end-0"><i className="far fa-clock text-muted"></i></span>
-                                    <input type="time" className="form-control border-start-0 ps-0" value={startTime} onChange={(e) => setStartTime(e.target.value)} />
-                                </div>
-                            </div>
-                            <div className="col-md-6">
-                                <label className="fw-bold mb-2 small">Jam Selesai</label>
-                                <div className="input-group">
-                                    <span className="input-group-text bg-white border-end-0"><i className="far fa-clock text-muted"></i></span>
-                                    <input type="time" className="form-control border-start-0 ps-0" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
-                                </div>
-                            </div>
                         </div>
 
                         {/* Reason Input */}
@@ -133,7 +116,7 @@ export default function PengajuanLemburView() {
                                 className="btn btn-primary px-4 d-flex align-items-center gap-2"
                                 style={{ backgroundColor: '#20288E' }}
                                 onClick={() => {
-                                    alert('Pengajuan lembur berhasil dikirim!');
+                                    alert('Pengajuan cuti berhasil dikirim!');
                                     router.back();
                                 }}
                             >
@@ -154,6 +137,24 @@ export default function PengajuanLemburView() {
 
                 {/* Right Column: Sidebar */}
                 <div className="col-lg-4">
+                    {/* Quota Card (Only for Cuti) */}
+                    <div className="card border-0 shadow-sm rounded-4 mb-4 text-white overflow-hidden position-relative" style={{ background: 'linear-gradient(135deg, #20288E 0%, #4a56e2 100%)' }}>
+                        <div className="card-body p-4 position-relative z-1">
+                            <div className="d-flex justify-content-between mb-2">
+                                <div className="bg-white bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center" style={{ width: '40px', height: '40px' }}>
+                                    <i className="fas fa-chart-pie"></i>
+                                </div>
+                                <div className="badge bg-white bg-opacity-25 fw-normal px-3 py-2">Tahun 2025</div>
+                            </div>
+                            <div className="mb-1 opacity-75 small">Sisa Cuti Tahunan</div>
+                            <h1 className="display-4 fw-bold mb-3">12 <span className="fs-4 fw-normal">Hari</span></h1>
+                            <div className="progress bg-white bg-opacity-25" style={{ height: '6px' }}>
+                                <div className="progress-bar bg-warning" role="progressbar" style={{ width: '60%' }}></div>
+                            </div>
+                            <div className="mt-2 small opacity-75">Digunakan 8 dari 20 hari</div>
+                        </div>
+                    </div>
+
                     {/* Guidelines Card */}
                     <div className="card border-0 shadow-sm rounded-4">
                         <div className="card-body p-4">
@@ -162,8 +163,8 @@ export default function PengajuanLemburView() {
                                 <h6 className="fw-bold mb-0">Ketentuan Pengajuan</h6>
                             </div>
                             <ul className="text-secondary small ps-3 mb-0 d-flex flex-column gap-2" style={{ fontSize: '0.85rem' }}>
-                                <li>Lembur harus disetujui oleh atasan langsung sebelum dilakukan.</li>
-                                <li>Maksimal jam lembur adalah 4 jam per hari.</li>
+                                <li>Pengajuan cuti minimal dilakukan H-3 sebelum tanggal efektif.</li>
+                                <li>Cuti mendadak hanya diperbolehkan untuk alasan force majeure / sakit.</li>
                                 <li>Semua pengajuan akan melalui proses approval berjenjang.</li>
                                 <li><a href="#" className="text-primary text-decoration-none fw-bold">Baca kebijakan lengkap</a></li>
                             </ul>

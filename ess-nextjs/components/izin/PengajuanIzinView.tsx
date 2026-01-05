@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function PengajuanLemburView() {
+export default function PengajuanIzinView() {
     const router = useRouter();
     const [name, setName] = useState('');
     const [np, setNp] = useState('');
@@ -15,8 +15,8 @@ export default function PengajuanLemburView() {
 
     return (
         <div className="container-fluid p-0">
-            <h3 className="fw-bold mb-1" style={{ color: '#20288E' }}>Buat Pengajuan Lembur</h3>
-            <p className="text-muted mb-4">Fill out the form below to submit a new overtime request.</p>
+            <h3 className="fw-bold mb-1" style={{ color: '#20288E' }}>Buat Pengajuan Izin</h3>
+            <p className="text-muted mb-4">Fill out the form below to submit a new permission request.</p>
 
             <div className="row g-4">
                 {/* Left Column: Form */}
@@ -32,8 +32,8 @@ export default function PengajuanLemburView() {
                                         style={{ position: 'relative' }}
                                     >
                                         <i className="fas fa-check-circle position-absolute top-0 end-0 m-2 small"></i>
-                                        <div className="mb-2"><i className="fas fa-clock fa-lg text-primary"></i></div>
-                                        <div className="fw-bold small">Lembur</div>
+                                        <div className="mb-2"><i className="fas fa-walking fa-lg text-primary"></i></div>
+                                        <div className="fw-bold small">Izin Keluar</div>
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +104,7 @@ export default function PengajuanLemburView() {
 
                         {/* Reason Input */}
                         <div className="mb-4">
-                            <label className="fw-bold mb-2 small">Keterangan</label>
+                            <label className="fw-bold mb-2 small">Alasan Pengajuan</label>
                             <textarea
                                 className="form-control"
                                 rows={4}
@@ -133,7 +133,7 @@ export default function PengajuanLemburView() {
                                 className="btn btn-primary px-4 d-flex align-items-center gap-2"
                                 style={{ backgroundColor: '#20288E' }}
                                 onClick={() => {
-                                    alert('Pengajuan lembur berhasil dikirim!');
+                                    alert('Pengajuan izin berhasil dikirim!');
                                     router.back();
                                 }}
                             >
@@ -162,8 +162,8 @@ export default function PengajuanLemburView() {
                                 <h6 className="fw-bold mb-0">Ketentuan Pengajuan</h6>
                             </div>
                             <ul className="text-secondary small ps-3 mb-0 d-flex flex-column gap-2" style={{ fontSize: '0.85rem' }}>
-                                <li>Lembur harus disetujui oleh atasan langsung sebelum dilakukan.</li>
-                                <li>Maksimal jam lembur adalah 4 jam per hari.</li>
+                                <li>Untuk izin sakit lebih dari 2 hari wajib melampirkan surat dokter.</li>
+                                <li>Izin keluar kantor wajib melakukan clock in/out saat kembali.</li>
                                 <li>Semua pengajuan akan melalui proses approval berjenjang.</li>
                                 <li><a href="#" className="text-primary text-decoration-none fw-bold">Baca kebijakan lengkap</a></li>
                             </ul>
